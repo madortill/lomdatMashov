@@ -54,22 +54,52 @@ export default {
 }
 
 .btnNext {
-    background-color:#006998;
     position: absolute;
-    color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
     cursor: pointer;   
-    width: 9%;
+    /* width: 12%; */
     height: 6%;
     left: 10%;
     bottom: 13%;
-    transition: background-color 0.3s linear;
+	font-size: 1rem;
+	color: #ffffff;
+	border-radius: 100px;
+    background-color: #0492bd;
+    min-width:12%;
+    max-width: 20%;
 }
 
-.btnNext:hover {
-    background-color: #00A4E6;
+
+.btnNext {
+	animation: borderPulse 1000ms infinite ease-out;
+}
+
+.btnNext:hover,
+.btnNext:focus {
+	animation: borderPulse 1000ms infinite ease-out,  hoverShine 200ms;
+}
+
+
+/* Declare border pulse animation */
+@keyframes borderPulse {
+  0% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  }
+  100% {
+    box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
+}
+
+@keyframes hoverShine {
+	0%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+	}
+	50%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%);
+	}
+	100%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4) 100%);
+	}
 }
 
 </style>

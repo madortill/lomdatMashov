@@ -1,9 +1,12 @@
 <template>
     <div id="app">
-        <img src="@/assets/media/סמל קריית ההדרכה.png" class="logo" alt="Logo">
+        <img src="@/assets/media/סמל קריית ההדרכה.png" class="logo" alt="Logo" @click = "homePage">
         <img v-if="page > 0" src="@/assets/media/gray triangle.png" alt="gray triangle" class="gray-triangle">
+    
         <open-screen v-if="page === 0" @next-page="nextPage"></open-screen>
-        <navbar v-if="page === 1" @next-page="nextPage"></navbar>
+        <home-page  v-if="page === 1" @next-page="nextPage"></home-page>
+        <end-screen v-if="page===2"></end-screen>
+        
         <img src="@/assets/media/Artboard 74.png" alt="mador-till" class="mador-till">
     </div>
 </template>
@@ -11,13 +14,16 @@
 <script>
 
 import OpenScreen from '@/components/OpenScreen.vue';
-import Navbar from '@/components/Navbar.vue';
+import HomePage from '@/components/HomePage.vue';
+import EndScreen from '@/components/EndScreen.vue';
+
 
 export default {
     name: "app",
     components: {
         OpenScreen,
-        Navbar
+        HomePage,
+        EndScreen,
     },
     data() {
         return {
@@ -31,6 +37,9 @@ export default {
         prevPage() {
             this.page--;
         },
+        homePage() {
+            thispage === 1;
+        }
     },
 };
 
@@ -69,9 +78,11 @@ body {
     left: 0;
     top: 0;
     position: absolute;
-    margin-top: 1%;
-    margin-left: 1%;
+    margin-top: 2%;
+    margin-left: 2%;
     z-index: 3;
+    cursor: pointer;
+    
 }
 
 .mador-till {
@@ -89,6 +100,7 @@ body {
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 2;
 }
 </style> 
 

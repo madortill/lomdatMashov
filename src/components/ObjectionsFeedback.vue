@@ -1,23 +1,60 @@
 <template>
     <div id = "objections-feedback">
-
+        <div v-if = "!showVideo" class="div-text">
+            <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
+            <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
+        </div>
+        <button v-if = "index > 0"  class="prevBtn" @click="prevBtn">חזור</button>
+        <button class="nextBtn" @click="nextBtn">המשך</button>
+        <div v-if = "showVideo"> 
+            <video-section :videoNum = "videoNum"></video-section>
+        </div>
     </div>
 </template>
 
-<script>a
+<script>
+import VideoSection from '@/components/VideoSection.vue';
 
 export default {
     name: 'objections-feedback',
+    
     components: {
-      
+        VideoSection,
     },
-    date() {
+    data() {
         return {
-
+            subj: 4,
+            arrayTitle: [ '', 'תהליך הטיפול בהתנגדות במשוב', 'סירטונים'],
+            arrayInfo: ['התנגדויות במשוב ב-ביטוי התנהגותי של הנחנך לאי רצונו או יכולתו הלמשיך בתקשורת עם החונך','תהליך הטיפול בהתנגדות'],
+            indexTitle: 0,
+            indexInfo: 0,
+            showVideo: false,
+            index: 0,
+            videoNum: 0,
         };
     },
     methods: {
-
+        prevBtn() {
+            if(this.index > 0) {
+                this.index--;
+            }
+            if (this.indexTitle > 0 && this.indexInfo) {
+                this.indexTitle--;
+                this.indexInfo--;
+            }
+        },
+        nextBtn() {
+            this.index++;
+            this.indexTitle++;
+            this.indexInfo++;
+            if(this.indexTitle >= 2) {
+                this.showVideo = true;
+                this.videoNum++;
+            }
+            if(this.indexTitle === 6) {
+                this.$emit('move-to-next');
+            }
+        },
     },
 }
 </script>

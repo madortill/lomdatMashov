@@ -2,54 +2,52 @@
     <div id="navbar">
         <div class="container">
             <nav>
-                <ul>
-                    <li>עקרונות יסוד</li>
-                    <li>שיחת המשוב</li>
-                    <li>איתור מקור התופעות</li>
-                    <li>התנגדויות במשוב</li>
+                <ul @click="chosenTitle">
+                    <li :class="{ active: titleIndex === 0 }" >עקרונות יסוד</li>
+                    <li :class="{ active: titleIndex === 1 }" >שיחת המשוב</li>
+                    <li :class="{ active: titleIndex === 2 }">איתור מקור התופעות</li>
+                    <li :class="{ active: titleIndex === 3 }">התנגדויות במשוב</li>
                 </ul>
             </nav>
         </div>
-        <information-page @next-info = "next"></information-page>
     </div>
 </template>
-
+  
 <script>
-import Information from '@/components/Information.vue';
-
 export default {
     name: 'navbar',
-    components: {
-        Information
-    },
-    date() {
+    props: ["titleIndex"],
+    data() {
         return {
-
+            
         };
     },
-}
+    methods: {
+        chosenTitle(event) {
+            if (event.target.tagName === "li") {
+                this.titleIndex = parseInt(event.target.id.slice(-1)) - 1;
+                this.$emit('chosen-page', this.titleIndex);
+            }
+        },
+    },
+};
 </script>
-
+  
 <style scoped>
-
-#navbar {
-    background-color: #F2F2F2;
+.container {
+    height: 15vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 2%;
 }
 
 * {
     margin: 0;
     box-sizing: border-box;
-}
-
-.container {
-    height: 25vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    margin-top: 2%;
 }
 
 nav {
@@ -62,39 +60,21 @@ nav ul li {
     padding: 0;
     list-style: none;
     display: inline-block;
-    padding: 15px 35px;
+    padding: 3px 25px;
     margin: 10px;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 500;
     color: #777;
-    cursor: pointer;
     position: relative;
     z-index: 2;
     transition: color 0.5s;
 }
 
-nav ul li::after {
-    content: "";
+nav ul li.active {
     background: #0296d0;
-    width: 100%;
-    height: 100%;
+    cursor: pointer;
     border-radius: 30px;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0;
-    transition: top 0.5s, opacity 0.5s;
+    color:white;
 }
-
-nav ul li:hover {
-    color: #fff;
-}
-
-nav ul li:hover::after {
-    top: 50%;
-    opacity: 1;
-}
-
 </style>
+  
