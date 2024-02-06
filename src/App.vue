@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <img src="@/assets/media/סמל קריית ההדרכה.png" class="logo" alt="Logo" @click = "homePage">
+        <img src="@/assets/media/mifkada-logo.png" class="logo" alt="Logo" @click = "homePage">
         <img v-if="page > 0" src="@/assets/media/gray triangle.png" alt="gray triangle" class="gray-triangle">
     
         <open-screen v-if="page === 0" @next-page="nextPage"></open-screen>
