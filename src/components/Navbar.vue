@@ -35,7 +35,7 @@ export default {
   
 <style scoped>
 .container {
-    height: 15vh;
+    height: 20vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -60,9 +60,9 @@ nav ul li {
     padding: 0;
     list-style: none;
     display: inline-block;
-    padding: 3px 25px;
+    padding: 5px 50px;
     margin: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #777;
     position: relative;

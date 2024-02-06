@@ -1,14 +1,14 @@
 <template>
     <div id="quick-questions">
-        <h1 class="title-question">{{ questions1[indexQ].title }}</h1>
+        <h1 class="title-question">{{ this[`questions${this.indexQuestion}`][indexQ].title }}</h1>
         <div class="answers-container" @click="checkAnswer">
             <div class="row">
-                <button id="1" ref="1"  class="pulse-button-hover">{{ questions1[indexQ].ans1 }}</button>
-                <button id="2" ref="2" class="pulse-button-hover">{{ questions1[indexQ].ans2 }}</button>
+                <button id="1" ref="1"  class="pulse-button-hover">{{this[`questions${this.indexQuestion}`][indexQ].ans1 }}</button>
+                <button id="2" ref="2" class="pulse-button-hover">{{ this[`questions${this.indexQuestion}`][indexQ].ans2 }}</button>
             </div>
             <div class="row">
-                <button id="3" ref="3" class="pulse-button-hover">{{ questions1[indexQ].ans3 }}</button>
-                <button id="4" ref="4" class="pulse-button-hover">{{ questions1[indexQ].ans4 }}</button>
+                <button id="3" ref="3" class="pulse-button-hover">{{ this[`questions${this.indexQuestion}`][indexQ].ans3 }}</button>
+                <button id="4" ref="4" class="pulse-button-hover">{{ this[`questions${this.indexQuestion}`][indexQ].ans4 }}</button>
             </div>
         </div>
     </div>
@@ -27,6 +27,7 @@ export default {
             indexQ: 0,
             showAnswer: -1,
             wrongAnswer: 0,
+            // questions: [this.questions1, this.questions2, this.questions3],
             questions1: [
                 {
                     title: "לפי מודל חלון גוהרי, באיזה אחד מהחלקים שיחת המשוב תתמקד?",
@@ -95,13 +96,17 @@ export default {
             ]
         };
     },
+    mounted() {
+        console.log('q number:', this.indexQuestion);
+        console.log(this[`questions${this.indexQuestion}`]);
+    },
     methods: {
         checkAnswer(event) {
             if (event.target.classList.contains('pulse-button-hover')) {
-                if (String(event.target.id) === String(this.questions1[this.indexQ].correctAnswer)) {
+                if (String(event.target.id) === String(this[`questions${this.indexQuestion}`][this.indexQ].correctAnswer)) {
                     event.target.classList.add("correct");
                     // console.log('setTimeout');
-                    if (this.indexQ < this.questions1.length - 1) {
+                    if (this.indexQ < this[`questions${this.indexQuestion}`].length - 1) {
                         setTimeout(() => {
                             for (let i = 1; i <= 4; i++) {
                                 if (this.$refs[i].classList.contains('correct')) {
@@ -114,7 +119,7 @@ export default {
                             this.indexQ++;
                         }, 1500);
                     }
-                    else if (this.indexQ === this.questions1.length - 1) {
+                    else if (this.indexQ === this[`questions${this.indexQuestion}`].length - 1) {
                     setTimeout(() => {
                         this.$emit('next-sub');
                     }, 1500);

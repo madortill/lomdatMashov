@@ -74,19 +74,21 @@ body {
 }
 
 .logo {
-    width: 5%;
+    min-width: 50px;
+    max-width: 100px;
     left: 0;
     top: 0;
     position: absolute;
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 1%;
+    margin-left: 1%;
     z-index: 3;
     cursor: pointer;
     
 }
 
 .mador-till {
-    width: 5%;
+    min-width: 20px;
+    max-width: 100px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -96,7 +98,8 @@ body {
 }
 
 .gray-triangle {
-    width: 13%;
+    min-width: 50px;
+    max-width: 220px;
     position: absolute;
     right: 0;
     bottom: 0;

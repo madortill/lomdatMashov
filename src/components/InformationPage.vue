@@ -53,15 +53,16 @@ export default {
     position: absolute;
     right: 2%;
     top: 0;
+    font-size: 1.5rem;
 }
 
-.contBtn {
+/* .contBtn {
     background-color: #006998;
     position: absolute;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     width: 9%;
     height: 6%;
@@ -91,5 +92,5 @@ export default {
 
 .prevBtn:hover {
     background-color: #00A4E6;
-}
+} */
 </style>

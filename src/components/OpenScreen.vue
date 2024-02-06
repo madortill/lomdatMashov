@@ -1,7 +1,7 @@
 <template>
     <div id="open-screen">
         <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white">
-        <h2 class="text-title">לומדת משוב</h2>
+        <h1 class="text-title">לומדת משוב</h1>
         <button class="btnNext" @click = "startTutorial"> התחל </button>
         <div class="animation-part">
 
@@ -47,9 +47,10 @@ export default {
 .text-title {
     color: #A6A6A6;
     font-family: 'Heebo-Bold';
-    font-size: xx-large;
+    /* font-size: xx-l; */
+	font-size: 3rem;
     position: absolute;
-    bottom: 25%;
+    bottom: 30%;
     left: 25%;
 }
 
@@ -61,7 +62,7 @@ export default {
     height: 6%;
     left: 10%;
     bottom: 13%;
-	font-size: 1rem;
+	font-size: 1.6rem;
 	color: #ffffff;
 	border-radius: 100px;
     background-color: #0492bd;

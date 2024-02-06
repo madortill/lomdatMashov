@@ -72,40 +72,50 @@ export default {
 }
 
 .nextBtn {
-    background-color: #006998;
     position: absolute;
-    color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 9%;
-    height: 6%;
+    cursor: pointer;   
+    height: 5%;
+	font-size: 1.6rem;
+	color: #ffffff;
+	border-radius: 100px;
+    background-color: #0492bd;
+    min-width:10%;
+    max-width: 15%;
     left: 10%;
     bottom: 13%;
-    transition: background-color 0.3s linear;
-}
-
-.nextBtn:hover {
-    background-color: #00A4E6;
 }
 
 .prevBtn {
-    background-color: #006998;
     position: absolute;
-    color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 9%;
-    height: 6%;
+    cursor: pointer;   
+    height: 5%;
+	font-size: 1.6rem;
+	color: #ffffff;
+	border-radius: 100px;
+    background-color: #0492bd;
+    min-width:10%;
+    max-width: 15%;
     bottom: 13%;
     right: 10%;
-    transition: background-color 0.3s linear;
 }
 
-.prevBtn:hover {
-    background-color: #00A4E6;
+.nextBtn:hover,
+.prevBtn:hover{
+	animation: borderPulse 1000ms infinite ease-out,  hoverShine 200ms;
+}
+
+
+@keyframes hoverShine {
+	0%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+	}
+	50%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%);
+	}
+	100%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4) 100%);
+	}
 }
 </style>
