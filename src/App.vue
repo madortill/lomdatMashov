@@ -13,7 +13,7 @@
 
 <script>
 
-import OpenScreen from '@/components/Openscreen.vue';
+import OpenScreen from '@/components/OpenScreen.vue';
 import HomePage from '@/components/HomePage.vue';
 import EndScreen from '@/components/EndScreen.vue';
 
