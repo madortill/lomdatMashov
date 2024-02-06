@@ -1,6 +1,6 @@
 <template>
     <div id="open-screen">
-        <img src="@/assets/media/לוגו סופי לבן.png" alt="logo-white" class="logo-white">
+        <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white">
         <h2 class="text-title">לומדת משוב</h2>
         <button class="btnNext" @click = "startTutorial"> התחל </button>
         <div class="animation-part">

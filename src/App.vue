@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <img src="@/assets/media/mifkada-logo.png" class="logo" alt="Logo" @click = "homePage">
-        <img v-if="page > 0" src="@/assets/media/gray triangle.png" alt="gray triangle" class="gray-triangle">
+        <img v-if="page > 0" src="@/assets/media/graytriangle.png" alt="gray triangle" class="gray-triangle">
     
         <open-screen v-if="page === 0" @next-page="nextPage"></open-screen>
         <home-page  v-if="page === 1" @next-page="nextPage"></home-page>
