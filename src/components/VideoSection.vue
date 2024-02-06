@@ -27,10 +27,11 @@
             </div>
             <!-- הווכחן -->
             <div v-if="videoNum === 4" class="argues">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/h5WEL8XvM-4?si=y4qyrzHOoHguOvI3"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ogeQ033gZmg?si=lf8K6UwKx2tKeMqF"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </div>
@@ -50,7 +51,7 @@ export default {
         };
     },
     mounted() {
-        console.log('Video number:', this.videoNum);
+        // console.log('Video number:', this.videoNum);
     },
     methods: {
         // changeVideo() {
@@ -70,5 +71,4 @@ export default {
 
 .video-container {
     margin-bottom: 15%;
-}
-</style>
+}</style>

@@ -1,8 +1,12 @@
 <template>
-    <div id = "end-screen">
+    <div id="end-screen">
         <h3>לסיכום</h3>
-        <div class="finale-exe"> 
+        <div class="finale-exe">
 
+        </div>
+        <div v-show="showClose" class="finish-exe">
+            <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב</h1>
+            <button @click="closeWindow">סיום</button>
         </div>
     </div>
 </template>
@@ -12,21 +16,27 @@
 export default {
     name: 'end-screen',
     components: {
-      
-    },
-    date() {
-        return {
 
+    },
+    data() {
+        return {
+            showClose: false,
         };
     },
+    mounted() {
+        setTimeout(() => {
+            this.showClose = true;
+        }, 2000);
+    },
     methods: {
-
+        closeWindow() {
+            // window.close(); // סוגר את חלון האתר.
+        }
     },
 }
 </script>
 
 <style>
-
 #end-screen {
     background-color: #F2F2F2;
     width: 100%;
@@ -46,5 +56,18 @@ export default {
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
     text-align: center;
+}
+
+.finish-exe {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    background: #1F4E79;
+    bottom: 30%;
+}
+
+.finale-text {
+    color: white;
 }
 </style>

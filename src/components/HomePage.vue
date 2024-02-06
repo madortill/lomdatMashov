@@ -8,12 +8,12 @@
             <button id="expBtn" class="contBtn" @click="nextInfo"> המשך </button>
         </div>
         <div v-else>
-            <div v-if = "!showQuestions">
-                <navbar v-if = "showNav" :titleIndex="titleIndex"></navbar>
-                <information-page  :titleIndex="titleIndex" @move-sub="moveSub" @close-nav = "closeNav" ></information-page>
+            <div v-if="!showQuestions">
+                <navbar v-if="showNav" :titleIndex="titleIndex"></navbar>
+                <information-page :titleIndex="titleIndex" @move-sub="moveSub" @close-nav="closeNav"></information-page>
             </div>
-            <div v-if = "showQuestions"> 
-                <quick-questions :indexQuestion = "indexQuestion" @next-sub = "nextSub"></quick-questions>
+            <div v-if="showQuestions">
+                <quick-questions :indexQuestion="indexQuestion" @next-sub="nextSub"></quick-questions>
             </div>
         </div>
     </div>
@@ -50,22 +50,23 @@ export default {
         },
         nextSub() {
             this.showQuestions = false;
-        },
-        moveSub() {
-            this.titleIndex++;
-            if(this.titleIndex === 2) {
-                this.showQuestions = true;
-                this.indexQuestion = 0;
-            } else if(this.titleIndex === 3) {
-                this.showQuestions = true;
-                this.indexQuestion = 2;
-            } else if(this.titleIndex === 4) {
-                this.showQuestions = true;
-                this.indexQuestion = 3;
-            }
-
+            console.log(this.titleIndex);
             if (this.titleIndex === 4) {
                 this.$emit('next-page');
+            }
+        },
+        moveSub(showQ) {
+            console.log(showQ);
+            this.showQuestions = false;
+
+            if (showQ === true) {
+                this.showQuestions = true;
+            } else {
+                this.showQuestions = false;
+            }
+
+            if (this.titleIndex >= 0 && this.titleIndex <= 4) {
+                this.titleIndex++;
             }
         },
         closeNav() {

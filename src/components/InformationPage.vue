@@ -40,8 +40,8 @@ export default {
     },
     methods: {
 
-        nextSub() {
-            this.$emit('move-sub');
+        nextSub(showQ) {
+            this.$emit('move-sub', showQ);
         },
     },
 }

@@ -24,6 +24,7 @@ export default {
             indexTitle: 0,
             indexInfo: 0,
             index: 0,
+            showQ: true,
         };
     },
     methods: {
@@ -41,7 +42,7 @@ export default {
             this.indexTitle++;
             this.indexInfo++;
             if(this.indexTitle === 3) {
-                this.$emit('move-to-next');
+                this.$emit('move-to-next', this.showQ);
             }
         },
     },

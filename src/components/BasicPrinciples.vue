@@ -18,6 +18,7 @@ export default {
     },
     data() {
         return {
+            showQ: false,
             index: 0,
             subj: 1,
             indexTitle: 0,
@@ -41,7 +42,7 @@ export default {
             this.indexTitle++;
             this.indexInfo++;
             if(this.indexTitle === 4) {
-                this.$emit('move-to-next');
+                this.$emit('move-to-next', this.showQ);
             }
         },
     },

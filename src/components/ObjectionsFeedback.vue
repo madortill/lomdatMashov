@@ -31,28 +31,36 @@ export default {
             showVideo: false,
             index: 0,
             videoNum: 0,
+            showQ: true,
         };
     },
     methods: {
         prevBtn() {
             if(this.index > 0) {
                 this.index--;
-            }
-            if (this.indexTitle > 0 && this.indexInfo) {
                 this.indexTitle--;
                 this.indexInfo--;
+            }
+            
+            if(this.indexTitle <= 2) {
+                this.showVideo = false;
+                this.videoNum--;
+                console.log(this.videoNum);
             }
         },
         nextBtn() {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
-            if(this.indexTitle >= 2) {
+
+            if(this.indexTitle > 3) {
                 this.showVideo = true;
                 this.videoNum++;
+                console.log(this.videoNum);
             }
-            if(this.indexTitle === 6) {
-                this.$emit('move-to-next');
+
+            if(this.indexTitle === 8) {
+                this.$emit('move-to-next', this.showQ);
             }
         },
     },

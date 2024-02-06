@@ -24,6 +24,7 @@ export default {
             arrayInfo: ['עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'שיטת הסנדוויץ' , 'איך עושים את זה?'],
             indexTitle: 0,
             indexInfo: 0,
+            showQ: true,
         };
     },
     methods: {
@@ -41,7 +42,7 @@ export default {
             this.indexTitle++;
             this.indexInfo++;
             if(this.indexTitle === 3) {
-                this.$emit('move-to-next');
+                this.$emit('move-to-next', this.showQ);
             }
         },
     },
