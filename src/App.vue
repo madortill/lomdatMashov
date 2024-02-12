@@ -17,7 +17,6 @@ import OpenScreen from '@/components/OpenScreen.vue';
 import HomePage from '@/components/HomePage.vue';
 import EndScreen from '@/components/EndScreen.vue';
 
-
 export default {
     name: "app",
     components: {
@@ -88,7 +87,7 @@ body {
 
 .mador-till {
     min-width: 20px;
-    max-width: 100px;
+    max-width: 90px;
     position: absolute;
     bottom: 0;
     right: 0;
