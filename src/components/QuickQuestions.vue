@@ -379,7 +379,7 @@ export default {
 .word-warehouse {
     position: absolute;
     width: 88%;
-    height: 10%;
+    /* height: 10%; */
     left: 5%;
     bottom: 8%;
     background: #fff;
