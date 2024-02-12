@@ -24,7 +24,7 @@
             <div class="word-warehouse" draggable="true" @dragstart="onDragging">
                 <ul>
                     <li v-for="(item, index) in this[`questions${this.indexQuestion}`][this.indexQ].ansArray" :key="index"
-                        class="list-item" draggable="true" @dragstart="drag">
+                        class="list-item" draggable="true" @dragstart="drag" :id="'listItem' + index">
                         {{ item }} </li>
                 </ul>
             </div>
