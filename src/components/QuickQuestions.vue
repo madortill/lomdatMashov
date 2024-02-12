@@ -18,10 +18,19 @@
         </div>
 
         <div v-if="this[`questions${this.indexQuestion}`][indexQ].Qtype === 1" class="draggable-container">
-            <div class="draggable-area" @drop="drop" @dragover="allowDrop" id= 'dragArea' @dragstart="onDragging" >
-                
+            <p class="text"> * גרור את התשובה לפי הסדר המתאים.</p>
+            <div class="draggable-area" @drop="(e) => {
+                e.preventDefault();
+                drop(e);
+                checkDraggable(e)
+            }" @dragover="allowDrop" id='dragArea' @dragstart="onDragging">
             </div>
-            <div class="word-warehouse" draggable="true" @dragstart="onDragging" @drop="drop" @dragover="allowDrop">
+
+            <div class="word-warehouse" draggable="true" @dragstart="onDragging" @dragover="allowDrop" @drop="(e) => {
+                e.preventDefault();
+                drop(e);
+                checkDrop(e)
+            }">
                 <ul>
                     <li v-for="(item, index) in this[`questions${this.indexQuestion}`][this.indexQ].ansArray" :key="index"
                         class="list-item" draggable="true" @dragstart="drag" :id="'listItem' + index">
@@ -46,6 +55,8 @@ export default {
             indexQ: 0,
             showAnswer: -1,
             wrongAnswer: 0,
+            indexItem: 0,
+            newArray: [],
             // questions: [this.questions1, this.questions2, this.questions3],
             questions1: [
                 {
@@ -61,22 +72,39 @@ export default {
                     Qtype: 1,
                     title: "לפי שיטת הסנדוויץ, מה המבנה העקרוני של שיחת המשוב?",
                     ansArray: [
-                        "יצירת חוזה",
-                        "מתן ביטוי לנחנך",
-                        "איסוף מידע חסר",
-                        "העלאת תופעה לשימור",
                         "העלאת 2-3 תופעות לשיפור",
                         "העלאת תופעה לשימור",
-                        "סיכום המשוב"]
+                        "מתן ביטוי לנחנך",
+                        "יצירת חוזה",
+                        "סיכום המשוב",
+                        "איסוף מידע חסר",
+                        "העלאת תופעה נוספת לשימור"
+                    ],
+                    rightAns: [
+                        3,
+                        2,
+                        5,
+                        1,
+                        0,
+                        6,
+                        4
+                    ],
                 }, {
                     Qtype: 1,
                     title: "מנה\י 4 כללים שעליהם נותן המשוב חייב להקפיד.",
                     ansArray: [
-                        "העלאת תיאור ההתנהגות",
-                        "ציון דוגמאות",
                         "איתור סיבת התופעה",
                         "הסבר על תרומת ההתנהגות",
+                        "העלאת תיאור ההתנהגות",
+                        "ציון דוגמאות",
+
                     ],
+                    rightAns: [
+                        2,
+                        3,
+                        0,
+                        1,
+                    ]
                 },
             ],
             questions2: [
@@ -97,6 +125,12 @@ export default {
                         "תשובה 3",
                         "תשובה 4",
                     ],
+                    rightAns: [
+                        0,
+                        1,
+                        2,
+                        3,
+                    ]
                 },
             ],
             questions3: [
@@ -137,9 +171,6 @@ export default {
             if (event.target.classList.contains('pulse-button-hover')) {
                 if (String(event.target.id) === String(this[`questions${this.indexQuestion}`][this.indexQ].correctAnswer)) {
                     event.target.classList.add("correct");
-                    for (let j = 1; j < 3; j++) {
-
-                    }
                     if (this.indexQ < this[`questions${this.indexQuestion}`].length - 1) {
                         setTimeout(() => {
                             for (let i = 1; i <= 4; i++) {
@@ -165,9 +196,7 @@ export default {
         },
 
         onDragging(ev) {
-            console.log(ev);
             ev.dataTransfer.setData("text", ev.target.id);
-            //this.$store.commit('module/namespace', status);
         },
 
         allowDrop(ev) {
@@ -180,34 +209,72 @@ export default {
 
         drop(ev) {
             ev.preventDefault();
-            let data = ev.dataTransfer.getData("text");
-            console.log(data);
+            const data = ev.dataTransfer.getData("text");
             ev.target.appendChild(document.getElementById(data));
+            // this.checkDraggable(data);
+        },
+
+        checkDraggable(ev) {
+            const data = ev.dataTransfer.getData("text");
+            let indexCorrectAns = 0;
+            this.newArray.push(data);
+            const rightAns = this[`questions${this.indexQuestion}`][this.indexQ].rightAns;
+            if (!rightAns) {
+                console.log("rightAns is not defined or empty");
+                return;
+            }
+            for (let i = 0; i < rightAns.length && i < this.newArray.length; i++) {
+                const newArrayElement = this.newArray[i];
+                const rightAnsElement = rightAns[i];
+                if (Number(newArrayElement.slice(8)) === rightAnsElement) {
+                    console.log('Correct');
+                    indexCorrectAns++;
+                    document.getElementById(data).classList.add("correct");
+                } else {
+                    console.log('Wrong');
+                    document.getElementById(data).classList.add("wrong");
+                }
+                console.log(indexCorrectAns);
+                if (indexCorrectAns === rightAns.length) {
+                    setTimeout(() => {
+                        this.indexQ++;
+                    }, 1500)
+                }
+            }
+        },
+
+        checkDrop(ev) {
+            const data = ev.dataTransfer.getData("text");
+            // console.log( this.newArray);
+            for (let i = 0; i < this.newArray.length; i++) {
+                if (this.newArray[i] === data) {
+                    this.newArray = this.newArray.filter(item => item !== data);
+                    if (document.getElementById(data).classList.contains('correct')) {
+                        document.getElementById(data).classList.remove('correct');
+                    }
+                    if (document.getElementById(data).classList.contains('wrong')) {
+                        document.getElementById(data).classList.remove('wrong');
+                    }
+                } 
+            }
         }
     },
 }
 </script>
 
 <style>
-/* .drag {
-    position: relative;
-    width: 80%;
-    align-items: center;
-    right: 10%; 
-} */
-
 #quick-questions {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     /* height: 60vh;  */
 }
 
 .title-question {
     /* margin-bottom: 5%; */
     color: #5f5a5a;
-    font-size:2.5rem;
+    font-size: 2.5rem;
     /* padding: 6% 15%; */
     text-align: center;
     /* margin: 0; */
@@ -233,7 +300,7 @@ export default {
     margin: 0 2rem;
     cursor: pointer;
     border: none;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #ffffff;
     border-radius: 100px;
     padding: 20px 30px;
@@ -246,10 +313,10 @@ export default {
 
 .draggable-area {
     position: absolute;
-    width: 40%;
-    height: 50%;
-    left: 30%;
-    bottom: 32%;
+    width: 18%;
+    height: 65%;
+    left: 40%;
+    bottom: 20%;
     background: #fff;
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
@@ -259,8 +326,8 @@ export default {
 .list-item {
     list-style: none;
     display: inline-block;
-    padding: 10px 50px;
-    margin: 20px;
+    padding: 8px 30px;
+    margin: 10px;
     font-size: 1.2rem;
     font-weight: 500;
     position: relative;
@@ -269,6 +336,35 @@ export default {
     border-radius: 30px;
     color: white;
     transition: all 0.3s ease;
+    /* bottom: 15%; */
+}
+
+.text {
+    position: absolute;
+    bottom: 85%;
+    left: 25%;
+    font-size: 1.2rem;
+    color: #5f5a5a;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.text:hover {
+    color: #232020;
+    cursor: pointer;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .list-item.dragging {
@@ -282,9 +378,9 @@ export default {
 
 .word-warehouse {
     position: absolute;
-    width: 70%;
-    height: 20%;
-    left: 13%;
+    width: 88%;
+    height: 10%;
+    left: 5%;
     bottom: 8%;
     background: #fff;
     border-radius: 50px;
