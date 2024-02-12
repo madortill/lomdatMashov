@@ -18,10 +18,10 @@
         </div>
 
         <div v-if="this[`questions${this.indexQuestion}`][indexQ].Qtype === 1" class="draggable-container">
-            <div class="draggable-area" @drop="drop" @dragover="allowDrop">
-                <img src="@/assets/media/drag.svg" alt="drag" class="drag">
+            <div class="draggable-area" @drop="drop" @dragover="allowDrop" id= 'dragArea' @dragstart="onDragging" >
+                
             </div>
-            <div class="word-warehouse" draggable="true" @dragstart="onDragging">
+            <div class="word-warehouse" draggable="true" @dragstart="onDragging" @drop="drop" @dragover="allowDrop">
                 <ul>
                     <li v-for="(item, index) in this[`questions${this.indexQuestion}`][this.indexQ].ansArray" :key="index"
                         class="list-item" draggable="true" @dragstart="drag" :id="'listItem' + index">
@@ -189,33 +189,38 @@ export default {
 </script>
 
 <style>
-.drag {
+/* .drag {
     position: relative;
     width: 80%;
     align-items: center;
-    /* right: 50%; */
-}
+    right: 10%; 
+} */
+
 #quick-questions {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* height: 80vh;  */
+    justify-content: center; 
+    align-items: center; 
+    /* height: 60vh;  */
 }
 
 .title-question {
-    /* margin-bottom: 10%; */
+    /* margin-bottom: 5%; */
     color: #5f5a5a;
-    font-size: 1.6rem;
-    padding: 2%;
+    font-size:2.5rem;
+    /* padding: 6% 15%; */
     text-align: center;
-    margin: 0;
+    /* margin: 0; */
+    bottom: 35%;
+    position: relative;
 }
 
 .answers-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    position: relative;
+    /* top: 50%; */
 }
 
 .row {
@@ -228,10 +233,10 @@ export default {
     margin: 0 2rem;
     cursor: pointer;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ffffff;
     border-radius: 100px;
-    padding: 10px 20px;
+    padding: 20px 30px;
 
 }
 
@@ -240,16 +245,15 @@ export default {
 }
 
 .draggable-area {
-    /* position: absolute; */
-    width: 100%;
-    /* height: 50%; */
-    /* left: 60%;
-    bottom: 32%; */
-    /* background-image: url('./assets/media.drag2.png'); */
-    /* background: #fff; */
-    /* border-radius: 50px;
-    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4); */
-    /* text-align: center; */
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+    bottom: 32%;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+    text-align: center;
 }
 
 .list-item {
