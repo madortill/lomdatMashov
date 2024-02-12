@@ -19,7 +19,7 @@
 
         <div v-if="this[`questions${this.indexQuestion}`][indexQ].Qtype === 1" class="draggable-container">
             <div class="draggable-area" @drop="drop" @dragover="allowDrop">
-
+                <img src="@/assets/media/drag.svg" alt="drag" class="drag">
             </div>
             <div class="word-warehouse" draggable="true" @dragstart="onDragging">
                 <ul>
@@ -189,6 +189,12 @@ export default {
 </script>
 
 <style>
+.drag {
+    position: relative;
+    width: 80%;
+    align-items: center;
+    /* right: 50%; */
+}
 #quick-questions {
     display: flex;
     flex-direction: column;
@@ -198,9 +204,10 @@ export default {
 }
 
 .title-question {
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     color: #5f5a5a;
-    padding: 10%;
+    font-size: 1.6rem;
+    padding: 2%;
     text-align: center;
     margin: 0;
 }
@@ -233,15 +240,16 @@ export default {
 }
 
 .draggable-area {
-    position: absolute;
-    width: 40%;
-    height: 50%;
-    left: 30%;
-    bottom: 32%;
-    background: #fff;
-    border-radius: 50px;
-    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
-    text-align: center;
+    /* position: absolute; */
+    width: 100%;
+    /* height: 50%; */
+    /* left: 60%;
+    bottom: 32%; */
+    /* background-image: url('./assets/media.drag2.png'); */
+    /* background: #fff; */
+    /* border-radius: 50px;
+    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4); */
+    /* text-align: center; */
 }
 
 .list-item {
