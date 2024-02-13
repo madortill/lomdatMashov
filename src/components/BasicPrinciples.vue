@@ -3,13 +3,6 @@
         <div class="div-text">
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
-
-            <!-- <ul class = "warpper">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul> -->
         </div>
         <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
         <button class="nextBtn" @click="nextBtn">המשך</button>
