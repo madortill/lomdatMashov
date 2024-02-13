@@ -36,7 +36,6 @@ export default {
     data() {
         return {
             answerArray: [],
-
         };
     },
     methods: {
@@ -104,6 +103,29 @@ export default {
             console.log('el: ' + id);
             document.getElementById(id).className = 'list-item';
             this.answerArray.splice(this.answerArray.indexOf(content), 1);
+
+            const rightAns = this.questionInfo.correctArray;
+            let indexCorrectAns = 0;
+            for (let i = 0; i < this.answerArray.length; i++) {
+                let newArrayElement = this.answerArray[i]; 
+                let rightAnsElement = rightAns[i];
+                if (newArrayElement === rightAnsElement) {
+                    console.log('Correct');
+                    indexCorrectAns++;
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("correct");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("wrong");
+                } else {
+                    console.log('Wrong');
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("wrong");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("correct");
+                }
+                console.log(indexCorrectAns);
+                if (indexCorrectAns === rightAns.length) {
+                    setTimeout(() => {
+                        this.$emit('next-question');
+                    }, 1500)
+                }
+            }
         }
     },
     computed: {
