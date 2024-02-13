@@ -1,7 +1,9 @@
 <template>
     <div id="quick-questions">
-        <multiple-question v-if="questionToPass.Qtype === 0" @next-question="updateIndex" :questionInfo="questionToPass"></multiple-question>
-        <dragging-question v-else="questionToPass.Qtype === 1"  @next-question="updateIndex" :questionInfo="questionToPass"></dragging-question>
+        <multiple-question v-if="questionToPass.Qtype === 0" @next-question="updateIndex"
+            :questionInfo="questionToPass"></multiple-question>
+        <dragging-question v-else="questionToPass.Qtype === 1" @next-question="updateIndex"
+            :questionInfo="questionToPass"></dragging-question>
     </div>
 </template>
 
@@ -35,40 +37,56 @@ export default {
                 {
                     Qtype: 1,
                     title: "לפי שיטת הסנדוויץ, מה המבנה העקרוני של שיחת המשוב?",
-                    ansArray: [
-                        "העלאת 2-3 תופעות לשיפור",
-                        "העלאת תופעה לשימור",
-                        "מתן ביטוי לנחנך",
+                    // ansArray: [
+                    //     "העלאת 2-3 תופעות לשיפור",
+                    //     "העלאת תופעה לשימור",
+                    //     "מתן ביטוי לנחנך",
+                    //     "יצירת חוזה",
+                    //     "סיכום המשוב",
+                    //     "איסוף מידע חסר",
+                    //     "העלאת תופעה נוספת לשימור"
+                    // ],
+                    // rightAns: [
+                    //     3,
+                    //     2,
+                    //     5,
+                    //     1,
+                    //     0,
+                    //     6,
+                    //     4
+                    // ],
+                    correctArray: [
                         "יצירת חוזה",
-                        "סיכום המשוב",
+                        "מתן ביטוי לנחנך",
                         "איסוף מידע חסר",
-                        "העלאת תופעה נוספת לשימור"
-                    ],
-                    rightAns: [
-                        3,
-                        2,
-                        5,
-                        1,
-                        0,
-                        6,
-                        4
+                        "העלאת תופעה לשימור",
+                        "העלאת 2-3 תופעות לשיפור",
+                        "העלאת תופעה נוספת לשימור",
+                        "סיכום המשוב"
                     ],
                 }, {
                     Qtype: 1,
                     title: "מנה/י\" 4 כללים שעליהם נותן המשוב חייב להקפיד.",
-                    ansArray: [
-                        "איתור סיבת התופעה",
-                        "הסבר על תרומת ההתנהגות",
-                        "העלאת תיאור ההתנהגות",
+                    correctArray: [
                         "ציון דוגמאות",
+                        "העלאת תיאור ההתנהגות",
+                        "הסבר על תרומת ההתנהגות",
+                        "איתור סיבת התופעה",
 
                     ],
-                    rightAns: [
-                        2,
-                        3,
-                        0,
-                        1,
-                    ]
+                    // ansArray: [
+                    //     "איתור סיבת התופעה",
+                    //     "הסבר על תרומת ההתנהגות",
+                    //     "העלאת תיאור ההתנהגות",
+                    //     "ציון דוגמאות",
+
+                    // ],
+                    // rightAns: [
+                    //     2,
+                    //     3,
+                    //     0,
+                    //     1,
+                    // ]
                 },
             ],
             questions2: [
@@ -84,18 +102,18 @@ export default {
                 {
                     Qtype: 1,
                     title: "מנה\י 3 שאלות אפשריות למוקד המודעות.",
-                    ansArray: [
+                    correctArray: [
                         "תשובה 1",
                         "תשובה 2",
                         "תשובה 3",
                         "תשובה 4",
                     ],
-                    rightAns: [
-                        0,
-                        1,
-                        2,
-                        3,
-                    ]
+                    // rightAns: [
+                    //     0,
+                    //     1,
+                    //     2,
+                    //     3,
+                    // ]
                 },
             ],
 

@@ -16,8 +16,8 @@
                 checkDrop(e)
             }">
                 <ul>
-                    <li v-for="(item, index) in this.questionInfo.ansArray" :key="index"
-                        class="list-item" draggable="true" @dragstart="drag" :id="'listItem' + index" :alt="'listItem' + index">
+                    <li v-for="(item, index) in this.shuffledArr" :key="index" class="list-item" draggable="true"
+                        @dragstart="drag" :id="'listItem' + index">
                         {{ item }} </li>
                 </ul>
             </div>
@@ -36,12 +36,13 @@ export default {
     data() {
         return {
             answerArray: [],
-          
+
         };
     },
     methods: {
         onDragging(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
+            ev.dataTransfer.setData("text", ev.target.textContent);
+            ev.dataTransfer.setData("id", ev.target.id);
         },
 
         allowDrop(ev) {
@@ -49,62 +50,74 @@ export default {
         },
 
         drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.alt);
+            ev.dataTransfer.setData("text", ev.target.textContent);
+            ev.dataTransfer.setData("id", ev.target.id);
         },
 
         drop(ev) {
             ev.preventDefault();
-            const data = ev.dataTransfer.getData("text");
+            const data = ev.dataTransfer.getData("id");
             // השתמשנו בקורנט טארגא במקום בטראגט בגלל שאנחנו רוצים להתייחס רק על האבא - יש מאזין של דראג שמשפיע על הילדים והמאזין של דרופ שמשפיע רק על האבא לכן נרצה לתפוס את המאזין לחיצה
             ev.currentTarget.appendChild(document.getElementById(data));
             // this.checkDraggable(data);
         },
 
         checkDraggable(ev) {
-            const data = ev.dataTransfer.getData("text");
+            const content = ev.dataTransfer.getData("text");
+            const id = ev.dataTransfer.getData("id");
             let indexCorrectAns = 0;
-            this.answerArray.push(data);
-            const rightAns = this.questionInfo.rightAns;
+            if (this.answerArray.lastIndexOf(content) !== -1) {
+                this.answerArray.splice(this.answerArray.indexOf(content), 1)
+            }
+            this.answerArray.push(content);
+
+            const rightAns = this.questionInfo.correctArray;
             if (!rightAns) {
                 console.log("rightAns is not defined or empty");
                 return;
             }
-            for (let i = 0; i < rightAns.length && i < this.answerArray.length; i++) {
-                const newArrayElement = this.answerArray[i];
-                const rightAnsElement = rightAns[i];
-                if (Number(newArrayElement.slice(8)) === rightAnsElement) {
+            for (let i = 0; i < this.answerArray.length; i++) {
+                let newArrayElement = this.answerArray[i]; 
+                let rightAnsElement = rightAns[i];
+                if (newArrayElement === rightAnsElement) {
                     console.log('Correct');
                     indexCorrectAns++;
-                    document.getElementById(data).classList.add("correct");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("correct");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("wrong");
                 } else {
                     console.log('Wrong');
-                    document.getElementById(data).classList.add("wrong");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("wrong");
+                    document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("correct");
                 }
                 console.log(indexCorrectAns);
                 if (indexCorrectAns === rightAns.length) {
                     setTimeout(() => {
-                        this.$emit('next-question')
+                        this.$emit('next-question');
                     }, 1500)
                 }
             }
         },
 
         checkDrop(ev) {
-            const data = ev.dataTransfer.getData("text");
-            // console.log( this.newArray);
-            for (let i = 0; i < this.answerArray.length; i++) {
-                if (this.answerArray[i] === data) {
-                    this.answerArray = this.answerArray.filter(item => item !== data);
-                    if (document.getElementById(data).classList.contains('correct')) {
-                        document.getElementById(data).classList.remove('correct');
-                    }
-                    if (document.getElementById(data).classList.contains('wrong')) {
-                        document.getElementById(data).classList.remove('wrong');
-                    }
-                }
-            }
+            const id = ev.dataTransfer.getData("id");
+            const content = ev.dataTransfer.getData("text");
+            console.log('el: ' + id);
+            document.getElementById(id).className = 'list-item';
+            this.answerArray.splice(this.answerArray.indexOf(content), 1);
         }
     },
+    computed: {
+        shuffledArr() {
+            let returnArray = this.questionInfo.correctArray.slice(); // שכפול מערך התשובות הנכונות
+            let tmp = this.questionInfo.correctArray.slice();
+            for (let i = 0; i < returnArray.length; i++) {
+                let index = Math.floor(Math.random() * tmp.length);
+                returnArray[i] = tmp[index];
+                tmp = tmp.slice(0, index).concat(tmp.slice(index + 1)); // removes tmp[index]
+            }
+            return returnArray;
+        }
+    }
 }
 </script>
 
