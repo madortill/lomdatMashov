@@ -10,17 +10,15 @@
             }" @dragover="allowDrop" id='dragArea' @dragstart="onDragging">
             </div>
 
-            <div v-show = "showWordWarehouse" class="word-warehouse" @dragstart="onDragging" @dragover="allowDrop" @drop="(e) => {
+            <ul v-show = "showWordWarehouse" class="word-warehouse" @dragstart="onDragging" @dragover="allowDrop" @drop="(e) => {
                 e.preventDefault();
                 drop(e);
                 checkDrop(e)
             }">
-                <ul>
                     <li v-for="(item, index) in this.shuffledArr" :key="index" class="list-item" draggable="true"
                         @dragstart="drag" :id="'listItem' + index">
                         {{ item }} </li>
-                </ul>
-            </div>
+            </ul>
 
             <p v-show = "showTextSuccess" class = "text-success">כל הכבוד!</p>
         </div>
