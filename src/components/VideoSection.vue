@@ -3,7 +3,7 @@
         <div class="video-container">
             <!-- המסכים לכאורה -->
             <div v-if="videoNum === 1" class="seemingly-agree">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL"
+                <iframe width="1000" height="650" src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -11,7 +11,7 @@
             </div>
             <!-- יהיר -->
             <div v-if="videoNum === 2" class="arrogant">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/LnEiYw9kgLg?si=0aImkNJLdEaAe-Hw"
+                <iframe width="1000" height="650" src="https://www.youtube.com/embed/LnEiYw9kgLg?si=0aImkNJLdEaAe-Hw"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -19,7 +19,7 @@
             </div>
             <!-- טרגי -->
             <div v-if="videoNum === 3" class="tragic">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/h5WEL8XvM-4?si=y4qyrzHOoHguOvI3"
+                <iframe width="1000" height="650" src="https://www.youtube.com/embed/h5WEL8XvM-4?si=y4qyrzHOoHguOvI3"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -27,7 +27,7 @@
             </div>
             <!-- הווכחן -->
             <div v-if="videoNum === 4" class="argues">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ogeQ033gZmg?si=lf8K6UwKx2tKeMqF"
+                <iframe width="1000" height="650" src="https://www.youtube.com/embed/ogeQ033gZmg?si=lf8K6UwKx2tKeMqF"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -66,9 +66,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .video-container {
     margin-bottom: 15%;
-}</style>
+}
+
+
+</style>

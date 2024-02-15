@@ -1,8 +1,9 @@
 <template>
     <div id="end-screen">
-        <h3>לסיכום</h3>
+        <h3 class = "conclusion-text">לסיכום</h3>
         <div class="finale-exe">
-
+            <h2>מטרות השיעור</h2>
+            <h3>מטרת על</h3>
         </div>
         <div v-show="showClose" class="finish-exe">
             <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב</h1>
@@ -21,12 +22,16 @@ export default {
     data() {
         return {
             showClose: false,
+            array1: [
+                'מטרת על',
+                'החניך יעביר משוב אישי בצורה אפקטיבית'
+            ],
         };
     },
     mounted() {
-        setTimeout(() => {
-            this.showClose = true;
-        }, 2000);
+        // setTimeout(() => {
+        //     this.showClose = true;
+        // }, 2000);
     },
     methods: {
         closeWindow() {
@@ -51,7 +56,7 @@ export default {
     width: 40%;
     height: 70%;
     left: 30%;
-    bottom: 15%;
+    bottom: 20%;
     background: #fff;
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
@@ -70,4 +75,10 @@ export default {
 .finale-text {
     color: white;
 }
+
+.conclusion-text {
+    color: #5f5a5a;
+    font-size: 1.2rem;
+}
+
 </style>

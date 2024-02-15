@@ -2,7 +2,7 @@
     <div id="dragging-question">
         <div class="draggable-container">
             <h1 class="title-questionDragging">{{ this.questionInfo.title }}</h1>
-            <p class="text"> * גרור את התשובה לפי הסדר המתאים.</p>
+            <p class="text-drag"> * גרור את התשובה לפי הסדר המתאים.</p>
             <div class="draggable-area" @drop="(e) => {
                 e.preventDefault();
                 drop(e);
@@ -10,7 +10,7 @@
             }" @dragover="allowDrop" id='dragArea' @dragstart="onDragging">
             </div>
 
-            <div class="word-warehouse" @dragstart="onDragging" @dragover="allowDrop" @drop="(e) => {
+            <div v-show = "showWordWarehouse" class="word-warehouse" @dragstart="onDragging" @dragover="allowDrop" @drop="(e) => {
                 e.preventDefault();
                 drop(e);
                 checkDrop(e)
@@ -21,6 +21,8 @@
                         {{ item }} </li>
                 </ul>
             </div>
+
+            <p v-show = "showTextSuccess" class = "text-success">כל הכבוד!</p>
         </div>
     </div>
 </template>
@@ -36,6 +38,8 @@ export default {
     data() {
         return {
             answerArray: [],
+            showWordWarehouse: true,
+            showTextSuccess: false,
         };
     },
     methods: {
@@ -90,10 +94,12 @@ export default {
                 }
                 console.log(indexCorrectAns);
                 if (indexCorrectAns === rightAns.length) {
+                    this.showWordWarehouse = false;
+                    this.showTextSuccess = true;
                     setTimeout(() => {
                         this.$emit('next-question');
-                    }, 1500)
-                }
+                    }, 2000)
+                } 
             }
         },
 
@@ -146,10 +152,10 @@ export default {
 <style>
 .draggable-area {
     position: absolute;
-    width: 18%;
-    height: 65%;
+    width: 15%;
+    height: 55%;
     left: 40%;
-    bottom: 20%;
+    bottom: 30%;
     background: #fff;
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
@@ -157,12 +163,9 @@ export default {
 }
 
 .title-questionDragging {
-    /* margin-bottom: 5%; */
     color: #5f5a5a;
     font-size: 2.5rem;
-    /* padding: 6% 15%; */
     text-align: center;
-    /* margin: 0; */
     bottom: 35%;
     position: relative;
 }
@@ -180,19 +183,19 @@ export default {
     border-radius: 30px;
     color: white;
     transition: all 0.3s ease;
-    /* bottom: 15%; */
+    top: 2%;
 }
 
-.text {
+.text-drag {
     position: absolute;
     bottom: 85%;
-    left: 25%;
-    font-size: 1.2rem;
+    right: 25%;
+    font-size: 1.4rem;
     color: #5f5a5a;
     animation: floatAnimation 3s ease-in-out infinite;
 }
 
-.text:hover {
+.text-drag:hover {
     color: #232020;
     cursor: pointer;
 }
@@ -238,5 +241,12 @@ export default {
 
 .wrong {
     background-color: rgb(176, 6, 6);
+}
+
+.text-success {
+    position: absolute;
+    bottom: 20%;
+    font-size: 3rem;
+    color: #7cb518;
 }
 </style>
