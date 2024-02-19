@@ -77,7 +77,7 @@ export default {
 }
 
 .pulse-button-hover {
-    background-color: #0492bd;
+    background-color: #047fb0;
     margin: 0 2rem;
     cursor: pointer;
     border: none;
@@ -85,7 +85,6 @@ export default {
     color: #ffffff;
     border-radius: 100px;
     padding: 20px 30px;
-
 }
 
 .pulse-button-hover:hover {
