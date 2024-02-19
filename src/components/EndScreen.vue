@@ -2,7 +2,11 @@
     <div id="end-screen">
         <h3 class="conclusion-text">לסיכום</h3>
         <div class="finale-exe">
-            <p v-for="(text, index) in array1" :key="text" :style="`--delay: ${index * 3.2}s`"> {{ text }} </p>
+            <p v-for="(text, index) in array1" :key="text"
+                :style="{'--delay': `${index * 3.2}s`,
+                        '--width': `${text.length}ch`,
+                         'font-size': index === 0 || index === 2 ? '2.2rem' : '1.3rem'}">
+                {{ text }} </p>
         </div>
         <div v-show="showClose" class="finish-exe">
             <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב</h1>
@@ -26,7 +30,7 @@ export default {
                 'החניך יעביר משוב אישי בצורה אפקטיבית',
                 'מטרות ביניים',
                 'החניך יפרט עקרונות יסוד בשלב המשוב.',
-                'חהניך יפרט את הכללים והמבנה הנכון של שיחת המשוב.',
+                ' החניך יפרט את הכללים והמבנה הנכון של שיחת המשוב. ',
                 'החניך יסביר את תהליך איתור מקורות אפשריים לתופעות במשוב.',
                 'החניך יפרט את תהליך התמודדות עם התנגדויות במשוב.'
             ],
@@ -39,8 +43,8 @@ export default {
     },
     methods: {
         closeWindow() {
-            // window.close(); // סוגר את חלון האתר.
-        }
+            window.close(); // סוגר את חלון האתר.
+        },
     },
 }
 </script>
@@ -93,14 +97,14 @@ export default {
     }
 
     to {
-        width: 50%;
+        width: var(--width);
     }
 }
 
 .finale-exe>p {
     display: block;
     width: fit-content;
-    animation: typeWrite 3.2s var(--delay) steps(44) normal both, blink 500ms var(--delay) steps(45) 6;
+    animation: typeWrite 2.5s var(--delay) steps(44) normal both, blink 500ms var(--delay) steps(45) 6;
     white-space: nowrap;
     text-align: right;
     overflow: hidden;
@@ -109,9 +113,10 @@ export default {
 
 
 @keyframes blink {
-    to{
+    to {
         border-left-color: black;
     }
+
     from {
         border-left-color: transparent;
     }
