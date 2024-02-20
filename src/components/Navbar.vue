@@ -3,8 +3,8 @@
         <div class="container">
             <nav>
                 <ul @click="chosenTitle">
-                    <li :class="{ active: titleIndex === 0 }" >עקרונות יסוד</li>
-                    <li :class="{ active: titleIndex === 1 }" >שיחת המשוב</li>
+                    <li :class="{ active: titleIndex === 0 }">עקרונות יסוד</li>
+                    <li :class="{ active: titleIndex === 1 }">שיחת המשוב</li>
                     <li :class="{ active: titleIndex === 2 }">איתור מקור התופעות</li>
                     <li :class="{ active: titleIndex === 3 }">התנגדויות במשוב</li>
                 </ul>
@@ -19,7 +19,7 @@ export default {
     props: ["titleIndex"],
     data() {
         return {
-            
+
         };
     },
     methods: {
@@ -54,6 +54,7 @@ nav {
     background: #fff;
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+
 }
 
 nav ul li {
@@ -67,6 +68,7 @@ nav ul li {
     color: #777;
     position: relative;
     z-index: 2;
+    cursor: default;
     transition: color 0.5s;
 }
 
@@ -74,7 +76,7 @@ nav ul li.active {
     background: #0296d0;
     cursor: pointer;
     border-radius: 30px;
-    color:white;
+    color: white;
 }
 </style>
   

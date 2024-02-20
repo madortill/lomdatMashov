@@ -15,7 +15,7 @@
                 drop(e);
                 checkDrop(e)
             }">
-                    <li v-for="(item, index) in this.shuffledArr" :key="index" class="list-item" draggable="true"
+                    <li v-for="(item, index) in this.shuffledArr" :key="index" class="list-item" draggable="true" 
                         @dragstart="drag" :id="'listItem' + index">
                         {{ item }} </li>
             </ul>
@@ -176,7 +176,7 @@ export default {
     font-size: 1.2rem;
     font-weight: 500;
     position: relative;
-    background: #02739f;
+    background: #1d8ab6;
     cursor: pointer;
     border-radius: 30px;
     color: white;

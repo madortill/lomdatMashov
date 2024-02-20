@@ -4,20 +4,25 @@
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
         </div>
+        <button v-if = "showBtnCall" class = "callBtn" @click="nextBtn" >שיחת משוב</button>
+
+        <!-- flipcards -->
         <div v-show = "indexTitle === 2" class="flip-card-container">
+            <p class = "over-me">עברו מעליי!</p>
             <div v-for="( item, index) in arrayFront" :key="index" class="flip-card">
                 <div class="flip-card-inner" :style="`--hue: ${index * 15 + 130}deg`">
                     <div class="flip-card-front">
                         <img :src="src(item)" class="imgFront">
                     </div>
                     <div class="flip-card-back">
-                        <h1>{{ arrayBack[index] }}</h1>
+                        <h1 class = "textBack">{{ arrayBack[index] }} </h1>
                     </div>
                 </div>
             </div>
         </div>
+
         <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
-        <button class="nextBtn" @click="nextBtn">המשך</button>
+        <button v-if = "!showBtnCall" class="nextBtn" @click="nextBtn">המשך</button>
     </div>
 </template>
 
@@ -32,13 +37,15 @@ export default {
         return {
             arrayFront: ['ear.svg', 'hands-heart.svg', 'auction.svg', 'headache.png', 'crossed-eye.svg'],
             arrayBack: ['פתיחות והקשבה', 'השריית אווירה נוחה, חיובית ובונה', 'חוסר שיפוטיות', 'לגיטימציה לטעויות ואי הסכמה', 'הבטחת סודיות'],
+            arrayTitle: ["אז מהו משוב?", "המשוב האישי מתבסס על שני עקרונות על", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - איסוף מקסימום מידע מהנחנך"],
+            arrayInfo: ["משוב הוא מידע על התנהגות בעבר, אשר נמסר בהווה ועשוי להשפיע על ההתנהגות בעתיד.", '', '', 'בתור חונכים עלינו לאסוף מקסימום מיד מביצועי הנחנך. הנחנך תמיד מחזיק במידע ש-לך, כחונך, לא יהיה: שיקוליו, כיצד נראה הביצוע מנקודה מבטו, תחושותיו וחוויתו. אז מה עושים? '],
             showQ: false,
             index: 0,
             subj: 1,
             indexTitle: 0,
             indexInfo: 0,
-            arrayTitle: ["אז מהו משוב?", "המשוב האישי מתבסס על שני עקרונות על", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - איסוף מקסימום מידע מהנחנך"],
-            arrayInfo: ["משוב הוא מידע על התנהגות בעבר, אשר נמסר בהווה ועשוי להשפיע על ההתנהגות בעתיד.", '', 'עברו מעליי', ''],
+            showBtnCall: false,
+           
         };
     },
     methods: {
@@ -50,11 +57,22 @@ export default {
                 this.indexTitle--;
                 this.indexInfo--;
             }
+            
+            if(this.indexTitle === 3) {
+                this.showBtnCall = true;
+            } else {
+                this.showBtnCall = false;
+            }
         },
         nextBtn() {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
+            if(this.indexTitle === 3) {
+                this.showBtnCall = true;
+            } else {
+                this.showBtnCall = false;
+            }
             if (this.indexTitle === 4) {
                 this.$emit('move-to-next', this.showQ);
             }
@@ -71,17 +89,17 @@ export default {
     position: absolute;
     width: 100%;
     height: 60%;
+    top: 20%;
     text-align: center;
 }
 
 .info-text {
-    padding: 5%;
-    margin: auto;
+    padding: 2% 25%;
     font-size: 1.8rem;
+    display: block;
 }
 
 .title-text {
-    /* padding: 5%; */
     margin: auto;
     font-size: 2.5rem;
 }
@@ -117,10 +135,27 @@ export default {
 }
 
 .nextBtn:hover,
-.prevBtn:hover {
+.prevBtn:hover,
+.callBtn:hover
+ {
     animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
 }
 
+.callBtn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: #055169;
+    color: #ffffff;
+    min-width: 15%;
+    max-width: 10%;
+    height: 10%;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-50%); 
+    top: 55%;
+}
 
 @keyframes hoverShine {
     0% {
@@ -142,8 +177,8 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     position: absolute;
-    bottom: 35%;
     left: 10%;
+    height: 80%;
 }
 
 .flip-card {
@@ -204,5 +239,18 @@ export default {
     position: absolute;
     left: 20%;
     top:20%;
+}
+
+.over-me {
+    position: absolute;
+    top :25%;
+    margin-left: 50%;
+    font-size: 1.4rem;
+    color: #5f5a5a;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.textBack {
+    padding: 5%;
 }
 </style>
