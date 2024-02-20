@@ -90,7 +90,7 @@ export default {
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("wrong");
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("correct");
                 }
-                console.log(indexCorrectAns);
+                // console.log(indexCorrectAns);
                 if (indexCorrectAns === rightAns.length) {
                     this.showWordWarehouse = false;
                     this.showTextSuccess = true;
@@ -104,7 +104,7 @@ export default {
         checkDrop(ev) {
             const id = ev.dataTransfer.getData("id");
             const content = ev.dataTransfer.getData("text");
-            console.log('el: ' + id);
+            // console.log('el: ' + id);
             document.getElementById(id).className = 'list-item';
             this.answerArray.splice(this.answerArray.indexOf(content), 1);
 
@@ -123,7 +123,7 @@ export default {
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("wrong");
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("correct");
                 }
-                console.log(indexCorrectAns);
+                // console.log(indexCorrectAns);
                 if (indexCorrectAns === rightAns.length) {
                     setTimeout(() => {
                         this.$emit('next-question');

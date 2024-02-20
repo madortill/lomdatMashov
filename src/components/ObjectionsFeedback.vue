@@ -56,6 +56,7 @@ export default {
             }
         },
         toTheEnd() {
+            // this.showVideo = false;
             this.$emit('move-to-next', this.showQ);
         }
     },

@@ -41,7 +41,7 @@
                 }}</button>
         </div>
         <div v-if="showInfo" class="video-information">
-            <video-information :indexObjection="indexObjection" @next-video = nextVideoSection></video-information>
+            <video-information :indexObjection="indexObjection" @next-video=nextVideoSection></video-information>
         </div>
     </div>
 </template>
@@ -67,7 +67,6 @@ export default {
     computed: {
     },
     mounted() {
-        console.log("adva");
         window.onYouTubeIframeAPIReady = this.initVideo;
 
         // const tag = document.createElement('script');
@@ -120,11 +119,23 @@ export default {
         nextVideoSection() {
             this.videoNum++;
             this.showInfo = false;
-            if(this.videoNum > 3) {
+            if (this.videoNum > 3) {
                 this.$emit('to-the-end');
             }
         }
     },
+    computed: {
+        shuffledArr() {
+            let returnArray = this.buttons.slice(); // שכפול מערך התשובות הנכונות
+            let tmp = this.buttons.slice();
+            for (let i = 0; i < returnArray.length; i++) {
+                let index = Math.floor(Math.random() * tmp.length);
+                returnArray[i] = tmp[index];
+                tmp = tmp.slice(0, index).concat(tmp.slice(index + 1)); // removes tmp[index]
+            }
+            return returnArray;
+        }
+    }
 }
 </script>
 

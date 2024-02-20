@@ -73,20 +73,19 @@ body {
 }
 
 .logo {
-    min-width: 50px;
     max-width: 100px;
+    height: 10%;
     left: 0;
     top: 0;
     position: absolute;
     margin-top: 1%;
     margin-left: 1%;
     z-index: 3;
-    cursor: pointer;
-    
 }
 
 .mador-till {
-    min-width: 20px;
+    /* min-width: 20px; */
+    max-height: 10%;
     max-width: 90px;
     position: absolute;
     bottom: 0;
