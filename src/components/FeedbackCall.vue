@@ -2,18 +2,25 @@
     <div id="feedback-call">
         <div class="div-text">
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
-            <p v-if="index !== 1" class="info-text"> {{ arrayInfo[indexInfo] }} </p>
-            <div v-if="indexInfo === 1" class = "burger-container">
+            <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
+
+            <div v-if="indexInfo === 0">
+               
+
+            </div>
+
+            <div v-if="indexInfo === 1" class="burger-container">
                 <img v-for="( item, index) in burgerArray" :key="index" :src="src(item)" class="burger">
             </div>
+
+
+            <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
+            <button class="nextBtn" @click="nextBtn">המשך</button>
         </div>
-        <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
-        <button class="nextBtn" @click="nextBtn">המשך</button>
     </div>
 </template>
 
 <script>
-import burger from '../assets/media/burger/burgerEnd.svg'
 
 export default {
     name: 'feedback-call',
@@ -25,10 +32,13 @@ export default {
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי', 'מבנה שיחת המשוב', 'העלאת תופעות במשוב'],
-            arrayInfo: ['עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', '', 'איך עושים את זה?'],
+            arrayInfo: ['עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'לפי שיטת הסנדוויץ', 'איך עושים את זה?'],
             burgerArray: [
                 'bunTop.svg',
+                'lettuce.svg',
                 'patty.svg',
+                'onion.svg',
+                'tomato.svg',
                 'bunBottom.svg'
             ],
             indexTitle: 0,
@@ -56,20 +66,32 @@ export default {
         },
         src(name) {
             return new URL(`../assets/media/burger/${name}`, import.meta.url).href;
-        }
+        },
     },
 }
 </script>
 
 <style>
 .burger {
-    width: 20%;
+    width: 15%;
+    transition: transform 0.3s ease;
+    margin-bottom: 0.5%;
+    /* position: relative; */
+    top:2vh;
 }
 
 .burger-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
+    /* height: 100%; */
+    padding-top: 20px;
 }
+
+.burger:hover {
+    cursor: pointer;
+    transform: translateY(-20px);
+}
+
+
 </style>

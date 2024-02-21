@@ -177,7 +177,7 @@ export default {
     font-weight: 500;
     position: relative;
     background: #1d8ab6;
-    cursor: pointer;
+    cursor: grab;
     border-radius: 30px;
     color: white;
     transition: all 0.3s ease;

@@ -1,0 +1,116 @@
+<template>
+    <svg viewBox="0 0 1914 2159" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 74vw;
+    position: absolute;
+    top: 45%;
+    left: 13%;
+    height: 55vh;" xml:space="preserve" overflow="hidden">
+        <g transform="translate(-2200 -291)">
+            <path
+                d="M3190 594.558 3192.22 900 3910.73 739.588 4062 519.846C4061.77 502.889 4056.04 470.139 4052.38 456.616L3895.16 388 3190 594.558Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <path
+                d="M3100 1187.56 2391.44 952C2337.96 995.588 2253.53 986.202 2200.05 1029.79 2200.03 1055.96 2200.02 1082.13 2200 1108.31L2365.04 1365.88 3100 1542 3100 1187.56Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <path d="M3100 1110.56 2391.44 875 2200 1031.31 2365.04 1288.88 3100 1465 3100 1110.56Z" fill="#D8D8DE"
+                fill-rule="evenodd" />
+            <path class="green" d="M3067.5 1141.33 3073 1412 2395.23 1248.5 2266 1039.66 2404.85 927 3067.5 1141.33Z"
+                fill="#53D9C3" fill-rule="evenodd" />
+            <path
+                d="M3196.2 1812.34 3194 2140 3917.86 2034.45 4080.68 1825.54C4079.25 1813.77 4085.38 1772.46 4079.14 1762.76L3904.66 1676 3196.2 1812.34Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <path d="M3196.2 1748.34 3194 2076 3918.13 1970.45 4081 1761.54 3904.92 1612 3196.2 1748.34Z" fill="#D8D8DE"
+                fill-rule="evenodd" />
+            <path class="blue" d="M3228 1781.56 3228 2035 3911.06 1933.99 4033 1764.11 3907.39 1653 3228 1781.56Z"
+                fill="#9DC3E6" fill-rule="evenodd" />
+            <path
+                d="M3100 338.499C3100 330.492 3106.49 324 3114.5 324L3172.5 324C3180.51 324 3187 330.492 3187 338.499L3187 2435.5C3187 2443.51 3180.51 2450 3172.5 2450L3114.5 2450C3106.49 2450 3100 2443.51 3100 2435.5Z"
+                fill="#9E9E9E" fill-rule="evenodd" />
+            <path d="M3190 530.961 3192.2 837 3902.47 676.275 4052 456.103 3887.08 324 3190 530.961Z" fill="#D8D8DE"
+                fill-rule="evenodd" />
+            <path class="yellow"
+                d="M3216 546.108C3216.31 627.739 3216.61 709.369 3216.92 791L3878.68 635.994 4007 458.057 3878.68 359 3216 546.108Z"
+                fill="#FFD966" fill-rule="evenodd" />
+            <path
+                d="M3090 305.667C3090 297.567 3096.57 291 3104.67 291L3184.33 291C3192.43 291 3199 297.567 3199 305.667L3199 364.333C3199 372.434 3192.43 379 3184.33 379L3104.67 379C3096.57 379 3090 372.434 3090 364.333Z"
+                fill="#808076" fill-rule="evenodd" />
+            <path
+                d="M3086 535C3086 525.059 3094.06 517 3104 517L3176 517C3185.94 517 3194 525.059 3194 535L3194 901C3194 910.941 3185.94 919 3176 919L3104 919C3094.06 919 3086 910.941 3086 901Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <path
+                d="M3096 1108.17C3096 1098.13 3104.13 1090 3114.17 1090L3186.83 1090C3196.87 1090 3205 1098.13 3205 1108.17L3205 1544.83C3205 1554.87 3196.87 1563 3186.83 1563L3114.17 1563C3104.13 1563 3096 1554.87 3096 1544.83Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <path
+                d="M3090 1735.17C3090 1725.13 3098.13 1717 3108.17 1717L3180.83 1717C3190.87 1717 3199 1725.13 3199 1735.17L3199 2137.83C3199 2147.87 3190.87 2156 3180.83 2156L3108.17 2156C3098.13 2156 3090 2147.87 3090 2137.83Z"
+                fill="#BEBEBE" fill-rule="evenodd" />
+            <!-- <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2465.47 1167)">
+                PAS
+            </text>
+            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2804.94 1255)">
+                T
+            </text>
+            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2476.26 1174)">
+                PAS
+            </text>
+            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2815.74 1262)">
+                T
+            </text>
+            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="165" transform="matrix(0.96629 -0.257455 0.257455 0.96629 3291.64 701)">
+                FUTURE
+            </text>
+
+            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="165" transform="matrix(0.96629 -0.257455 0.257455 0.96629 3300.46 699)">
+                FUTURE
+            </text>
+
+            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="147" transform="matrix(0.987628 -0.156817 0.156817 0.987628 3303.29 1938)">
+                PRESENT
+            </text>
+            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
+                font-size="147" transform="matrix(0.987628 -0.156817 0.156817 0.987628 3312.17 1938)">
+                PRESENT
+            </text> -->
+        </g>
+    </svg>
+</template>
+
+<style>
+.yellow {
+    transition: fill 0.3s ease;
+}
+
+.yellow:hover {
+    fill: pink;
+    cursor: pointer;
+
+}
+
+text {
+    pointer-events: none;
+}
+
+.green:hover {
+    fill: #ffbf69;
+    cursor: pointer;
+}
+
+.green {
+    transition: fill 0.3s ease;
+}
+
+.blue {
+    transition: fill 0.3s ease;
+}
+
+.blue:hover {
+    cursor: pointer;
+    fill: #f27059;
+
+}
+</style>
