@@ -410,20 +410,20 @@ export default {
     width:11%;
     top:47%;
     left: 51%;
-    z-index: 0;
+    pointer-events:none
 }
 .past-text {
     position: absolute;
     width:11%;
-    z-index: 0;
     top:62.5%;
     left: 39%;
+    pointer-events:none
 }
 .present-text {
     position: absolute;
     width:10%;
     top:81%;
     left: 51%;
-    z-index: 0;
+    pointer-events:none
 }
 </style>

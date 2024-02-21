@@ -83,7 +83,6 @@
 <style>
 .yellow {
     transition: fill 0.3s ease;
-    z-index: 3;
 }
 
 .yellow:hover {
@@ -102,12 +101,10 @@ text {
 
 .green {
     transition: fill 0.3s ease;
-    z-index: 3;
 }
 
 .blue {
     transition: fill 0.3s ease;
-    z-index: 3;
 }
 
 .blue:hover {
