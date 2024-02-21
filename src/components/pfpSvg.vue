@@ -83,12 +83,12 @@
 <style>
 .yellow {
     transition: fill 0.3s ease;
+    z-index: 3;
 }
 
 .yellow:hover {
     fill: pink;
     cursor: pointer;
-
 }
 
 text {
@@ -102,15 +102,16 @@ text {
 
 .green {
     transition: fill 0.3s ease;
+    z-index: 3;
 }
 
 .blue {
     transition: fill 0.3s ease;
+    z-index: 3;
 }
 
 .blue:hover {
     cursor: pointer;
     fill: #f27059;
-
 }
 </style>
