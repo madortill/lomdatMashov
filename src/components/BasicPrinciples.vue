@@ -2,12 +2,12 @@
     <div id="basic-principles">
         <div class="div-text">
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
-            <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
+            <p :class= "indexTitle === 4 ? 'info-div-text' : 'info-text'"> {{ arrayInfo[indexInfo] }} </p>
         </div>
         <!-- what is mashov -->
         <div v-show="indexTitle === 0">
-            <!-- <img src = "@/assets/media/BP/pfp.svg" class = "past-future-present-img"> -->
             <pfpSvg></pfpSvg>
+            <p class = "over-me-text">עברו מעליי!</p>
             <img src = "@/assets/media/BP/future.svg" class = "future-text">
             <img src = "@/assets/media/BP/past.svg" class = "past-text">
             <img src="@/assets/media/BP/present.svg" class="present-text">
@@ -42,10 +42,15 @@
             </div>
         </div>
 
+        <div v-show="indexTitle === 4" class = "back-div">
+
+        </div>
+
         <div v-if="showBtnCall">
             <p class="text-btnCall">{{ arrayInfo[indexInfo + 1] }}</p>
             <button class="callBtn" @click="nextBtn">שיחת משוב</button>
         </div>
+
         <p v-if="indexTitle === 3 || indexTitle === 2" class="over-me">עברו מעליי!</p>
         <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
         <button v-if="!showBtnCall" class="nextBtn" @click="nextBtn">המשך</button>
@@ -64,7 +69,6 @@ export default {
         return {
             arrayFront: ['ear.svg', 'hands-heart.svg', 'auction.svg', 'headache.png', 'crossed-eye.svg'],
             arrayBack: ['פתיחות והקשבה.', 'השריית אווירה נוחה, חיובית ובונה.', 'חוסר שיפוטיות.', 'לגיטימציה לטעויות ואי הסכמה.', 'הבטחת סודיות.'],
-
             arrayTitle: ["אז מהו משוב?", "המשוב האישי מתבסס על שני עקרונות על", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - איסוף מקסימום מידע מהנחנך"],
             arrayInfo: ["משוב הוא מידע על התנהגות בעבר, אשר נמסר בהווה ועשוי להשפיע על ההתנהגות בעתיד.", '', 'המשוב בעצם מהותו, נתפס כמאיים ביותר. הסיבות לכך הן:', 'על מנת לבטל את הגורמים המאיימים על אגו הנחנך, נקפיד על העקרונות הבאים:', 'בתור חונכים עלינו לאסוף מקסימום מיד מביצועי הנחנך. הנחנך תמיד מחזיק במידע ש-לך, כחונך, לא יהיה: שיקוליו, כיצד נראה הביצוע מנקודה מבטו, תחושותיו וחוויתו. ', 'אז מה עושים?'],
             arrayAgo: ['חוסר וודאות מצד הנחנך.', 'מעמד החונך.', 'דרישה לשינוי דפוסי התנהגות עמוקים.', 'ביקורת = כישלון.'],
@@ -124,13 +128,24 @@ export default {
 
 .info-text {
     position: relative;
-    padding: 2% 30%;
-    font-size: 1.8rem;
+    padding: 1% 20% 0 35%;
+    right: 8%;
+    font-size: 1.9rem;
     display: block;
     z-index: 1;
     color: #3a3737;
 }
 
+.info-div-text {
+    position: relative;
+    padding: 1% 20% 0 35%;
+    right: 8%;
+    font-size: 1.9rem;
+    display: block;
+    z-index: 1;
+    color: #ffffff;
+    margin-top: 5%;
+}
 .title-text {
     margin: auto;
     font-size: 2.5rem;
@@ -178,7 +193,7 @@ export default {
     border: none;
     cursor: pointer;
     border-radius: 100px;
-    background-color: #5998ab;
+    background-color: #479e9f;
     color: #ffffff;
     min-width: 15%;
     max-width: 15%;
@@ -186,7 +201,7 @@ export default {
     font-size: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    top: 57%;
+    top: 67%;
 }
 
 @keyframes hoverShine {
@@ -278,7 +293,7 @@ export default {
     position: absolute;
     top: 70%;
     right: 10%;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #5f5a5a;
     /* animation: floatAnimation 3s ease-in-out infinite; */
 }
@@ -291,8 +306,8 @@ export default {
     position: absolute;
     font-size: 2rem;
     left: 45%;
-    color: #5f5a5a;
-    top: 45%;
+    color: #978f8f;
+    top: 55%;
 }
 
 .principle-div {
@@ -307,7 +322,6 @@ export default {
     height: 5rem;
     /* border-radius: 50%; */
     border-radius: 30PX;
-
     background-color: #7db9a5;
     text-align: center;
     color: #ffffff;
@@ -425,5 +439,33 @@ export default {
     top:81%;
     left: 51%;
     pointer-events:none
+}
+.over-me-text {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #978f8f;
+    top:75%;
+    left: 52%;
+    transform: rotate(348deg);
+    animation: floatAnimation2 3s ease-in-out infinite;
+}
+
+@keyframes floatAnimation2 {
+    0%, 100% {
+        transform: rotate(348deg); /* Start and end position of the rotation */
+    }
+    50% {
+        transform: rotate(360deg); /* Middle position of the rotation */
+    }
+}
+
+.back-div {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    background-color: #83bfd2;
+    border-radius: 40px;
+    top:30%;
+    left: 25%;
 }
 </style>
