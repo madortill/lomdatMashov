@@ -42,40 +42,6 @@
             <path
                 d="M3090 1735.17C3090 1725.13 3098.13 1717 3108.17 1717L3180.83 1717C3190.87 1717 3199 1725.13 3199 1735.17L3199 2137.83C3199 2147.87 3190.87 2156 3180.83 2156L3108.17 2156C3098.13 2156 3090 2147.87 3090 2137.83Z"
                 fill="#BEBEBE" fill-rule="evenodd" />
-            <!-- <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2465.47 1167)">
-                PAS
-            </text>
-            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2804.94 1255)">
-                T
-            </text>
-            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2476.26 1174)">
-                PAS
-            </text>
-            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="183" transform="matrix(0.968193 0.250203 -0.250203 0.968193 2815.74 1262)">
-                T
-            </text>
-            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="165" transform="matrix(0.96629 -0.257455 0.257455 0.96629 3291.64 701)">
-                FUTURE
-            </text>
-
-            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="165" transform="matrix(0.96629 -0.257455 0.257455 0.96629 3300.46 699)">
-                FUTURE
-            </text>
-
-            <text fill="#A3A3A3" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="147" transform="matrix(0.987628 -0.156817 0.156817 0.987628 3303.29 1938)">
-                PRESENT
-            </text>
-            <text fill="#FFFFFF" font-family="Heebo Medium,Heebo Medium_MSFontService,sans-serif" font-weight="500"
-                font-size="147" transform="matrix(0.987628 -0.156817 0.156817 0.987628 3312.17 1938)">
-                PRESENT
-            </text> -->
         </g>
     </svg>
 </template>
