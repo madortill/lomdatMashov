@@ -20,7 +20,7 @@ export default {
         return {
             subj: 3,
             arrayTitle: [ ''],
-            arrayInfo: ['מודעות','תפיסה','יישום' ],
+            arrayInfo: ['כאשר הנך ממשב נחנך ומעיר על התנהגותו, עלייך לאבחן את מקור התופעה שלו.','מודעות','תפיסה','יישום' ],
             indexTitle: 0,
             indexInfo: 0,
             index: 0,
@@ -41,7 +41,7 @@ export default {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
-            if(this.indexTitle === 3) {
+            if(this.indexTitle === 4) {
                 this.$emit('move-to-next', this.showQ);
             }
         },

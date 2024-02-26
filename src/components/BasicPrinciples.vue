@@ -2,14 +2,14 @@
     <div id="basic-principles">
         <div class="div-text">
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
-            <p :class= "indexTitle === 4 ? 'info-div-text' : 'info-text'"> {{ arrayInfo[indexInfo] }} </p>
+            <p :class="indexTitle === 4 ? 'info-div-text' : 'info-text'"> {{ arrayInfo[indexInfo] }} </p>
         </div>
         <!-- what is mashov -->
         <div v-show="indexTitle === 0">
             <pfpSvg></pfpSvg>
-            <p class = "over-me-text">עברו מעליי!</p>
-            <img src = "@/assets/media/BP/future.svg" class = "future-text">
-            <img src = "@/assets/media/BP/past.svg" class = "past-text">
+            <p class="over-me-text">עברו מעליי!</p>
+            <img src="@/assets/media/BP/future.svg" class="future-text">
+            <img src="@/assets/media/BP/past.svg" class="past-text">
             <img src="@/assets/media/BP/present.svg" class="present-text">
         </div>
 
@@ -42,13 +42,13 @@
             </div>
         </div>
 
-        <div v-show="indexTitle === 4" class = "back-div">
+        <div v-show="indexTitle === 4" class="back-div">
 
         </div>
 
         <div v-if="showBtnCall">
             <p class="text-btnCall">{{ arrayInfo[indexInfo + 1] }}</p>
-            <button class="callBtn" @click="nextBtn">שיחת משוב</button>
+            <button class="callBtn" @click="nextBtn"> שיחת משוב</button>
         </div>
 
         <p v-if="indexTitle === 3 || indexTitle === 2" class="over-me">עברו מעליי!</p>
@@ -146,6 +146,7 @@ export default {
     color: #ffffff;
     margin-top: 5%;
 }
+
 .title-text {
     margin: auto;
     font-size: 2.5rem;
@@ -421,41 +422,49 @@ export default {
 
 .future-text {
     position: absolute;
-    width:11%;
-    top:47%;
+    width: 11%;
+    top: 47%;
     left: 51%;
-    pointer-events:none
+    pointer-events: none
 }
+
 .past-text {
     position: absolute;
-    width:11%;
-    top:62.5%;
+    width: 11%;
+    top: 62.5%;
     left: 39%;
-    pointer-events:none
+    pointer-events: none
 }
+
 .present-text {
     position: absolute;
-    width:10%;
-    top:81%;
+    width: 10%;
+    top: 81%;
     left: 51%;
-    pointer-events:none
+    pointer-events: none
 }
+
 .over-me-text {
     position: absolute;
     font-size: 1.2rem;
     color: #978f8f;
-    top:75%;
+    top: 75%;
     left: 52%;
     transform: rotate(348deg);
     animation: floatAnimation2 3s ease-in-out infinite;
 }
 
 @keyframes floatAnimation2 {
-    0%, 100% {
-        transform: rotate(348deg); /* Start and end position of the rotation */
+
+    0%,
+    100% {
+        transform: rotate(348deg);
+        /* Start and end position of the rotation */
     }
+
     50% {
-        transform: rotate(360deg); /* Middle position of the rotation */
+        transform: rotate(360deg);
+        /* Middle position of the rotation */
     }
 }
 
@@ -465,7 +474,7 @@ export default {
     height: 20%;
     background-color: #83bfd2;
     border-radius: 40px;
-    top:30%;
+    top: 30%;
     left: 25%;
 }
 </style>
