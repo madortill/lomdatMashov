@@ -27,16 +27,22 @@
 
             <div v-if="indexInfo === 3" class="behavior-container">
                 <div>
-                    <h1 class ="title-behavior-p">{{ behaviors[0].typeTitle }}</h1>
-                    <ul v-show = "showListP">
+                    <!-- <img src ="@/assets/media/FC/playGray.png"  class = "playBtn pBtn"> -->
+                    <img :src="imageSrc" alt="Image" @mouseover="changeImage('new-image.jpg')"
+                        @mouseout="changeImage('original-image.jpg')" class="playBtn pBtn">
+                    <h1 class="title-behavior-p">{{ behaviors[0].typeTitle }}</h1>
+                    <ul v-show="showListP">
                         <li v-for="(item, index) in behaviors[0].arrayBehave" :key="index" class="list-text-p">
                             {{ item }}
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h1 class ="title-behavior-s">{{ behaviors[1].typeTitle }}</h1>
-                    <ul v-show = "showListS" >
+                    <!-- <img src ="@/assets/media/FC/playGray.png" class = "playBtn sBtn"> -->
+                    <img :src="imageSrc" alt="Image" @mouseover="changeImage('new-image.jpg')"
+                        @mouseout="changeImage('original-image.jpg')" class="playBtn sBtn">
+                    <h1 class="title-behavior-s">{{ behaviors[1].typeTitle }}</h1>
+                    <ul v-show="showListS">
                         <li v-for="(item, index) in behaviors[1].arrayBehave" :key="index" class="list-text-s">
                             {{ item }}
                         </li>
@@ -60,6 +66,10 @@ export default {
     },
     data() {
         return {
+            imageSrc: [
+                '@/assets/media/FC/playGray.png',
+                '@/assets/media/FC/playFull.png'
+            ],
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי', ' שיחת המשוב', 'מבנה שיחת המשוב', 'העלאת תופעות במשוב'],
@@ -119,6 +129,9 @@ export default {
             this.showListS = true;
 
         },
+        changeImage(newSrc) {
+            this.imageSrc = newSrc;
+        }
     },
 }
 </script>
@@ -237,12 +250,16 @@ export default {
     margin: 10px;
     font-size: 1.2rem;
     position: relative;
-    /* background: #c7d6d5; */
-    border-radius: 15px;
+    background: #d55959;
+    border-radius: 10px;
+    color: whitesmoke;
+
 }
+
 .list-text-p:hover {
-  cursor: pointer;
-	text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+
     &:hover {
         color: #b30000;
 
@@ -265,22 +282,25 @@ export default {
         transition: all 0.3s ease-in-out 0s;
     }
 }
+
 .list-text-s {
     list-style: none;
     padding: 10px 30px;
     margin: 10px;
     font-size: 1.2rem;
     position: relative;
-    /* background: #a5e6e1; */
-    border-radius: 15px;
+    background: #41ab73;
+    border-radius: 10px;
+    color: whitesmoke;
 }
+
 .list-text-s:hover {
     cursor: pointer;
     position: relative;
-	text-decoration: none;
+    text-decoration: none;
 
     &:hover {
-        color: #638f41;
+        color: #cfe7be;
 
         &:before {
             visibility: visible;
@@ -304,11 +324,30 @@ export default {
 
 .title-behavior-s {
     color: rgb(42, 136, 35);
-    border-bottom: 3px solid  rgb(42, 136, 35);
+    border-bottom: 1px solid rgb(42, 136, 35);
 }
 
 .title-behavior-p {
     color: rgb(177, 28, 28);
-    border-bottom: 3px solid  rgb(177, 28, 28);
+    border-bottom: 1px solid rgb(177, 28, 28);
 }
-</style>
+
+.playBtn {
+    position: absolute;
+    width: 2%;
+}
+
+.playBtn:hover {
+    cursor: pointer;
+    /* background-image: url("@/assets/media/FC/playFull"); */
+}
+
+.sBtn {
+    bottom: 58.5%;
+    left: 38.5%;
+}
+
+.pBtn {
+    left: 78.5%;
+    bottom: 58.5%;
+}</style>
