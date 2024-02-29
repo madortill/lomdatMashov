@@ -1,7 +1,7 @@
 <template>
     <div id="locating-source">
-        <div class="div-text">
-            <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
+        <div class="div-text" >
+            <!-- <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2> -->
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
         </div>
         <div v-if="indexInfo === 0" class="original-container">
@@ -15,23 +15,23 @@
             </div>
         </div>
 
-        <div v-if="indexInfo > 0" class="opatinSource">
-            <h1>מקור התופעה</h1>
-            <h1>הגדרת הבעיה</h1>
-            <h1>שאלות אפשריות</h1>
-            <h1>טיפול אפשרי</h1>
-        </div>
-        <div v-if="indexInfo > 0">
-            <p class="loactingSource">{{ loactingSource[indexSource].name }}</p>
-            <p>{{ loactingSource[indexSource].problem }}</p>
-            <div v-for="(item, index) in loactingSource[indexSource].question" :key="index" class="loactingSource">
-                <p>{{ item }}</p>
+        <div v-if="indexInfo > 0" class="grid">
+            <div v-for="(item, index) in arrayTitle" :key="index" :id = "index" class="grid-title" :style="`--hue: ${index * 15 + 170}deg`" >
+                {{ item }}
             </div>
-            <div v-for="(item, index) in loactingSource[indexSource].treatment" :key="index" class="loactingSource">
-                <p>{{ item }}</p>
-            </div>
-        </div>
 
+            <p class="grid-item" :style="`--hue: ${index * 15 + 160}deg`">{{ loactingSource[indexSource].name }} </p>
+            <p class="grid-item" :style="`--hue: ${index * 15 + 170}deg`">{{ loactingSource[indexSource].problem }}</p>
+
+            <div class="grid-item" :style="`--hue: ${index * 15 + 180}deg`">
+                <p v-for="(item, index) in loactingSource[indexSource].question" :key="index">{{ item }}</p>
+            </div>
+
+            <div class="grid-item" :style="`--hue: ${index * 15 + 190}deg`">
+                <p v-for="(item, index) in loactingSource[indexSource].treatment" :key="index" >{{ item }}</p>
+            </div>
+
+        </div>
         <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
         <button class="nextBtn" @click="nextBtn">המשך</button>
     </div>
@@ -46,14 +46,15 @@ export default {
     },
     data() {
         return {
+
             subj: 3,
-            arrayTitle: [''],
+            arrayTitle: ['מקור התופעה', 'הגדרת הבעיה', 'שאלות אפשריות', 'טיפול אפשרי'],
             arrayInfo: ['כאשר הנך ממשב נחנך ומעיר על התנהגותו, עלייך לאבחן את מקור התופעה שלו.'],
             arrayFocus: ['מודעות', 'תפיסה', 'יישום'],
             arrayAction: ['הנחנך לא קלט את הגירוי.', 'פעולות הנחנך לא תואמות את התורה המקצועית.', 'בחירת פיתרון לא מתאים למצב'],
             loactingSource: [
                 {
-                    name: 'מודעות',
+                    name: 'מודעות:',
                     problem: 'החניך לא רואה את הבעיה ואינו מודע לה.',
                     question: [
                         'ראית ש...?',
@@ -66,7 +67,7 @@ export default {
                     ]
                 },
                 {
-                    name: 'תפיסה',
+                    name: 'תפיסה:',
                     problem: 'החניך לא מבין למה זו בעיה.',
                     question: [
                         'מה את/ה חושב/ת על...?',
@@ -81,7 +82,7 @@ export default {
                     ]
                 },
                 {
-                    name: 'יישום',
+                    name: 'יישום:',
                     problem: 'החניך לא מצליח ליישם, אינו מוצא דרך לשנות את הבעיה.',
                     question: [
                         'איך עשית את...?',
@@ -133,6 +134,15 @@ export default {
     padding: 1rem;
     position: relative;
 }
+
+#locating-source.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set to full viewport height */
+}
+
+
 
 .circle-focus {
     width: 5rem;
@@ -197,6 +207,38 @@ export default {
     align-items: center;
     justify-content: space-evenly;
     padding: 2% 5%;
-    /* flex-direction: column; */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 0.2fr);
+    grid-template-rows: repeat(2, 0.9fr);
+    gap: 3%;
+    position: relative;
+    right: 10%;
+}
+
+.grid-title {
+    padding: 20%;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: hsl(var(--hue), 50%, 68%);
+    transition: background-color 0.3s ease;
+    color: rgb(48, 47, 47);
+}
+.grid-item {
+    border-radius: 30px;
+    /* border: 2px solid lightgray; */
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 5%;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item:hover {
+    background-color: hsl(var(--hue), 70%, 68%);
+    cursor: pointer;
 }
 </style>
+ 

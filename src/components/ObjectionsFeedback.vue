@@ -4,6 +4,11 @@
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
         </div>
+        <div v-if = "indexInfo == 1"  class = "process-div">
+            <div v-for="(item, index) in arrayProcess" :key="index">
+                <p>{{ item }}</p>
+            </div>
+        </div>
         <div v-if="!showVideo">
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
             <button class="nextBtn" @click="nextBtn">המשך</button>
@@ -27,7 +32,13 @@ export default {
         return {
             subj: 4,
             arrayTitle: ['', 'תהליך הטיפול בהתנגדות במשוב', 'סירטונים'],
-            arrayInfo: ['התנגדויות במשוב ב-ביטוי התנהגותי של הנחנך לאי רצונו או יכולתו הלמשיך בתקשורת עם החונך', 'תהליך הטיפול בהתנגדות'],
+            arrayInfo: ['התנגדויות במשוב ב-ביטוי התנהגותי של הנחנך לאי רצונו או יכולתו להמשיך בתקשורת עם החונך.', 'תהליך הטיפול בהתנגדות'],
+            arrayProcess: [
+                'זיהוי התנגדות',
+                'עצירה ושיקוף',
+                'איתור סיבת ההתנגדות',
+                'טיפול בהתנגדות'
+            ],
             indexTitle: 0,
             indexInfo: 0,
             showVideo: false,
@@ -63,4 +74,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.process-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2% 10%;
+}
+</style>

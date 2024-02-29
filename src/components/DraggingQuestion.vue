@@ -244,7 +244,14 @@ export default {
 .text-success {
     position: absolute;
     bottom: 20%;
-    font-size: 3rem;
-    color: #7cb518;
+    right: 10%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 3%;
+    font-size: 3.2rem;
+    width: 20%;
+    /* height: 15%; */
+    background-color: #87b635;
+    color: #fefefe;
 }
 </style>

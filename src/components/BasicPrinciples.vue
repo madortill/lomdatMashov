@@ -180,7 +180,7 @@ export default {
     min-width: 10%;
     max-width: 15%;
     bottom: 13%;
-    right: 10%;
+    right: 8%;
 }
 
 .nextBtn:hover,

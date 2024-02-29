@@ -23,33 +23,31 @@
 
             <div v-if="indexInfo === 2" class="burger-container">
                 <img v-for="( item, index) in burgerArray" :key="index" :src="src(item)" class="burger">
+                <img src = "@/assets/media/burger/burgerEnd.svg" alt ="burgerEnd" class="burger">
             </div>
 
             <div v-if="indexInfo === 3" class="behavior-container">
+            <p class = "textBehave">  לחצו על ההתנהגות </p>
+
                 <div>
-                    <!-- <img src ="@/assets/media/FC/playGray.png"  class = "playBtn pBtn"> -->
-                    <img :src="imageSrc" alt="Image" @mouseover="changeImage('new-image.jpg')"
-                        @mouseout="changeImage('original-image.jpg')" class="playBtn pBtn">
-                    <h1 class="title-behavior-p">{{ behaviors[0].typeTitle }}</h1>
-                    <ul v-show="showListP">
-                        <li v-for="(item, index) in behaviors[0].arrayBehave" :key="index" class="list-text-p">
+                    <h1 @click="openlistP" class="title-behavior-p">
+                        {{ proveBehavior[0].typeTitle }}</h1>
+                    <ul v-show="showListP" class="ulP">
+                        <li v-for="(item, index) in proveBehavior[0].arrayBehave" :key="index" class="list-text-p">
                             {{ item }}
                         </li>
                     </ul>
                 </div>
+
                 <div>
-                    <!-- <img src ="@/assets/media/FC/playGray.png" class = "playBtn sBtn"> -->
-                    <img :src="imageSrc" alt="Image" @mouseover="changeImage('new-image.jpg')"
-                        @mouseout="changeImage('original-image.jpg')" class="playBtn sBtn">
-                    <h1 class="title-behavior-s">{{ behaviors[1].typeTitle }}</h1>
-                    <ul v-show="showListS">
-                        <li v-for="(item, index) in behaviors[1].arrayBehave" :key="index" class="list-text-s">
+                    <h1 @click="openlistS" class="title-behavior-s">{{ saveBehavior[0].typeTitle }} </h1>
+                    <ul v-show="showListS" class="ulS">
+                        <li v-for="(item, index) in saveBehavior[0].arrayBehave" :key="index" class="list-text-s">
                             {{ item }}
                         </li>
                     </ul>
                 </div>
             </div>
-
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
             <button class="nextBtn" @click="nextBtn">המשך</button>
         </div>
@@ -58,6 +56,9 @@
 
 <script>
 import eyeGifSvg from './eyeGifSvg.vue'
+import playGray from '@/assets/media/FC/playGray.png'
+import playFull from '@/assets/media/FC/playFull.png'
+
 
 export default {
     name: 'feedback-call',
@@ -67,40 +68,44 @@ export default {
     data() {
         return {
             imageSrc: [
-                '@/assets/media/FC/playGray.png',
-                '@/assets/media/FC/playFull.png'
+                playGray,
+                playFull
             ],
+            imageSrc: playGray,
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי', ' שיחת המשוב', 'מבנה שיחת המשוב', 'העלאת תופעות במשוב'],
             arrayAreaType: ['איזור פתוח', 'איזור עיוור', 'איזור לא ידוע', 'איזור חבוי'],
             arrayTextAreaType: ['ידוע לי וידוע לאחרים', 'לא ידוע לי וידוע לאחרים', 'לא ידוע לי ולא ידוע לאחרים', 'ידוע לי ולא ידוע לאחרים'],
             arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'לפי שיטת הסנדוויץ', 'איך עושים את זה?'],
-            behaviors: [
+            proveBehavior: [
                 {
-                    type: 0,
                     typeTitle: 'התנהגות שלילית לשיפור',
                     arrayBehave: ['העלאת תופעה אפשרית', 'ציון דוגמאות', 'איתור הסיבה האמיתית לתופעה', 'טיפול במקור התופעה', 'הצעת בנק פתרונות', 'בחירת הפיתרון המועדף', 'קביעת תוכנית ליישום הפיתרון'],
-                },
+                }
+            ],
+            saveBehavior: [
                 {
-                    type: 1,
                     typeTitle: 'התנהגות חיובית לשימור',
                     arrayBehave: ['העלאת תיאור ההתנהגות', 'ציון דוגמאות', 'איתור סיבת התופעה', 'הסבר על תרומת התנהגות'],
-                },
+                }
             ],
+
             burgerArray: [
                 'bunTop.svg',
                 'lettuce.svg',
-                'patty.svg',
                 'onion.svg',
+                'patty.svg',
                 'tomato.svg',
                 'bunBottom.svg'
             ],
             indexTitle: 0,
             indexInfo: 0,
             showQ: true,
-            showListP: true,
-            showListS: true,
+            showListP: false,
+            showListS: false,
+            clickBtnP: 0,
+            clickBtnS: 0,
         };
     },
     methods: {
@@ -125,13 +130,21 @@ export default {
             return new URL(`../assets/media/burger/${name}`, import.meta.url).href;
         },
         openlistP() {
-            this.showListP = true;
-            this.showListS = true;
-
+            if (this.clickBtnP % 2 === 0) {
+                this.showListP = true;
+            } else {
+                this.showListP = false
+            }
+            this.clickBtnP++;
         },
-        changeImage(newSrc) {
-            this.imageSrc = newSrc;
-        }
+        openlistS() {
+            if (this.clickBtnS % 2 === 0) {
+                this.showListS = true;
+            } else {
+                this.showListS = false
+            }
+            this.clickBtnS++;
+        },
     },
 }
 </script>
@@ -244,110 +257,109 @@ export default {
     justify-content: space-evenly;
 }
 
-.list-text-p {
+.list-text-s, .list-text-p {
     list-style: none;
     padding: 10px 30px;
     margin: 10px;
     font-size: 1.2rem;
-    position: relative;
-    background: #d55959;
-    border-radius: 10px;
-    color: whitesmoke;
-
+    transition: background-color 0.5s ease;
+    border-radius: 15px;
+    color: rgb(52, 50, 50);
 }
 
+.list-text-s:hover,
 .list-text-p:hover {
     cursor: pointer;
-    text-decoration: none;
-
-    &:hover {
-        color: #b30000;
-
-        &:before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: #b30000;
-        visibility: hidden;
-        transform: scaleX(0);
-        transition: all 0.3s ease-in-out 0s;
-    }
-}
-
-.list-text-s {
-    list-style: none;
-    padding: 10px 30px;
-    margin: 10px;
-    font-size: 1.2rem;
-    position: relative;
-    background: #41ab73;
-    border-radius: 10px;
-    color: whitesmoke;
-}
-
-.list-text-s:hover {
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-
-    &:hover {
-        color: #cfe7be;
-
-        &:before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: #638f41;
-        visibility: hidden;
-        transform: scaleX(0);
-        transition: all 0.3s ease-in-out 0s;
-    }
+    background-color: #dbdbdb;
+    color: black;
 }
 
 .title-behavior-s {
-    color: rgb(42, 136, 35);
-    border-bottom: 1px solid rgb(42, 136, 35);
+    animation: floatAnimation 3s ease-in-out infinite;
+
+    color: #57a84c;
+    /* background-color: rgb(42, 136, 35); */
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 5px;
+
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+        color: #57a84c;
+
+        &:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: #57a84c;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+    }
+    /* border: 1px solid rgb(42, 136, 35); */
 }
 
 .title-behavior-p {
+    animation: floatAnimation 3s ease-in-out infinite;
     color: rgb(177, 28, 28);
-    border-bottom: 1px solid rgb(177, 28, 28);
-}
+    /* background-color: rgb(177, 28, 28); */
+    border-radius: 10px;
+    padding: 10px 40px;
+    margin: 5px;
 
-.playBtn {
-    position: absolute;
-    width: 2%;
-}
-
-.playBtn:hover {
     cursor: pointer;
-    /* background-image: url("@/assets/media/FC/playFull"); */
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+        color: rgb(177, 28, 28);
+
+        &:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(177, 28, 28);
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+    }
+    /* border-bottom: 1px solid rgb(177, 28, 28); */
 }
 
-.sBtn {
-    bottom: 58.5%;
-    left: 38.5%;
+.ulS,
+.ulP {
+    list-style: none;
+    background-color: #fefefe;
+    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;    
 }
 
-.pBtn {
-    left: 78.5%;
-    bottom: 58.5%;
-}</style>
+.textBehave {
+    font-size: 1.2rem;
+    color: #5f5a5a;
+    position: fixed;
+}
+</style>
