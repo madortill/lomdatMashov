@@ -5,12 +5,12 @@
             <p v-for="(text, index) in array1" :key="text"
                 :style="{'--delay': `${index * 3.2}s`,
                         '--width': `${text.length}ch`,
-                         'font-size': index === 0 || index === 2 ? '2.2rem' : '1.3rem'}">
+                         'font-size': index === 0 || index === 2 ? '3rem' : '1.6rem'}">
                 {{ text }} </p>
         </div>
         <div v-show="showClose" class="finish-exe">
             <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב</h1>
-            <button @click="closeWindow">סיום</button>
+            <button @click="closeWindow" class = "closeBtn">סיום</button>
         </div>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
             showClose: false,
             array1: [
                 'מטרת על',
-                'החניך יעביר משוב אישי בצורה אפקטיבית',
+                'החניך יעביר משוב אישי בצורה אפקטיבית.',
                 'מטרות ביניים',
                 'החניך יפרט עקרונות יסוד בשלב המשוב.',
                 ' החניך יפרט את הכללים והמבנה הנכון של שיחת המשוב. ',
@@ -37,9 +37,9 @@ export default {
         };
     },
     mounted() {
-        // setTimeout(() => {
-        //     this.showClose = true;
-        // }, 2000);
+        setTimeout(() => {
+            this.showClose = true;
+        }, 22000);
     },
     methods: {
         closeWindow() {
@@ -80,15 +80,19 @@ export default {
     text-align: center;
     background: #1F4E79;
     bottom: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .finale-text {
     color: white;
+    font-size: 3.5rem;
 }
 
 .conclusion-text {
     color: #5f5a5a;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 @keyframes typeWrite {
@@ -121,4 +125,23 @@ export default {
     from {
         border-left-color: transparent;
     }
-}</style>
+}
+
+.closeBtn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: #ffffff;
+    border-radius: 100px;
+    background-color: #0492bd;
+    min-width: 10%;
+    height: 10%;
+    top: 70%;
+}
+
+.closeBtn:hover {
+    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
+
+}
+</style>

@@ -48,6 +48,7 @@
 
         <div v-if="showBtnCall">
             <p class="text-btnCall">{{ arrayInfo[indexInfo + 1] }}</p>
+            <img src = "@/assets/media/BP/arrow-down.png" alt = "arrow-down" class = "arrowImgDown" >
             <button class="callBtn" @click="nextBtn"> שיחת משוב</button>
         </div>
 
@@ -69,10 +70,10 @@ export default {
         return {
             arrayFront: ['ear.svg', 'hands-heart.svg', 'auction.svg', 'headache.png', 'crossed-eye.svg'],
             arrayBack: ['פתיחות והקשבה.', 'השריית אווירה נוחה, חיובית ובונה.', 'חוסר שיפוטיות.', 'לגיטימציה לטעויות ואי הסכמה.', 'הבטחת סודיות.'],
-            arrayTitle: ["אז מהו משוב?", "המשוב האישי מתבסס על שני עקרונות על", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - תמיכה באגו", "עקרונות היסוד של המשוב - איסוף מקסימום מידע מהנחנך"],
-            arrayInfo: ["משוב הוא מידע על התנהגות בעבר, אשר נמסר בהווה ועשוי להשפיע על ההתנהגות בעתיד.", '', 'המשוב בעצם מהותו, נתפס כמאיים ביותר. הסיבות לכך הן:', 'על מנת לבטל את הגורמים המאיימים על אגו הנחנך, נקפיד על העקרונות הבאים:', 'בתור חונכים עלינו לאסוף מקסימום מידע מביצועי הנחנך. הנחנך תמיד מחזיק במידע ש-לך, כחונך, לא יהיה: שיקוליו, כיצד נראה הביצוע מנקודה מבטו, תחושותיו וחוויתו. ', 'אז מה עושים?'],
+            arrayTitle: ["אז, מהו משוב?", "המשוב האישי מתבסס על שני עקרונות על:", "עקרונות היסוד של המשוב - תמיכה באגו.", "עקרונות היסוד של המשוב - תמיכה באגו.", "עקרונות היסוד של המשוב - איסוף מקסימום מידע מהנחנך."],
+            arrayInfo: ["משוב, הוא מידע על התנהגות בעבר, אשר נמסר בהווה ועשוי להשפיע על ההתנהגות בעתיד.", '', 'המשוב בעצם מהותו, נתפס כמאיים ביותר. הסיבות לכך הן:', 'על מנת לבטל את הגורמים המאיימים על אגו הנחנך, נקפיד על העקרונות הבאים:', 'בתור חונכים עלינו לאסוף מקסימום מידע מביצועי הנחנך. הנחנך תמיד מחזיק במידע ש-לך, כחונך, לא יהיה: שיקוליו, כיצד נראה הביצוע מנקודה מבטו, תחושותיו וחוויתו. ', 'אז מה עושים?'],
             arrayAgo: ['חוסר וודאות מצד הנחנך.', 'מעמד החונך.', 'דרישה לשינוי דפוסי התנהגות עמוקים.', 'ביקורת = כישלון.'],
-            arrayPrinciple: ['תמיכה באגו הנחנך', 'איסוף מקסימום מידע מהנחנך'],
+            arrayPrinciple: ['תמיכה באגו הנחנך.', 'איסוף מקסימום מידע מהנחנך.'],
             showQ: false,
             index: 0,
             subj: 1,
@@ -138,9 +139,9 @@ export default {
 
 .info-div-text {
     position: relative;
-    padding: 1% 20% 0 35%;
+    padding: 0% 20% 0 35%;
     right: 8%;
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     display: block;
     z-index: 1;
     color: #ffffff;
@@ -199,10 +200,10 @@ export default {
     min-width: 15%;
     max-width: 15%;
     height: 13%;
-    font-size: 2rem;
+    font-size: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
-    top: 67%;
+    top: 70%;
 }
 
 @keyframes hoverShine {
@@ -307,8 +308,8 @@ export default {
     position: absolute;
     font-size: 2rem;
     left: 45%;
-    color: #978f8f;
-    top: 55%;
+    color: #4f4a4a;
+    top: 50%;
 }
 
 .principle-div {
@@ -477,4 +478,13 @@ export default {
     top: 30%;
     left: 25%;
 }
+
+.arrowImgDown {
+    position: absolute;
+    left: 48.5%;
+    top: 62%;
+    width:2.5%;
+    animation: floatAnimation 1s ease-in-out infinite;
+}
+
 </style>

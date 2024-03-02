@@ -2,10 +2,13 @@
     <div id="home-page">
         <div v-if="showExplain">
             <div class="explain-page">
-                <h2>הוראות ללומדה</h2>
-                <p>כל מיני הסברים על הלומדה ועל השימוש בה</p>
+                <h1 style="font-size: 3rem;">הוראות ללומדה</h1>
+                <p class = "explain-text">{{ explainArray[0] }} </p>
+                <p class = "talk-text">שיחת משוב </p>
+                <p class ="explain-text"> {{ explainArray[1] }}</p>
+                <p  style="font-size: 2.3rem; color: #4b7189;"> בהצלחה!</p>
             </div>
-            <button id="expBtn" class="contBtn" @click="nextInfo"> המשך </button>
+            <button id="expBtn" class="contBtn" @click="nextInfo"> התחל </button>
         </div>
         <div v-else>
             <div v-if="!showQuestions">
@@ -41,6 +44,7 @@ export default {
             showNav: true,
             showQuestions: false,
             indexQuestion: 0,
+            explainArray: ['הינכם עומדים לעבור לומדה על כיצד לנהל באופן המיטבי ביותר באמצעות:', 'הלומדה אטרקטיבית ועניינית לכן תמצו ממנה את המיטב ועל הדרך נסו למצוא את דרכי הלימוד האטרקטיבים בלומדה.'],
         };
     },
 
@@ -150,5 +154,48 @@ export default {
     border-radius: 3rem;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
     text-align: center;
+}
+
+.explain-text {
+    font-size: 2rem;
+    padding: 0% 10% 2%;
+    color: rgb(79, 77, 77);
+}
+
+
+.talk-text {
+    animation: floatAnimation 3s ease-in-out infinite;
+    color: #f06543;
+    font-size: 3rem;
+    /* background-color: rgb(42, 136, 35); */
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 5px;
+
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+        color: #f26419;
+
+        &:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        bottom: 0;
+        right: 30%;
+        background-color: #f26419;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+    }
 }
 </style>

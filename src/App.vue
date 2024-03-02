@@ -26,7 +26,7 @@ export default {
     },
     data() {
         return {
-            page: 0,
+            page: 2,
         };
     },
     methods: {

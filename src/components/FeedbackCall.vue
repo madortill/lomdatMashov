@@ -27,7 +27,10 @@
             </div>
 
             <div v-if="indexInfo === 3" class="behavior-container">
-            <p class = "textBehave">  לחצו על ההתנהגות </p>
+                <img src = "@/assets/media/BP/arrow-left.png" alt = "arrow-left" class = "arrow-left">
+                <img src = "@/assets/media/BP/arrow-right.png" alt = "arrow-right" class = "arrow-right">
+
+            <p class = "textBehave"> לחצו על ההתנהגות:</p>
 
                 <div>
                     <h1 @click="openlistP" class="title-behavior-p">
@@ -74,20 +77,20 @@ export default {
             imageSrc: playGray,
             subj: 2,
             index: 0,
-            arrayTitle: ['מבנה חלון גוהרי', ' שיחת המשוב', 'מבנה שיחת המשוב', 'העלאת תופעות במשוב'],
-            arrayAreaType: ['איזור פתוח', 'איזור עיוור', 'איזור לא ידוע', 'איזור חבוי'],
-            arrayTextAreaType: ['ידוע לי וידוע לאחרים', 'לא ידוע לי וידוע לאחרים', 'לא ידוע לי ולא ידוע לאחרים', 'ידוע לי ולא ידוע לאחרים'],
-            arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'לפי שיטת הסנדוויץ', 'איך עושים את זה?'],
+            arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'העלאת תופעות במשוב.'],
+            arrayAreaType: ['איזור פתוח.', 'איזור עיוור.', 'איזור לא ידוע.', 'איזור חבוי.'],
+            arrayTextAreaType: ['ידוע לי וידוע לאחרים.', 'לא ידוע לי וידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', 'ידוע לי ולא ידוע לאחרים.'],
+            arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'לפי שיטת הסנדוויץ:', 'איך עושים את זה?'],
             proveBehavior: [
                 {
-                    typeTitle: 'התנהגות שלילית לשיפור',
-                    arrayBehave: ['העלאת תופעה אפשרית', 'ציון דוגמאות', 'איתור הסיבה האמיתית לתופעה', 'טיפול במקור התופעה', 'הצעת בנק פתרונות', 'בחירת הפיתרון המועדף', 'קביעת תוכנית ליישום הפיתרון'],
+                    typeTitle: 'התנהגות שלילית לשיפור:',
+                    arrayBehave: ['העלאת תופעה אפשרית.', 'ציון דוגמאות.', 'איתור הסיבה האמיתית לתופעה.', 'טיפול במקור התופעה.', 'הצעת בנק פתרונות.', 'בחירת הפיתרון המועדף.', 'קביעת תוכנית ליישום הפיתרון.'],
                 }
             ],
             saveBehavior: [
                 {
-                    typeTitle: 'התנהגות חיובית לשימור',
-                    arrayBehave: ['העלאת תיאור ההתנהגות', 'ציון דוגמאות', 'איתור סיבת התופעה', 'הסבר על תרומת התנהגות'],
+                    typeTitle: 'התנהגות חיובית לשימור:',
+                    arrayBehave: ['העלאת תיאור ההתנהגות.', 'ציון דוגמאות.', 'איתור סיבת התופעה.', 'הסבר על תרומת התנהגות.'],
                 }
             ],
 
@@ -358,8 +361,42 @@ export default {
 }
 
 .textBehave {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 32%;
     color: #5f5a5a;
     position: fixed;
 }
+
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    width: 2%;
+    animation: forwardArrow 2s ease-in-out infinite;
+}
+
+.arrow-left {
+    right: 44%;
+    top: 37%;
+  
+}
+.arrow-right {
+    left: 44%;
+    top: 37%;
+}
+
+@keyframes forwardArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 </style>
