@@ -2,15 +2,23 @@
     <div id="end-screen">
         <h3 class="conclusion-text">לסיכום</h3>
         <div class="finale-exe">
-            <p v-for="(text, index) in array1" :key="text"
-                :style="{'--delay': `${index * 3.2}s`,
-                        '--width': `${text.length}ch`,
-                         'font-size': index === 0 || index === 2 ? '3rem' : '1.6rem'}">
+            <p v-for="(text, index) in array1" :key="text" :style="{
+                '--delay': `${index * 3.2}s`,
+                '--width': `${text.length}ch`,
+                'font-size': index === 0 || index === 2 ? '3rem' : '1.6rem'
+            }">
                 {{ text }} </p>
         </div>
+        <img v-show="showClose" src = "@/assets/media/שרוך-בורדו.svg" class = "burgundy-lace">
         <div v-show="showClose" class="finish-exe">
-            <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב</h1>
-            <button @click="closeWindow" class = "closeBtn">סיום</button>
+            <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב!</h1>
+            <button @click="closeWindow" class="closeBtn">סיום</button>
+            <!-- <div class = "about-div">
+                <p>אודות</p>
+                <p>פיתוח הלומדה:</p>
+                <p>אדוה אבא</p>
+                <p>תמר סטופ</p>
+            </div> -->
         </div>
     </div>
 </template>
@@ -142,6 +150,20 @@ export default {
 
 .closeBtn:hover {
     animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
+}
 
+.about-div {
+    color: #F2F2F2;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+}
+
+.burgundy-lace {
+    position: absolute;
+    width: 14%;
+    top: 15.5%;
+    left: 15%;
+    z-index: 1;
 }
 </style>

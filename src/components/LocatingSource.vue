@@ -172,17 +172,17 @@ export default {
 
 .circle-focus:nth-child(2) {
     left: 20%;
-    bottom: 35%;
+    bottom: 38%;
 }
 
 .circle-focus:nth-child(3) {
     left: 52%;
-    bottom: 35%;
+    bottom: 38%;
 }
 
 .circle-focus:nth-child(4) {
-    left: 85.5%;
-    bottom: 35%;
+    left: 86%;
+    bottom: 38%;
 }
 
 .action-div {

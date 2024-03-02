@@ -4,10 +4,14 @@
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
         </div>
+        <div v-if = "indexInfo == 0">
+            <img src = "@/assets/media/OF/people.png" alt = "people" class = "people-img">
+        </div>
         <div v-if = "indexInfo == 1"  class = "process-div">
-            <div v-for="(item, index) in arrayProcess" :key="index">
+            <div v-for="(item, index) in arrayProcess" :key="index" class = "process-item">
                 <p>{{ item }}</p>
             </div>
+            <div class = "back-mashov"> חזרה לשיחת משוב</div>
         </div>
         <div v-if="!showVideo">
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
@@ -80,5 +84,23 @@ export default {
     align-items: center;
     justify-content: space-evenly;
     padding: 2% 10%;
+}
+
+.process-item {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.people-img {
+    width: 45%;
+    position: absolute;
+    top: 20%;
+    left: 27%;
+}
+
+.back-mashov {
+    position: absolute;
+    bottom: 30%;
+    font-size: 2.5rem;
 }
 </style>

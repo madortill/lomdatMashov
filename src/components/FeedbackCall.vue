@@ -22,15 +22,28 @@
             </div>
 
             <div v-if="indexInfo === 2" class="burger-container">
+                <p class = "text-feedBack1"> {{ arrayFeedback[0] }}</p>
+                <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left-burger1">
                 <img v-for="( item, index) in burgerArray" :key="index" :src="src(item)" class="burger">
-                <img src = "@/assets/media/burger/burgerEnd.svg" alt ="burgerEnd" class="burger">
+                <p class = "text-feedBack2"> {{ arrayFeedback[1] }}</p>
+                <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right-burger">
+                <p class = "text-feedBack3"> {{ arrayFeedback[2] }}</p>
+                <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left-burger2">
+
+                <!-- <img src = "@/assets/media/burger/burgerEnd.svg" alt ="burgerEnd" class="burger"> -->
             </div>
+            <div v-if="indexInfo === 3">
+                <ul class="ul-right">
+                    <li v-for="(item, index) in correctArray" :key="index" class="list-text"  :style="`--hue: ${index * 18 + 215}deg`">
+                        {{ item }}
+                    </li>
+                </ul>
+            </div>
+            <div v-if="indexInfo === 4" class="behavior-container">
+                <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left">
+                <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right">
 
-            <div v-if="indexInfo === 3" class="behavior-container">
-                <img src = "@/assets/media/BP/arrow-left.png" alt = "arrow-left" class = "arrow-left">
-                <img src = "@/assets/media/BP/arrow-right.png" alt = "arrow-right" class = "arrow-right">
-
-            <p class = "textBehave"> לחצו על ההתנהגות:</p>
+                <p class="textBehave"> לחצו על ההתנהגות:</p>
 
                 <div>
                     <h1 @click="openlistP" class="title-behavior-p">
@@ -74,13 +87,23 @@ export default {
                 playGray,
                 playFull
             ],
+            arrayFeedback: ['תופעה לשימור.', 'העלאת 2-3 תופעות לשיפור.', 'תופעה לשימור.'],
+            correctArray: [
+                "יצירת חוזה",
+                "מתן ביטוי לנחנך",
+                "איסוף מידע חסר",
+                "העלאת תופעה לשימור",
+                "העלאת 2-3 תופעות לשיפור",
+                "העלאת תופעה נוספת לשימור",
+                "סיכום המשוב"
+            ],
             imageSrc: playGray,
             subj: 2,
             index: 0,
-            arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'העלאת תופעות במשוב.'],
+            arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'מבנה העקרוני של שיחת משוב:', 'העלאת תופעות במשוב.'],
             arrayAreaType: ['איזור פתוח.', 'איזור עיוור.', 'איזור לא ידוע.', 'איזור חבוי.'],
             arrayTextAreaType: ['ידוע לי וידוע לאחרים.', 'לא ידוע לי וידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', 'ידוע לי ולא ידוע לאחרים.'],
-            arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'לפי שיטת הסנדוויץ:', 'איך עושים את זה?'],
+            arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'המשוב האפקטיבי יועבר בשיטת ה - סנדוויץ:', '', 'איך עושים את זה?'],
             proveBehavior: [
                 {
                     typeTitle: 'התנהגות שלילית לשיפור:',
@@ -96,10 +119,10 @@ export default {
 
             burgerArray: [
                 'bunTop.svg',
-                'lettuce.svg',
-                'onion.svg',
+                // 'lettuce.svg',
+                // 'onion.svg',
                 'patty.svg',
-                'tomato.svg',
+                // 'tomato.svg',
                 'bunBottom.svg'
             ],
             indexTitle: 0,
@@ -125,7 +148,7 @@ export default {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
-            if (this.indexTitle === 4) {
+            if (this.indexTitle === 5) {
                 this.$emit('move-to-next', this.showQ);
             }
         },
@@ -154,9 +177,9 @@ export default {
 
 <style>
 .burger {
-    width: 15%;
+    width: 17%;
     transition: transform 0.3s ease;
-    margin-bottom: 0.5%;
+    margin-bottom: 2%;
     /* position: relative; */
     top: 2vh;
 }
@@ -260,11 +283,12 @@ export default {
     justify-content: space-evenly;
 }
 
-.list-text-s, .list-text-p {
+.list-text-s,
+.list-text-p {
     list-style: none;
     padding: 10px 30px;
     margin: 10px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     transition: background-color 0.5s ease;
     border-radius: 15px;
     color: rgb(52, 50, 50);
@@ -279,13 +303,12 @@ export default {
 
 .title-behavior-s {
     animation: floatAnimation 3s ease-in-out infinite;
-
     color: #57a84c;
+    font-size: 2.4rem;
     /* background-color: rgb(42, 136, 35); */
     border-radius: 10px;
     padding: 10px 30px;
     margin: 5px;
-
     cursor: pointer;
     text-decoration: none;
     position: relative;
@@ -311,17 +334,18 @@ export default {
         transform: scaleX(0);
         transition: all 0.3s ease-in-out 0s;
     }
+
     /* border: 1px solid rgb(42, 136, 35); */
 }
 
 .title-behavior-p {
     animation: floatAnimation 3s ease-in-out infinite;
     color: rgb(177, 28, 28);
+    font-size: 2.4rem;
     /* background-color: rgb(177, 28, 28); */
     border-radius: 10px;
     padding: 10px 40px;
     margin: 5px;
-
     cursor: pointer;
     text-decoration: none;
     position: relative;
@@ -347,6 +371,7 @@ export default {
         transform: scaleX(0);
         transition: all 0.3s ease-in-out 0s;
     }
+
     /* border-bottom: 1px solid rgb(177, 28, 28); */
 }
 
@@ -357,13 +382,13 @@ export default {
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     overflow: hidden;
-    padding: 0;    
+    padding: 0;
 }
 
 .textBehave {
     font-size: 1.4rem;
     position: absolute;
-    top: 32%;
+    top: 31%;
     color: #5f5a5a;
     position: fixed;
 }
@@ -378,11 +403,37 @@ export default {
 .arrow-left {
     right: 44%;
     top: 37%;
-  
+
 }
+
 .arrow-right {
     left: 44%;
     top: 37%;
+}
+
+.list-text {
+    font-size: 1.7rem;
+    list-style: none;
+    padding: 20px 35px;
+    margin: 15px;
+    transition: background-color 0.5s ease;
+    /* background-color: #dbdbdb; */
+    background-color: hsl(var(--hue), 70%, 80%);
+    border-radius: 15px;
+    color: rgb(42, 42, 42);
+}
+
+.list-text:hover {
+    cursor: pointer;
+    background-color: hsl(var(--hue), 80%, 95%);
+
+    color: rgb(0, 0, 0);
+}
+
+.ul-right {
+    position: absolute;
+    top: 25%;
+    left: 39%;
 }
 
 @keyframes forwardArrow {
@@ -399,4 +450,50 @@ export default {
     }
 }
 
+.arrow-left-burger1,
+.arrow-left-burger2,
+.arrow-right-burger {
+    position: absolute;
+    width: 4%;
+    animation: forwardArrow 2s ease-in-out infinite;
+}
+
+.arrow-left-burger1 {
+    left: 35%;
+    top: 39%;
+}
+
+.arrow-left-burger2 {
+    top: 62%;
+    left: 35%;
+}
+
+.arrow-right-burger {
+    right: 34%;
+    top: 50%;
+}
+
+.text-feedBack1, 
+.text-feedBack2,
+.text-feedBack3 {
+    position: absolute;
+    font-size: 2rem;
+    color: #db7c26;
+    font-family: Heebo-Bold;
+    animation: floatAnimation 3s ease-in-out infinite;
+
+}
+
+.text-feedBack1 {
+    left: 20%;
+    top: 37.5%;
+}
+.text-feedBack2 {
+    right: 11%;
+    top: 48%;
+}
+.text-feedBack3 {
+    top: 60%;
+    left: 20%;
+}
 </style>

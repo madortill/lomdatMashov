@@ -18,7 +18,13 @@
             <div v-for="(item, index) in arrayPrinciple" :key="index" class="circle">
                 {{ arrayPrinciple[index] }}
             </div>
-            <button class="mergeBtn">מיזוג</button>
+            <img src = "@/assets/media/BP/plus.png" alt = "plus" class ="plus-img"> 
+
+            <button class="mergeBtn" @click = "openMashov">מיזוג</button>
+            <img src = "@/assets/media/BP/equals.png" alt = "equals" class ="equals-img"> 
+            <div v-show = "showMashov" class = "mashov-div"> 
+                משוב
+            </div>
         </div>
 
         <!-- ago section -->
@@ -80,7 +86,7 @@ export default {
             indexTitle: 0,
             indexInfo: 0,
             showBtnCall: false,
-
+            showMashov: false,
         };
     },
     methods: {
@@ -114,7 +120,11 @@ export default {
         },
         src(name) {
             return new URL(`../assets/media/BP/${name}`, import.meta.url).href
+        },
+        openMashov() {
+            this.showMashov = true;
         }
+
     },
 }
 </script>
@@ -320,11 +330,11 @@ export default {
 }
 
 .circle {
-    width: 15rem;
-    height: 5rem;
+    width: 18rem;
+    height: 7rem;
     /* border-radius: 50%; */
-    border-radius: 30PX;
-    background-color: #7db9a5;
+    border-radius: 100px;
+    background-color: #68d8d6;
     text-align: center;
     color: #ffffff;
     font-size: 2rem;
@@ -334,7 +344,6 @@ export default {
     padding: 2%;
     transition: all 0.3s ease;
     position: fixed;
-    /* animation: floatAnimation 3s ease-in-out infinite; */
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
 }
 
@@ -357,19 +366,38 @@ export default {
 }
 
 .mergeBtn {
+    position: absolute;
     border: none;
     cursor: pointer;
-    height: 5%;
     font-size: 1.6rem;
     color: #ffffff;
     border-radius: 100px;
-    background-color: #3f7261;
+    background-color: #536e7e;
     min-width: 10%;
-    max-width: 15%;
+    height: 7%;
+    top: 48%;
 }
 
 .mergeBtn:hover {
     animation: hoverShine 200ms;
+}
+
+.mashov-div{
+    width: 15rem;
+    height: 7rem;
+    border-radius: 100px;
+    background-color: #f5853f;
+    text-align: center;
+    color: #ffffff;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    transition: all 0.3s ease;
+    position: absolute;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+    top: 68%;
 }
 
 .circle-ago {
@@ -487,4 +515,15 @@ export default {
     animation: floatAnimation 1s ease-in-out infinite;
 }
 
+.plus-img {
+    position: absolute;
+    top: 35%;
+    width: 2%;
+}
+
+.equals-img {
+    width: 3%;
+    position: absolute;
+    bottom: 35%;
+}
 </style>
