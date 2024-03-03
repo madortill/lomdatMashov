@@ -176,7 +176,7 @@ export default {
     font-size: 1.2rem;
     font-weight: 500;
     position: relative;
-    background: #1d8ab6;
+    background: #11a8e3;
     cursor: grab;
     border-radius: 30px;
     color: white;
@@ -244,13 +244,13 @@ export default {
 .text-success {
     position: absolute;
     bottom: 20%;
-    right: 10%;
-    border-radius: 20px;
+    right: 15%;
+    border-radius: 100px;
     text-align: center;
     padding: 3%;
-    font-size: 3.2rem;
-    width: 20%;
-    /* height: 15%; */
+    font-size: 3.5rem;
+    width: 15%;
+    box-shadow: 0 15px 30px -20px rgba(0, 0, 0, 0.8);
     background-color: #87b635;
     color: #fefefe;
 }

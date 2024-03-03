@@ -139,7 +139,7 @@ export default {
 
 .info-text {
     position: relative;
-    padding: 1% 20% 0 35%;
+    padding: 0% 20% 0 35%;
     right: 8%;
     font-size: 1.9rem;
     display: block;

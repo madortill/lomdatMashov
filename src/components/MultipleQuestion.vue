@@ -64,13 +64,13 @@ export default {
 
 .row {
     display: flex;
-    margin-bottom: 10%;
+    margin:  5% 10%;
 }
 
 .title-questionMultiple {
     color: #5f5a5a;
     font-size: 2.5rem;
-    padding: 6% 15%;
+    padding: 5% 15%;
     text-align: center;
     margin: 0;
 

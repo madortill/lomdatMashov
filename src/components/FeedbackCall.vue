@@ -22,26 +22,27 @@
             </div>
 
             <div v-if="indexInfo === 2" class="burger-container">
-                <p class = "text-feedBack1"> {{ arrayFeedback[0] }}</p>
+                <p class="text-feedBack1"> {{ arrayFeedback[0] }}</p>
                 <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left-burger1">
                 <img v-for="( item, index) in burgerArray" :key="index" :src="src(item)" class="burger">
-                <p class = "text-feedBack2"> {{ arrayFeedback[1] }}</p>
+                <p class="text-feedBack2"> {{ arrayFeedback[1] }}</p>
                 <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right-burger">
-                <p class = "text-feedBack3"> {{ arrayFeedback[2] }}</p>
+                <p class="text-feedBack3"> {{ arrayFeedback[2] }}</p>
                 <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left-burger2">
 
                 <!-- <img src = "@/assets/media/burger/burgerEnd.svg" alt ="burgerEnd" class="burger"> -->
             </div>
             <div v-if="indexInfo === 3">
                 <ul class="ul-right">
-                    <li v-for="(item, index) in correctArray" :key="index" class="list-text"  :style="`--hue: ${index * 18 + 215}deg`">
+                    <li v-for="(item, index) in correctArray" :key="index" class="list-text"
+                        :style="`--hue: ${index * 18 + 215}deg`">
                         {{ item }}
                     </li>
                 </ul>
             </div>
             <div v-if="indexInfo === 4" class="behavior-container">
-                <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left">
-                <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right">
+                <!-- <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left">
+                <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right"> -->
 
                 <p class="textBehave"> לחצו על ההתנהגות:</p>
 
@@ -158,16 +159,21 @@ export default {
         openlistP() {
             if (this.clickBtnP % 2 === 0) {
                 this.showListP = true;
+                event.target.classList.add("borderRed");
             } else {
                 this.showListP = false
+                event.target.classList.remove("borderRed");
             }
             this.clickBtnP++;
         },
-        openlistS() {
+        openlistS(event) {
             if (this.clickBtnS % 2 === 0) {
                 this.showListS = true;
+                event.target.classList.add("borderGreen");
+
             } else {
                 this.showListS = false
+                event.target.classList.remove("borderGreen");
             }
             this.clickBtnS++;
         },
@@ -287,10 +293,8 @@ export default {
 .list-text-p {
     list-style: none;
     padding: 10px 30px;
-    margin: 10px;
     font-size: 1.4rem;
     transition: background-color 0.5s ease;
-    border-radius: 15px;
     color: rgb(52, 50, 50);
 }
 
@@ -305,10 +309,7 @@ export default {
     animation: floatAnimation 3s ease-in-out infinite;
     color: #57a84c;
     font-size: 2.4rem;
-    /* background-color: rgb(42, 136, 35); */
-    border-radius: 10px;
-    padding: 10px 30px;
-    margin: 5px;
+    margin: 15px;
     cursor: pointer;
     text-decoration: none;
     position: relative;
@@ -342,10 +343,7 @@ export default {
     animation: floatAnimation 3s ease-in-out infinite;
     color: rgb(177, 28, 28);
     font-size: 2.4rem;
-    /* background-color: rgb(177, 28, 28); */
-    border-radius: 10px;
-    padding: 10px 40px;
-    margin: 5px;
+    margin: 15px;
     cursor: pointer;
     text-decoration: none;
     position: relative;
@@ -385,10 +383,19 @@ export default {
     padding: 0;
 }
 
+.borderGreen {
+    border-bottom: 1.5px solid #57a84c;
+}
+
+.borderRed {
+    border-bottom: 1.5px solid rgb(177, 28, 28);
+
+}
+
 .textBehave {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     position: absolute;
-    top: 31%;
+    top: 33%;
     color: #5f5a5a;
     position: fixed;
 }
@@ -417,7 +424,6 @@ export default {
     padding: 20px 35px;
     margin: 15px;
     transition: background-color 0.5s ease;
-    /* background-color: #dbdbdb; */
     background-color: hsl(var(--hue), 70%, 80%);
     border-radius: 15px;
     color: rgb(42, 42, 42);
@@ -432,8 +438,9 @@ export default {
 
 .ul-right {
     position: absolute;
-    top: 25%;
+    top: 22%;
     left: 39%;
+    padding: 0%;
 }
 
 @keyframes forwardArrow {
@@ -473,7 +480,7 @@ export default {
     top: 50%;
 }
 
-.text-feedBack1, 
+.text-feedBack1,
 .text-feedBack2,
 .text-feedBack3 {
     position: absolute;
@@ -488,10 +495,12 @@ export default {
     left: 20%;
     top: 37.5%;
 }
+
 .text-feedBack2 {
     right: 11%;
     top: 48%;
 }
+
 .text-feedBack3 {
     top: 60%;
     left: 20%;
