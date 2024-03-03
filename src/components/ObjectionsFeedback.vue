@@ -11,7 +11,7 @@
             <div v-for="(item, index) in arrayProcess" :key="index" class = "process-item">
                 <p>{{ item }}</p>
             </div>
-            <div class = "back-mashov"> חזרה לשיחת משוב</div>
+            <div v-show = "showBackToMashov" class = "back-mashov"> חזרה לשיחת משוב</div>
         </div>
         <div v-if="!showVideo">
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
@@ -48,6 +48,7 @@ export default {
             showVideo: false,
             index: 0,
             showQ: true,
+            showBackToMashov: false,   
         };
     },
     methods: {

@@ -292,7 +292,7 @@ export default {
 .list-text-s,
 .list-text-p {
     list-style: none;
-    padding: 10px 30px;
+    padding: 15px 30px;
     font-size: 1.4rem;
     transition: background-color 0.5s ease;
     color: rgb(52, 50, 50);

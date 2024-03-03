@@ -131,7 +131,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem;
+    padding: 3rem;
     position: relative;
 }
 
@@ -181,7 +181,7 @@ export default {
 }
 
 .circle-focus:nth-child(4) {
-    left: 86%;
+    left: 84%;
     bottom: 38%;
 }
 
@@ -199,7 +199,7 @@ export default {
 
 .textLS {
     position: fixed;
-    bottom: 60%;
+    bottom: 65%;
 }
 
 .opatinSource {
@@ -216,10 +216,11 @@ export default {
     gap: 3%;
     position: relative;
     right: 10%;
+    padding: 0%;
 }
 
 .grid-title {
-    padding: 20%;
+    padding: 15%;
     border-radius: 30px;
     text-align: center;
     font-size: 2.5rem;
