@@ -9,7 +9,7 @@
             }">
                 {{ text }} </p>
         </div>
-        <img v-show="showClose" src = "@/assets/media/שרוך-בורדו.svg" class = "burgundy-lace">
+        <img v-show="showClose" src = "@/assets/media/שרוך-בורדו-מעודכן.svg" class = "burgundy-lace">
         <div v-show="showClose" class="finish-exe">
             <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב!</h1>
             <button @click="closeWindow" class="closeBtn">סיום</button>
@@ -101,6 +101,7 @@ export default {
 .conclusion-text {
     color: #5f5a5a;
     font-size: 1.7rem;
+    position: fixed;
 }
 
 @keyframes typeWrite {
@@ -160,10 +161,11 @@ export default {
 }
 
 .burgundy-lace {
-    position: absolute;
-    width: 14%;
-    top: 15.5%;
-    left: 15%;
+    position: relative;
+    width: 36%;
+    /* top: 0%; */
+    bottom: 11%;
+    right: 20%;
     z-index: 1;
 }
 </style>
