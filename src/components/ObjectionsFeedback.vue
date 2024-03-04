@@ -4,21 +4,27 @@
             <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
         </div>
-        <div v-if = "indexInfo == 0">
-            <img src = "@/assets/media/OF/people.png" alt = "people" class = "people-img">
+        <div v-if="indexInfo == 0">
+            <img src="@/assets/media/OF/people.png" alt="people" class="people-img">
         </div>
-        <div v-if = "indexInfo == 1"  class = "process-div">
-            <div v-for="(item, index) in arrayProcess" :key="index" class = "process-item">
-                <p>{{ item }}</p>
+        <div v-if="indexInfo == 1" class="process-div">
+            <p class="click-me">לחצו עליי!</p>
+            <div v-for="(item, index) in arrayProcess" :key="index" :id="index" class="process-item" @click="showItem"
+                :style="`--hue: ${index * 17 + 180}deg`">
+                <Transition>
+                    <p v-show="indexArrayProcess >= index" class = "itemP">{{ item }}</p> 
+                </Transition>
+                <Transition>
+                    <p v-show="showBackToMashov" class="back-mashov"> חזרה לשיחת משוב</p>  
+                </Transition>
             </div>
-            <div v-show = "showBackToMashov" class = "back-mashov"> חזרה לשיחת משוב</div>
         </div>
         <div v-if="!showVideo">
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
             <button class="nextBtn" @click="nextBtn">המשך</button>
         </div>
         <div v-if="showVideo">
-            <video-section @to-the-end = "toTheEnd"></video-section>
+            <video-section @to-the-end="toTheEnd"></video-section>
         </div>
     </div>
 </template>
@@ -34,6 +40,7 @@ export default {
     },
     data() {
         return {
+            array: ['', '', '', ''],
             subj: 4,
             arrayTitle: ['', 'תהליך הטיפול בהתנגדות במשוב', 'סירטונים'],
             arrayInfo: ['התנגדויות במשוב ב-ביטוי התנהגותי של הנחנך לאי רצונו או יכולתו להמשיך בתקשורת עם החונך.', 'תהליך הטיפול בהתנגדות'],
@@ -48,7 +55,8 @@ export default {
             showVideo: false,
             index: 0,
             showQ: true,
-            showBackToMashov: false,   
+            indexArrayProcess: 0,
+            showBackToMashov: false,
         };
     },
     methods: {
@@ -71,6 +79,14 @@ export default {
                 this.showVideo = true;
             }
         },
+        showItem(event) {
+            let itemBtn = event.currentTarget.id;
+            console.log(itemBtn);
+            this.indexArrayProcess++;
+            if(this.indexArrayProcess === 4) {
+                this.showBackToMashov = true;
+            }
+        },
         toTheEnd() {
             // this.showVideo = false;
             this.$emit('move-to-next', this.showQ);
@@ -82,14 +98,34 @@ export default {
 <style>
 .process-div {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 2% 10%;
+    padding: 0%;
+    position: relative;
 }
 
 .process-item {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    width: 15%;
+    border-radius: 50px;
+    text-align: center;
+    background-color: hsl(var(--hue), 50%, 60%);
+    color: rgb(255, 255, 255);
+    margin: 1%;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+}
+.itemP {
+    transition: color 0.3s ease;
+}
+.itemP:hover {
     cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.process-item:hover {
+    cursor: pointer;
+    background-color: hsl(var(--hue), 80%, 75%);
 }
 
 .people-img {
@@ -101,7 +137,38 @@ export default {
 
 .back-mashov {
     position: absolute;
-    bottom: 30%;
+    bottom: 40%;
+    left: 10%;
     font-size: 2.5rem;
+    width: 20%;
+    border-radius: 50px;
+    text-align: center;;
+    background-color: rgb(38, 214, 238);
+    transition: background-color 0.5s ease;
+    color: rgb(255, 251, 251);
+    padding: 2%;
+}
+
+.process {
+    position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.click-me {
+    position: absolute;
+    top: 0%;
+    right: 35%;
+    font-size: 1.2rem;
+    color: #5f5a5a;
+    animation: floatAnimation 3s ease-in-out infinite;
 }
 </style>

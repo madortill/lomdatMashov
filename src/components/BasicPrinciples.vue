@@ -18,13 +18,13 @@
             <div v-for="(item, index) in arrayPrinciple" :key="index" class="circle">
                 {{ arrayPrinciple[index] }}
             </div>
-            <img src = "@/assets/media/BP/plus.png" alt = "plus" class ="plus-img"> 
+            <img src="@/assets/media/BP/plus.png" alt="plus" class="plus-img">
 
-            <button class="mergeBtn" @click = "openMashov">מיזוג</button>
-            <img src = "@/assets/media/BP/equals.png" alt = "equals" class ="equals-img"> 
-            <div v-show = "showMashov" class = "mashov-div"> 
-                משוב
-            </div>
+            <button class="mergeBtn" @click="openMashov">מיזוג</button>
+            <img src="@/assets/media/BP/equals.png" alt="equals" class="equals-img">
+            <Transition>
+                <p v-show="showMashov" class="mashov-div">משוב</p>
+            </Transition>
         </div>
 
         <!-- ago section -->
@@ -54,7 +54,7 @@
 
         <div v-if="showBtnCall">
             <p class="text-btnCall">{{ arrayInfo[indexInfo + 1] }}</p>
-            <img src = "@/assets/media/BP/arrow-down.png" alt = "arrow-down" class = "arrowImgDown" >
+            <img src="@/assets/media/BP/arrow-down.png" alt="arrow-down" class="arrowImgDown">
             <button class="callBtn" @click="nextBtn"> שיחת משוב</button>
         </div>
 
@@ -382,7 +382,7 @@ export default {
     animation: hoverShine 200ms;
 }
 
-.mashov-div{
+.mashov-div {
     width: 15rem;
     height: 7rem;
     border-radius: 100px;
@@ -397,7 +397,7 @@ export default {
     transition: all 0.3s ease;
     position: absolute;
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
-    top: 68%;
+    top: 62%;
 }
 
 .circle-ago {
@@ -511,7 +511,7 @@ export default {
     position: absolute;
     left: 48.5%;
     top: 62%;
-    width:2.5%;
+    width: 2.5%;
     animation: floatAnimation 1s ease-in-out infinite;
 }
 
@@ -525,5 +525,25 @@ export default {
     width: 3%;
     position: absolute;
     bottom: 35%;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>

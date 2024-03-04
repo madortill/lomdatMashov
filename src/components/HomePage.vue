@@ -40,7 +40,7 @@ export default {
             showInfo: true,
             index: 0,
             showExplain: true,
-            titleIndex: 3,
+            titleIndex: 0,
             showNav: true,
             showQuestions: false,
             indexQuestion: 0,

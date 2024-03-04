@@ -47,7 +47,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.showClose = true;
-        }, 22000);
+        }, 22500);
     },
     methods: {
         closeWindow() {

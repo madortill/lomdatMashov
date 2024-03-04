@@ -41,28 +41,28 @@
                 </ul>
             </div>
             <div v-if="indexInfo === 4" class="behavior-container">
-                <!-- <img src="@/assets/media/BP/arrow-left.png" alt="arrow-left" class="arrow-left">
-                <img src="@/assets/media/BP/arrow-right.png" alt="arrow-right" class="arrow-right"> -->
-
                 <p class="textBehave"> לחצו על ההתנהגות:</p>
-
                 <div>
                     <h1 @click="openlistP" class="title-behavior-p">
                         {{ proveBehavior[0].typeTitle }}</h1>
-                    <ul v-show="showListP" class="ulP">
-                        <li v-for="(item, index) in proveBehavior[0].arrayBehave" :key="index" class="list-text-p">
-                            {{ item }}
-                        </li>
-                    </ul>
+                    <Transition>
+                        <ul v-show="showListP" class="ulP">
+                            <li v-for="(item, index) in proveBehavior[0].arrayBehave" :key="index" class="list-text-p">
+                                {{ item }}
+                            </li>
+                        </ul>
+                    </Transition>
                 </div>
 
                 <div>
                     <h1 @click="openlistS" class="title-behavior-s">{{ saveBehavior[0].typeTitle }} </h1>
-                    <ul v-show="showListS" class="ulS">
-                        <li v-for="(item, index) in saveBehavior[0].arrayBehave" :key="index" class="list-text-s">
-                            {{ item }}
-                        </li>
-                    </ul>
+                    <Transition>
+                        <ul v-show="showListS" class="ulS">
+                            <li v-for="(item, index) in saveBehavior[0].arrayBehave" :key="index" class="list-text-s">
+                                {{ item }}
+                            </li>
+                        </ul>
+                    </Transition>
                 </div>
             </div>
             <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
@@ -419,19 +419,19 @@ export default {
 }
 
 .list-text {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     list-style: none;
     padding: 20px 35px;
     margin: 15px;
     transition: background-color 0.5s ease;
-    background-color: hsl(var(--hue), 70%, 80%);
+    background-color: hsl(var(--hue), 70%, 70%);
     border-radius: 15px;
     color: rgb(42, 42, 42);
 }
 
 .list-text:hover {
     cursor: pointer;
-    background-color: hsl(var(--hue), 80%, 95%);
+    background-color: hsl(var(--hue), 75%, 83%);
 
     color: rgb(0, 0, 0);
 }
@@ -504,5 +504,15 @@ export default {
 .text-feedBack3 {
     top: 60%;
     left: 20%;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>
