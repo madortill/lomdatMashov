@@ -161,7 +161,7 @@ export default {
     background-color: hsl(var(--hue), 50%, 75%);
     position: fixed;
     padding: 3.5%;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .circle-focus:hover {
@@ -239,7 +239,7 @@ export default {
 
 .grid-item:hover {
     background-color: hsl(var(--hue), 70%, 68%);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 </style>
  

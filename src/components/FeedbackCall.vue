@@ -102,7 +102,7 @@ export default {
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'מבנה העקרוני של שיחת משוב:', 'העלאת תופעות במשוב.'],
-            arrayAreaType: ['איזור פתוח.', 'איזור עיוור.', 'איזור לא ידוע.', 'איזור חבוי.'],
+            arrayAreaType: ['איזור גלוי.', 'איזור עיוור.', 'איזור לא מדוע.', 'איזור נסתר.'],
             arrayTextAreaType: ['ידוע לי וידוע לאחרים.', 'לא ידוע לי וידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', 'ידוע לי ולא ידוע לאחרים.'],
             arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'המשוב האפקטיבי יועבר בשיטת ה - סנדוויץ:', '', 'איך עושים את זה?'],
             proveBehavior: [
@@ -199,7 +199,7 @@ export default {
 }
 
 .burger:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     transform: translateY(-20px);
 }
 
@@ -260,7 +260,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .flip-card-back-fc {
@@ -273,7 +273,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .eye-container {
@@ -300,7 +300,7 @@ export default {
 
 .list-text-s:hover,
 .list-text-p:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: #dbdbdb;
     color: black;
 }
@@ -430,7 +430,7 @@ export default {
 }
 
 .list-text:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: hsl(var(--hue), 75%, 83%);
 
     color: rgb(0, 0, 0);

@@ -124,7 +124,7 @@ export default {
 }
 
 .process-item:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: hsl(var(--hue), 80%, 75%);
 }
 

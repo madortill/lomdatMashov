@@ -7,7 +7,7 @@
         <!-- what is mashov -->
         <div v-show="indexTitle === 0">
             <pfpSvg></pfpSvg>
-            <p class="over-me-text">עברו מעליי!</p>
+            <!-- <p class="over-me-text">עברו מעליי!</p> -->
             <img src="@/assets/media/BP/future.svg" class="future-text">
             <img src="@/assets/media/BP/past.svg" class="past-text">
             <img src="@/assets/media/BP/present.svg" class="present-text">
@@ -19,7 +19,7 @@
                 {{ arrayPrinciple[index] }}
             </div>
             <img src="@/assets/media/BP/plus.png" alt="plus" class="plus-img">
-
+            <p class="over-me-text">לחצו עליי</p>
             <button class="mergeBtn" @click="openMashov">מיזוג</button>
             <img src="@/assets/media/BP/equals.png" alt="equals" class="equals-img">
             <Transition>
@@ -155,7 +155,7 @@ export default {
     display: block;
     z-index: 1;
     color: #ffffff;
-    margin-top: 5%;
+    margin-top: 4.5%;
 }
 
 .title-text {
@@ -279,7 +279,7 @@ export default {
     background-color: hsl(var(--hue), 50%, 58%);
     border-radius: 30px;
     color: black;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .flip-card-back {
@@ -291,7 +291,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .imgFront {
@@ -362,7 +362,7 @@ export default {
     width: 17rem;
     height: 17rem;
     padding: 2%;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .mergeBtn {
@@ -477,10 +477,10 @@ export default {
     position: absolute;
     font-size: 1.2rem;
     color: #978f8f;
-    top: 75%;
-    left: 52%;
-    transform: rotate(348deg);
-    animation: floatAnimation2 3s ease-in-out infinite;
+    top: 54%;
+    left: 40%;
+    /* transform: rotate(348deg); */
+    animation: floatAnimation 3s ease-in-out infinite;
 }
 
 @keyframes floatAnimation2 {

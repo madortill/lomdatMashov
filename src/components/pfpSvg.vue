@@ -53,7 +53,6 @@
 
 .yellow:hover {
     fill: pink;
-    cursor: pointer;
 }
 
 text {
@@ -62,7 +61,6 @@ text {
 
 .green:hover {
     fill: #ffbf69;
-    cursor: pointer;
 }
 
 .green {
@@ -74,7 +72,6 @@ text {
 }
 
 .blue:hover {
-    cursor: pointer;
     fill: #f27059;
 }
 </style>
