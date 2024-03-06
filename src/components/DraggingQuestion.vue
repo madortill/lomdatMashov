@@ -105,8 +105,11 @@ export default {
             const id = ev.dataTransfer.getData("id");
             const content = ev.dataTransfer.getData("text");
             // console.log('el: ' + id);
+            
             document.getElementById(id).className = 'list-item';
-            this.answerArray.splice(this.answerArray.indexOf(content), 1);
+            if(this.answerArray.lastIndexOf(content) !== -1) { // כלומר אם הוא כן נמצא במערך העליון
+                this.answerArray.splice(this.answerArray.indexOf(content), 1);
+            }
 
             const rightAns = this.questionInfo.correctArray;
             let indexCorrectAns = 0;

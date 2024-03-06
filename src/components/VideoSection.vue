@@ -3,7 +3,7 @@
         <div class="video-container">
             <!-- המסכים לכאורה -->
             <div v-if="videoNum === 0" class="seemingly-agree">
-                <iframe width="900" height="550" src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL"
+                <iframe class="video-iframe" width="900" height="550" src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -36,7 +36,7 @@
         </div>
         <p v-if="!showInfo" class="text-objection">איזו התנגדות זיהית בסירטון?</p>
         <div v-if="!showInfo" class="btn-container">
-            <button v-for="(button, index) in buttons" :key="index" class=btnVideo :id="index" :ref="index"
+            <button v-for="(button, index) in buttons" :key="index" class= "btnVideo"  :id="index" :ref="index"
                 @click="checkAnswer">{{ button
                 }}</button>
         </div>
@@ -68,7 +68,13 @@ export default {
     },
     mounted() {
         window.onYouTubeIframeAPIReady = this.initVideo;
-
+        // setTimeout(() => {
+        //         for(let i = 0; i < this.buttons.length; i++) {
+        //             if(event.target.classList.contains('disabledBtnVideo')) {
+        //                 this.$refs[i].classList.remove('disabledBtnVideo');
+        //             }
+        //         }
+        //     }, 2000);
         // const tag = document.createElement('script');
         // tag.src = 'https://www.youtube.com/iframe_api';
         // const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -116,13 +122,14 @@ export default {
             console.log(event.target.className);
             console.log("dfvdsfc");
         },
-        nextVideoSection() {
-            this.videoNum++;
-            this.showInfo = false;
-            if (this.videoNum > 3) {
-                this.$emit('to-the-end');
-            }
+        nextVideoSection(event) {
+        this.videoNum++;
+        this.showInfo = false;
+        if (this.videoNum > 3) {
+            this.$emit('to-the-end');
         }
+    }
+
     },
     computed: {
         shuffledArr() {
@@ -135,7 +142,7 @@ export default {
             }
             return returnArray;
         }
-    }
+    },
 }
 </script>
 
@@ -169,9 +176,9 @@ export default {
     padding: 20px 30px;
 }
 
-.btnVideo:hover {
+ .btnVideo:hover {
     animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
-}
+} 
 
 .text-objection {
     position: absolute;
@@ -188,10 +195,10 @@ export default {
     background-color: rgb(176, 6, 6);
 }
 
-.disabled {
-    background-color: rgb(140, 139, 132);
-    color: rgb(196, 194, 177);
-    cursor: none;
+.disabledBtnVideo {
+    background-color: rgb(224 224 223);
+    color: rgb(255, 255, 255);
+    cursor: default;
 }
 
 .video-information {

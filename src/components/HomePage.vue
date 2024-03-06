@@ -40,7 +40,7 @@ export default {
             showInfo: true,
             index: 0,
             showExplain: true,
-            titleIndex: 0,
+            titleIndex:  0,
             showNav: true,
             showQuestions: false,
             indexQuestion: 0,
@@ -102,7 +102,7 @@ export default {
     font-size: 1.6rem;
     color: #ffffff;
     border-radius: 100px;
-    background-color: #0492bd;
+    background-color: #82cbe1;
     min-width: 12%;
     max-width: 20%;
     left: 10%;
