@@ -212,7 +212,6 @@ export default {
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 0.2fr);
-    grid-template-rows: repeat(2, 0.9fr);
     gap: 3%;
     position: relative;
     right: 10%;

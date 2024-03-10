@@ -117,7 +117,7 @@ export default {
 .finale-exe>p {
     display: block;
     width: fit-content;
-    animation: typeWrite 2s var(--delay) steps(44) normal both, blink 500ms var(--delay) steps(45) 6;
+    animation: typeWrite 2s var(--delay) steps(44) normal both, blink 550ms var(--delay) steps(45) 6;
     white-space: nowrap;
     text-align: right;
     overflow: hidden;
