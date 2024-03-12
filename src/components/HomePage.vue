@@ -2,7 +2,7 @@
     <div id="home-page">
         <div v-if="showExplain">
             <div class="explain-page">
-                <h1 style="font-size: 3rem;">הוראות ללומדה</h1>
+                <!-- <h1 style="font-size: 3rem;">הוראות ללומדה</h1> -->
                 <p class = "explain-text">{{ explainArray[0] }} </p>
                 <p class = "talk-text">שיחת משוב </p>
                 <p class ="explain-text"> {{ explainArray[1] }}</p>
@@ -44,7 +44,7 @@ export default {
             showNav: true,
             showQuestions: false,
             indexQuestion: 0,
-            explainArray: ['הינכם עומדים לעבור לומדה על כיצד לנהל באופן המיטבי ביותר :', 'הלומדה אטרקטיבית ועניינית לכן תמצו ממנה את המיטב ועל הדרך נסו למצוא את דרכי הלימוד האטרקטיביות בלומדה.'],
+            explainArray: ['הינכם עומדים ללמוד, כיצד לנהל באופן המיטבי ביותר :', 'הלומדה אטרקטיבית ועניינית לכן תמצו ממנה את המיטב ועל הדרך נסו למצוא את דרכי הלימוד האטרקטיביות בלומדה.'],
         };
     },
 
@@ -157,27 +157,25 @@ export default {
 }
 
 .explain-text {
-    font-size: 2rem;
-    padding: 0% 10% 2%;
+    font-size: 2.1rem;
+    padding: 5% 15% 2%;
     color: rgb(79, 77, 77);
 }
 
 
 .talk-text {
     animation: floatAnimation 3s ease-in-out infinite;
-    color: #f06543;
+    color: #4b7189;
     font-size: 3rem;
     /* background-color: rgb(42, 136, 35); */
     border-radius: 10px;
     padding: 10px 30px;
     margin: 5px;
-
-    cursor: pointer;
     text-decoration: none;
     position: relative;
-
+    cursor: default;
     &:hover {
-        color: #f26419;
+        color: #4b7189;
 
         &:before {
             visibility: visible;
@@ -192,7 +190,7 @@ export default {
         height: 2px;
         bottom: 0;
         right: 30%;
-        background-color: #f26419;
+        background-color: #4b7189;
         visibility: hidden;
         transform: scaleX(0);
         transition: all 0.3s ease-in-out 0s;

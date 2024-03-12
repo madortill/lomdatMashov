@@ -74,7 +74,6 @@ body {
 
 .logo {
     max-width: 100px;
-    height: 10%;
     left: 0;
     top: 0;
     position: absolute;

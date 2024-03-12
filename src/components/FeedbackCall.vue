@@ -5,7 +5,7 @@
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
 
             <div v-if="indexInfo === 0" class="flip-container">
-                <div v-for="( item, index) in arrayAreaType" :key="index" class="flip-card-fc">
+                <div v-for="( item, index) in arrayAreaType" :key="index" :class="['flip-card-fc', this.onStart]">
                     <div class="flip-card-inner-fc" :style="`--hue: ${index * 18 + 215}deg`">
                         <div class="flip-card-front-fc">
                             <h1 class="textBack">{{ arrayAreaType[index] }} </h1>
@@ -41,7 +41,7 @@
                 </ul>
             </div>
             <div v-if="indexInfo === 4" class="behavior-container">
-                <p class="textBehave"> לחצו על ההתנהגות:</p>
+                <!-- <p class="textBehave"> לחצו על ההתנהגות:</p> -->
                 <div>
                     <h1 @click="openlistP" class="title-behavior-p">
                         {{ proveBehavior[0].typeTitle }}</h1>
@@ -99,21 +99,22 @@ export default {
                 "סיכום המשוב"
             ],
             imageSrc: playGray,
+            onStart: 'start',
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'מבנה העקרוני של שיחת משוב:', 'העלאת תופעות במשוב.'],
-            arrayAreaType: ['איזור גלוי.', 'איזור עיוור.', 'איזור לא מדוע.', 'איזור נסתר.'],
+            arrayAreaType: ['איזור גלוי', 'איזור עיוור', 'איזור לא מדוע', 'איזור נסתר'],
             arrayTextAreaType: ['ידוע לי וידוע לאחרים.', 'לא ידוע לי וידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', 'ידוע לי ולא ידוע לאחרים.'],
             arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'המשוב האפקטיבי יועבר בשיטת ה - סנדוויץ:', '', 'איך עושים את זה?'],
             proveBehavior: [
                 {
-                    typeTitle: 'התנהגות שלילית לשיפור:',
+                    typeTitle: 'התנהגות שלילית לשיפור',
                     arrayBehave: ['העלאת תופעה אפשרית.', 'ציון דוגמאות.', 'איתור הסיבה האמיתית לתופעה.', 'טיפול במקור התופעה.', 'הצעת בנק פתרונות.', 'בחירת הפיתרון המועדף.', 'קביעת תוכנית ליישום הפיתרון.'],
                 }
             ],
             saveBehavior: [
                 {
-                    typeTitle: 'התנהגות חיובית לשימור:',
+                    typeTitle: 'התנהגות חיובית לשימור',
                     arrayBehave: ['העלאת תיאור ההתנהגות.', 'ציון דוגמאות.', 'איתור סיבת התופעה.', 'הסבר על תרומת התנהגות.'],
                 }
             ],
@@ -135,6 +136,13 @@ export default {
             clickBtnS: 0,
         };
     },
+    mounted() {
+        if(this.indexTitle === 0) {
+            setTimeout(() => {
+                this.onStart = 'off';
+            }, 100);
+        }
+    },
     methods: {
         prevBtn() {
             if (this.index > 0) {
@@ -149,6 +157,7 @@ export default {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
+          
             if (this.indexTitle === 5) {
                 this.$emit('move-to-next', this.showQ);
             }
@@ -232,11 +241,11 @@ export default {
     text-align: center;
 }
 
-.flip-card-fc:hover .flip-card-front-fc {
+.flip-card-fc:hover .flip-card-front-fc, .flip-card-fc.start .flip-card-front-fc{
     transform: rotateY(180deg);
 }
 
-.flip-card-fc:hover .flip-card-back-fc {
+.flip-card-fc:hover .flip-card-back-fc, .flip-card-fc.start .flip-card-back-fc {
     transform: rotateY(360deg)
 }
 

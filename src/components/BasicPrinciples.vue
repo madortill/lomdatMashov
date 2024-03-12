@@ -36,7 +36,7 @@
 
         <!-- flipcards -->
         <div v-show="indexTitle === 3" class="flip-card-container">
-            <div v-for="( item, index) in arrayFront" :key="index" class="flip-card">
+            <div v-for="( item, index) in arrayFront" :key="index" :class="['flip-card', this.onStart]">
                 <div class="flip-card-inner" :style="`--hue: ${index * 15 + 130}deg`">
                     <div class="flip-card-front">
                         <img :src="src(item)" class="imgFront">
@@ -58,7 +58,7 @@
             <button class="callBtn" @click="nextBtn"> שיחת משוב</button>
         </div>
 
-        <p v-if="indexTitle === 3 || indexTitle === 2" class="over-me">עברו מעליי!</p>
+        <!-- <p v-if="indexTitle === 3 || indexTitle === 2" class="over-me">עברו מעליי!</p> -->
         <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
         <button v-if="!showBtnCall" class="nextBtn" @click="nextBtn">המשך</button>
     </div>
@@ -87,7 +87,11 @@ export default {
             indexInfo: 0,
             showBtnCall: false,
             showMashov: false,
+            onStart: 'start'
         };
+    },
+    mounted () {
+
     },
     methods: {
         prevBtn() {
@@ -116,6 +120,12 @@ export default {
             }
             if (this.indexTitle === 5) {
                 this.$emit('move-to-next', this.showQ);
+            }
+
+            if (this.indexTitle === 3) {
+                setTimeout(() => {
+                    this.onStart = 'off';
+                }, 100);
             }
         },
         src(name) {
@@ -256,11 +266,11 @@ export default {
     text-align: center;
 }
 
-.flip-card:hover .flip-card-front {
+.flip-card:hover .flip-card-front, .flip-card.start .flip-card-front{
     transform: rotateY(180deg);
 }
 
-.flip-card:hover .flip-card-back {
+.flip-card:hover .flip-card-back, .flip-card.start .flip-card-back{
     transform: rotateY(360deg)
 }
 

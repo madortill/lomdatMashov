@@ -1,6 +1,6 @@
 <template>
     <div id="information-page">
-        <h4 v-if="showTitle" class="text-side-title">{{ arrayTitle[titleIndex] }}</h4>
+        <!-- <h4 v-if="showTitle" class="text-side-title">{{ arrayTitle[titleIndex] }}</h4> -->
         <basic-principles v-if="titleIndex === 0" @move-to-next="nextSub"></basic-principles>
         <feedback-call v-if="titleIndex === 1" @move-to-next="nextSub"></feedback-call>
         <locating-source v-if="titleIndex === 2" @move-to-next="nextSub"></locating-source>

@@ -68,17 +68,6 @@ export default {
     },
     mounted() {
         window.onYouTubeIframeAPIReady = this.initVideo;
-        // setTimeout(() => {
-        //         for(let i = 0; i < this.buttons.length; i++) {
-        //             if(event.target.classList.contains('disabledBtnVideo')) {
-        //                 this.$refs[i].classList.remove('disabledBtnVideo');
-        //             }
-        //         }
-        //     }, 2000);
-        // const tag = document.createElement('script');
-        // tag.src = 'https://www.youtube.com/iframe_api';
-        // const firstScriptTag = document.getElementsByTagName('script')[0];
-        // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     },
     methods: {
         initVideo() {
@@ -195,11 +184,11 @@ export default {
     background-color: rgb(176, 6, 6);
 }
 
-.disabledBtnVideo {
+/* .disabledBtnVideo {
     background-color: rgb(224 224 223);
     color: rgb(255, 255, 255);
     cursor: default;
-}
+} */
 
 .video-information {
     position: absolute;

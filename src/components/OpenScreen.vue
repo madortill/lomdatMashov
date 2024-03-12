@@ -58,26 +58,25 @@ export default {
     position: absolute;
     border: none;
     cursor: pointer;   
-    /* width: 12%; */
-    height: 6%;
-    left: 10%;
+    height: 7%;
+    /* left: 10%; */
     bottom: 13%;
 	font-size: 1.6rem;
 	color: #ffffff;
 	border-radius: 100px;
     background-color: #0492bd;
-    min-width:12%;
-    max-width: 20%;
+    min-width:13%;
+    max-width: 12%;
 }
 
 
 .btnNext {
-	animation: borderPulse 1000ms infinite ease-out;
+	animation: borderPulse 4000ms infinite ease-out;
 }
 
 .btnNext:hover,
 .btnNext:focus {
-	animation: borderPulse 1000ms infinite ease-out,  hoverShine 200ms;
+	animation: borderPulse 4000ms infinite ease-out,  hoverShine 200ms;
 }
 
 
@@ -86,8 +85,17 @@ export default {
   0% {
     box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
   }
-  100% {
+  35% {
     box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
+  50% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  } 
+  75% {
+    box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
   }
 }
 
