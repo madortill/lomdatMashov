@@ -342,7 +342,7 @@ export default {
         background-color: #57a84c;
         visibility: hidden;
         transform: scaleX(0);
-        transition: all 0.3s ease-in-out 0s;
+        transition: font-size 0.5s ease-in-out;
     }
 
     /* border: 1px solid rgb(42, 136, 35); */

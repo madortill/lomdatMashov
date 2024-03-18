@@ -36,7 +36,7 @@
         </div>
         <p v-if="!showInfo" class="text-objection">איזו התנגדות זיהית בסירטון?</p>
         <div v-if="!showInfo" class="btn-container">
-            <button v-for="(button, index) in buttons" :key="index" class= "btnVideo"  :id="index" :ref="index"
+            <button v-for="(button, index) in  this.shuffledArr" :key="index" class= "btnVideo"  :id="index" :ref="index"
                 @click="checkAnswer">{{ button
                 }}</button>
         </div>
@@ -57,6 +57,7 @@ export default {
     data() {
         return {
             buttons: ['המסכים לכאורה', 'היהיר', 'הטרגי', 'הווכחן'],
+            correctArray: ['המסכים לכאורה', 'היהיר', 'הטרגי', 'הווכחן'],
             correctAnswer: 0,
             player: null,
             showInfo: false,
@@ -95,16 +96,16 @@ export default {
             }
         },
         checkAnswer(event) {
-            let btnAnswer = event.target.id;
-            if (String(btnAnswer) === String(this.videoNum)) {
-                this.indexObjection = this.videoNum;
-                event.target.classList.add("correct");
-                setTimeout(() => {
-                    this.showInfo = true;
-                }, 1500);
-            } else {
-                event.target.classList.add("wrong");
-            }
+            let btnAnswer = event.currentTarget.textContent;
+                if (btnAnswer === this.correctArray[this.videoNum]) {
+                    this.indexObjection = this.videoNum;
+                    event.target.classList.add("correct");
+                    setTimeout(() => {
+                        this.showInfo = true;
+                    }, 1500);
+                } else {
+                    event.target.classList.add("wrong");
+                }
         },
 
         checkVideo(event) {
@@ -114,6 +115,7 @@ export default {
         nextVideoSection(event) {
         this.videoNum++;
         this.showInfo = false;
+        this.buttons = this.shuffledArr;
         if (this.videoNum > 3) {
             this.$emit('to-the-end');
         }

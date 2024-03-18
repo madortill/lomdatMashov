@@ -2,17 +2,19 @@
     <div id="multiple-question">
         <div class="answers-container" @click="checkAnswer">
             <h1 class="title-questionMultiple">{{ this.questionInfo.title }}</h1>
-            <div class="row">
-                <button id="1" ref="1" class="pulse-button-hover">{{ this.questionInfo.ans1
-                }}</button>
-                <button id="2" ref="2" class="pulse-button-hover">{{ this.questionInfo.ans2
-                }}</button>
-            </div>
-            <div class="row">
-                <button id="3" ref="3" class="pulse-button-hover">{{ this.questionInfo.ans3
-                }}</button>
-                <button id="4" ref="4" class="pulse-button-hover">{{ this.questionInfo.ans4
-                }}</button>
+            <div class = "div-mulQ">
+                <div class="row">
+                    <button id="1" ref="1" class="pulse-button-hover">{{ this.questionInfo.ans1
+                    }}</button>
+                    <button id="2" ref="2" class="pulse-button-hover">{{ this.questionInfo.ans2
+                    }}</button>
+                </div>
+                <div class="row">
+                    <button id="3" ref="3" class="pulse-button-hover">{{ this.questionInfo.ans3
+                    }}</button>
+                    <button id="4" ref="4" class="pulse-button-hover">{{ this.questionInfo.ans4
+                    }}</button>
+                </div>
             </div>
         </div>
     </div>
@@ -64,23 +66,24 @@ export default {
 
 .row {
     display: flex;
-    margin:  5% 10%;
+    margin:  8% 5% 15% 5%;
+    justify-content: space-between;
 }
 
 .title-questionMultiple {
     color: #5f5a5a;
     font-size: 2.5rem;
-    padding: 5% 15%;
+    padding: 8% 15%;
     text-align: center;
     margin: 0;
-
 }
 
 .pulse-button-hover {
     background-color: #11a8e3;
-    margin: 0 2rem;
+    margin: 0 1rem;
     cursor: pointer;
     border: none;
+    width: 40%;
     font-size: 1.7rem;
     color: #ffffff;
     border-radius: 100px;
@@ -127,5 +130,19 @@ export default {
     background-color: rgb(140, 139, 132);
     color: rgb(196, 194, 177);
     cursor: none;
+}
+.div-mulQ {
+    position: absolute;
+    width: 45%;
+    height: 40%;
+    background: #fff;
+    border-radius: 3rem;
+    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+
+    /* New styles for centering */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 </style>

@@ -46,8 +46,8 @@ export default {
 
 <style>
 .nextBtnVideo {
-    background-color: #047fb0;
-    margin: 0 2rem;
+    background-color: #029cd9;
+    /* margin: 0 2rem; */
     cursor: pointer;
     border: none;
     font-size: 1.2rem;
@@ -56,7 +56,7 @@ export default {
     padding: 10px 20px;
     transition: background-color 0.3s ease;
     /* position: absolute; */
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .nextBtnVideo:hover {

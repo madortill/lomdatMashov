@@ -1,6 +1,6 @@
 <template>
     <div id="open-screen">
-        <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white">
+        <!-- <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white"> -->
         <h1 class="text-title">לומדת משוב</h1>
         <button class="btnNext" @click = "startTutorial"> התחל </button>
         <div class="animation-part">
@@ -37,36 +37,51 @@ export default {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #D9D9D9;
+    background-color: #ebebeb;
 }
 
 .logo-white {
-    width: 30%;
+    width: 10%;
+    position: absolute;
+    left: 20%;
 }
 
 .text-title {
-    color: #A6A6A6;
-    font-family: 'Heebo-Bold';
-    /* font-size: xx-l; */
-	font-size: 3rem;
-    position: absolute;
-    bottom: 30%;
-    left: 25%;
+  color:rgb(83, 82, 82);
+  font-family: 'Heebo-Bold';
+	font-size: 11rem;
+  position: absolute;
+  bottom: 30%;
+  animation: growShrink 3s infinite;
 }
 
+@keyframes growShrink {
+  0% {
+  /* bottom: 30%; */
+    font-size: 11rem;
+  }
+  50% {
+  /* bottom: 32%; */
+    font-size: 12rem;
+  }
+  100% {
+  /* bottom: 30%; */
+    font-size: 11rem;
+  }
+}
 .btnNext {
     position: absolute;
     border: none;
     cursor: pointer;   
     height: 7%;
     /* left: 10%; */
-    bottom: 13%;
-	font-size: 1.6rem;
-	color: #ffffff;
-	border-radius: 100px;
+    bottom: 30%;
+    font-size: 2.6rem;
+    color: #ffffff;
+    border-radius: 100px;
     background-color: #0492bd;
     min-width:13%;
-    max-width: 12%;
+
 }
 
 

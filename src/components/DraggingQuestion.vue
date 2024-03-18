@@ -81,8 +81,8 @@ export default {
                 let newArrayElement = this.answerArray[i]; 
                 let rightAnsElement = rightAns[i];
                 if (newArrayElement === rightAnsElement) {
-                    console.log('Correct');
                     indexCorrectAns++;
+                    console.log(indexCorrectAns);
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.add("correct");
                     document.querySelector(`.draggable-area .list-item:nth-of-type(${i + 1})`).classList.remove("wrong");
                 } else {
@@ -92,7 +92,11 @@ export default {
                 }
                 // console.log(indexCorrectAns);
                 if (indexCorrectAns === rightAns.length) {
-                    this.showWordWarehouse = false;
+                    // console.log(rightAns.correctArray.length);
+                    // console.log(indexCorrectAns + 'right ans')
+                    // if(indexCorrectAns === rightAns.correctArray.length){
+                    //     this.showWordWarehouse = true;
+                    // }
                     this.showTextSuccess = true;
                     setTimeout(() => {
                         this.$emit('next-question');
@@ -190,7 +194,6 @@ export default {
 .text-drag {
     position: absolute;
     bottom: 85%;
-    right: 25%;
     font-size: 1.4rem;
     color: #5f5a5a;
     animation: floatAnimation 3s ease-in-out infinite;

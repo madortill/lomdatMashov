@@ -54,7 +54,7 @@ export default {
             arrayAction: ['הנחנך לא קלט את הגירוי.', 'פעולות הנחנך לא תואמות את התורה המקצועית.', 'בחירת פיתרון לא מתאים למצב'],
             loactingSource: [
                 {
-                    name: 'מודעות:',
+                    name: 'מודעות',
                     problem: 'החניך לא רואה את הבעיה ואינו מודע לה.',
                     question: [
                         'ראית ש...?',
@@ -67,7 +67,7 @@ export default {
                     ]
                 },
                 {
-                    name: 'תפיסה:',
+                    name: 'תפיסה',
                     problem: 'החניך לא מבין למה זו בעיה.',
                     question: [
                         'מה את/ה חושב/ת על...?',
@@ -82,7 +82,7 @@ export default {
                     ]
                 },
                 {
-                    name: 'יישום:',
+                    name: 'יישום',
                     problem: 'החניך לא מצליח ליישם, אינו מוצא דרך לשנות את הבעיה.',
                     question: [
                         'איך עשית את...?',
@@ -219,7 +219,7 @@ export default {
 }
 
 .grid-title {
-    padding: 15%;
+    padding: 9%;
     border-radius: 30px;
     text-align: center;
     font-size: 2.5rem;
