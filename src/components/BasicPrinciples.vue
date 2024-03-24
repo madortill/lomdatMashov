@@ -170,7 +170,7 @@ export default {
 
 .title-text {
     margin: auto;
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding-top: 2%;
 }
 
@@ -185,7 +185,7 @@ export default {
     background-color: #0492bd;
     min-width: 10%;
     max-width: 15%;
-    left: 10%;
+    left: 7%;
     bottom: 13%;
 }
 

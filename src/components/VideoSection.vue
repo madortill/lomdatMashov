@@ -105,6 +105,7 @@ export default {
                     }, 1500);
                 } else {
                     event.target.classList.add("wrong");
+                    this.showInfo = false;
                 }
         },
 

@@ -1,8 +1,11 @@
 <template>
     <div id="objections-feedback">
-        <div v-if="!showVideo" class="div-text">
-            <h2 class="title-text">{{ arrayTitle[indexTitle] }}</h2>
+        <div v-if="!showVideo" :class="{ 'div-text-plus': indexTitle === 2, 'div-text': indexTitle !== 3 }">
+            <h2 class="title-text" >{{ arrayTitle[indexTitle] }}</h2>
             <p class="info-text"> {{ arrayInfo[indexInfo] }} </p>
+            <div v-if = "indexInfo == 2">
+                <h1 style = "font-size: 2.5rem; position: relative">בהצלחה!</h1>
+            </div>
         </div>
         <div v-if="indexInfo == 0">
             <img src="@/assets/media/OF/people.png" alt="people" class="people-img">
@@ -19,8 +22,9 @@
                 </Transition>
             </div>
         </div>
+       
         <div v-if="!showVideo">
-            <button v-if="index > 0" class="prevBtn" @click="prevBtn">חזור</button>
+            <button v-if="index > 0 " class="prevBtn" @click="prevBtn">חזור</button>
             <button class="nextBtn" @click="nextBtn">המשך</button>
         </div>
         <div v-if="showVideo">
@@ -88,8 +92,9 @@ export default {
             }
         },
         toTheEnd() {
-            // this.showVideo = false;
-            this.$emit('move-to-next', this.showQ);
+            if(this.indexTitle === 3) {
+                this.$emit('move-to-next', this.showQ);
+            }
         }
     },
 }
@@ -171,4 +176,13 @@ export default {
     color: #5f5a5a;
     animation: floatAnimation 3s ease-in-out infinite;
 }
+
+.div-text-plus {
+    position: absolute;
+    top:25%;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+}
+
 </style>

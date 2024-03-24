@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div v-if="indexInfo > 0" class="grid">
+        <div v-if="indexInfo > 0 && indexInfo < 4" class="grid">
             <div v-for="(item, index) in arrayTitle" :key="index" :id = "index" class="grid-title" :style="`--hue: ${index * 15 + 170}deg`" >
                 {{ item }}
             </div>

@@ -53,7 +53,9 @@
                         </ul>
                     </Transition>
                 </div>
-
+                <Transition>
+                    <img v-show = "showBtnArrow" src = "@/assets/media/FC/ion--arrow-undo-outline.svg" class = "arrow-img">
+                </Transition>
                 <div>
                     <h1 @click="openlistS" class="title-behavior-s">{{ saveBehavior[0].typeTitle }} </h1>
                     <Transition>
@@ -117,8 +119,8 @@ export default {
                     typeTitle: 'התנהגות חיובית לשימור',
                     arrayBehave: ['העלאת תיאור ההתנהגות.', 'ציון דוגמאות.', 'איתור סיבת התופעה.', 'הסבר על תרומת התנהגות.'],
                 }
-            ],
-
+            ], 
+            showBtnArrow: false,
             burgerArray: [
                 'bunTop.svg',
                 // 'lettuce.svg',
@@ -157,7 +159,11 @@ export default {
             this.index++;
             this.indexTitle++;
             this.indexInfo++;
-          
+            if(this.indexTitle === 4) {
+                setTimeout(() => {
+                    this.showBtnArrow = true;
+                },3000)
+            }
             if (this.indexTitle === 5) {
                 this.$emit('move-to-next', this.showQ);
             }
@@ -524,4 +530,13 @@ export default {
 .v-leave-to {
     opacity: 0;
 }
+
+.arrow-img {
+    position: absolute;
+    width: 5%;
+    right: 11%;
+    top: 32%;
+    animation: forwardArrow 2s ease-in-out infinite;
+}
+
 </style>

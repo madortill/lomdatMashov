@@ -1,5 +1,21 @@
 <template>
     <div id="open-screen">
+        <!-- <button class = "aboutBtn" @click = "openAbout">i</button>
+        <Transition>
+          <div v-show = "showAbout" class="div-about">
+          <h3 class = "list-text-about">מפתחת ראשית:</h3>
+            <p class = "list-text-about">טור' אדוה אבא</p>
+            <h3 class = "list-text-about">מפתחת משנית:</h3>
+            <p class = "list-text-about">סמל במיל' תמר סטופ</p>
+            <h3 class = "list-text-about">גרפיקה:</h3>
+            <p class = "list-text-about">טור' אדוה אבא</p>
+            <h3 class = "list-text-about">רת"ח מו"פ:</h3>
+            <p class = "list-text-about">רס"ל אביב אואנונו</p>
+            <h3 class = "list-text-about">רמ"ד טי"ל:</h3>
+            <p class = "list-text-about">רס"מ שלומי אוגרן</p>
+        </div>
+      </Transition> -->
+       
         <!-- <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white"> -->
         <h1 class="text-title">לומדת משוב</h1>
         <button class="btnNext" @click = "startTutorial"> התחל </button>
@@ -17,13 +33,12 @@ export default {
     },
     data() {
         return {
-
         };
     },
     methods: {
         startTutorial() {
             this.$emit('next-page');
-        }
+        },
     },
 };
 
@@ -49,16 +64,17 @@ export default {
 .text-title {
   color:rgb(83, 82, 82);
   font-family: 'Heebo-Bold';
-	font-size: 11rem;
+	font-size: 10rem;
   position: absolute;
-  bottom: 30%;
-  animation: growShrink 3s infinite;
+  bottom: 35%;
+  /* floatAnimation 3s ease-in-out infinite; */
+  animation: floatAnimation 3s  ease-in-out infinite;
 }
 
 @keyframes growShrink {
   0% {
   /* bottom: 30%; */
-    font-size: 11rem;
+    font-size: 10rem;
   }
   50% {
   /* bottom: 32%; */
@@ -66,7 +82,7 @@ export default {
   }
   100% {
   /* bottom: 30%; */
-    font-size: 11rem;
+    font-size: 10rem;
   }
 }
 .btnNext {
@@ -125,5 +141,6 @@ export default {
 		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4) 100%);
 	}
 }
+
 
 </style>

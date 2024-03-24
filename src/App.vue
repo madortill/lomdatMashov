@@ -2,7 +2,21 @@
     <div id="app">
         <img src="@/assets/media/mifkada-logo.png" class="logo" alt="Logo" @click = "homePage">
         <img v-if="page > 0" src="@/assets/media/graytriangle.png" alt="gray triangle" class="gray-triangle">
-    
+        <button v-show = "page === 0  || page === 2" class = "aboutBtn" @click = "openAbout">i</button>
+        <Transition>
+          <div v-show = "showAbout" class="div-about">
+          <h3 class = "list-text-about">מפתחת ראשית:</h3>
+            <p class = "list-text-about">טור' אדוה אבא</p>
+            <h3 class = "list-text-about">מפתחת משנית:</h3>
+            <p class = "list-text-about">סמל במיל' תמר סטופ</p>
+            <h3 class = "list-text-about">גרפיקה:</h3>
+            <p class = "list-text-about">טור' אדוה אבא</p>
+            <h3 class = "list-text-about">רת"ח מו"פ:</h3>
+            <p class = "list-text-about">רס"ל אביב אואנונו</p>
+            <h3 class = "list-text-about">רמ"ד טי"ל:</h3>
+            <p class = "list-text-about">רס"מ שלומי אוגרן</p>
+        </div>
+      </Transition>
         <open-screen v-if="page === 0" @next-page="nextPage"></open-screen>
         <home-page  v-if="page === 1" @next-page="nextPage"></home-page>
         <end-screen v-if="page===2"></end-screen>
@@ -26,7 +40,9 @@ export default {
     },
     data() {
         return {
-            page: 0,
+            page: 0 ,
+            showAbout: false,
+            clickBtn: 0,
         };
     },
     methods: {
@@ -38,6 +54,14 @@ export default {
         },
         homePage() {
             thispage === 1;
+        },
+        openAbout() {
+          if (this.clickBtn % 2 === 0) {
+                this.showAbout = true;
+            } else {
+                this.showAbout = false
+            }
+            this.clickBtn++;
         }
     },
 };
@@ -101,6 +125,43 @@ body {
     right: 0;
     bottom: 0;
     z-index: 2;
+}
+
+.aboutBtn {
+  position: absolute;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease;
+  background-color: #02ade1;
+  border-radius: 100px;
+  width: 2%;
+  height: 3.5%;
+  cursor: pointer;
+  left: 8%;
+  top: 5%;
+}
+
+.aboutBtn:hover{
+  background-color: #038eb9;
+}
+.div-about {
+  position: absolute;
+  width: 12%;
+  height: 45%;
+  left: 10%;
+  top: 8%;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.list-text-about {
+  transition: background-color 0.5s ease;
+}
+.list-text-about:hover {
+  background-color: #dbdbdb;
 }
 </style> 
 

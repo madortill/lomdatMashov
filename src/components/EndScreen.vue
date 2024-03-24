@@ -72,7 +72,7 @@ export default {
     position: absolute;
     width: 40%;
     height: 70%;
-    left: 30%;
+    /* left: 30%; */
     bottom: 20%;
     background: #fff;
     border-radius: 50px;
