@@ -169,7 +169,7 @@ export default {
 }
 
  .btnVideo:hover {
-    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
+    animation: borderPulse 4000ms infinite ease-out, hoverShine 200ms;
 } 
 
 .text-objection {

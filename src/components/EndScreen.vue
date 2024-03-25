@@ -1,24 +1,25 @@
 <template>
     <div id="end-screen">
         <h3 class="conclusion-text">לסיכום</h3>
-        <div class="finale-exe">
+        <div class="finale-exe type-writer">
             <p v-for="(text, index) in array1" :key="text" :style="{
                 '--delay': `${index * 3.2}s`,
                 '--width': `${text.length}ch`,
                 'font-size': index === 0 || index === 2 ? '3rem' : '1.6rem'
-            }">
-                {{ text }} </p>
+            }" class = "text-writer">
+            {{ text }}
+             <!-- <div v-show = "index != 0 && index != 2" class = "check-list">
+                <svg class="check-svg" width="70" height="70" viewBox="0 0 70 70">
+                    <polyline class="check-poly" points="23 34 34 43 47 27" stroke-linecap="round" />
+                </svg>
+            </div>  -->
+        </p>
         </div>
+
         <img v-show="showClose" src = "@/assets/media/שרוך-בורדו-מעודכן.svg" class = "burgundy-lace">
         <div v-show="showClose" class="finish-exe">
             <h1 class="finale-text">כל הכבוד סיימת את לומדת המשוב!</h1>
             <button @click="closeWindow" class="closeBtn">סיום</button>
-            <!-- <div class = "about-div">
-                <p>אודות</p>
-                <p>פיתוח הלומדה:</p>
-                <p>אדוה אבא</p>
-                <p>תמר סטופ</p>
-            </div> -->
         </div>
     </div>
 </template>
@@ -47,7 +48,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.showClose = true;
-        }, 22500);
+        }, 23500);
     },
     methods: {
         closeWindow() {
@@ -58,6 +59,7 @@ export default {
 </script>
 
 <style>
+
 #end-screen {
     background-color: #F2F2F2;
     width: 100%;
@@ -81,6 +83,9 @@ export default {
     padding: 0 2rem;
 }
 
+.type-writer>p {
+    animation: typeWrite 2s var(--delay) steps(44) normal both, blink 400ms var(--delay) steps(45) 6;
+}
 .finish-exe {
     position: absolute;
     width: 100%;
@@ -117,7 +122,6 @@ export default {
 .finale-exe>p {
     display: block;
     width: fit-content;
-    animation: typeWrite 2s var(--delay) steps(44) normal both, blink 550ms var(--delay) steps(45) 6;
     white-space: nowrap;
     text-align: right;
     overflow: hidden;
@@ -150,7 +154,7 @@ export default {
 }
 
 .closeBtn:hover {
-    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
+    animation: borderPulse 4000ms infinite ease-out, hoverShine 200ms;
 }
 
 .about-div {
@@ -167,5 +171,65 @@ export default {
     bottom: 11%;
     right: 20%;
     z-index: 1;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.check-svg {
+  /* position: absolute; */
+  /* width: 100px;
+  height: 100px; */
+  display: inline-block;
+  right: -2%;
+  /* top :0%; */
+  transform-origin: center;  
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) var(--delay) 1 both scaleCheck;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+
+.check-poly {
+  fill: transparent;
+  stroke-width: 2;
+  stroke-dasharray: 36px 36px;
+  stroke: #3374ff;
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) var(--delay) 1 both drawCheck;
+ }
+
+@keyframes scaleCheck {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  } 
+}
+
+@keyframes drawCheck {
+  0% {
+    stroke-dashoffset: 36px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.check-list {
+    position: relative;
+    /* margin-top: 5%; */
+}
+
+.text-writer {
+    /* position: relative; */
 }
 </style>

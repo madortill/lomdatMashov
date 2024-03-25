@@ -7,10 +7,17 @@
                 <p class = "talk-text">שיחת משוב </p>
                 <p class ="explain-text"> {{ explainArray[1] }}</p>
                 <p  style="font-size: 2.3rem; color: #4b7189;"> בהצלחה!</p>
+                <button id="expBtn" class="startBtn" @click="nextInfo"> התחל </button>
             </div>
-            <button id="expBtn" class="contBtn" @click="nextInfo"> התחל </button>
         </div>
-        <div v-else>
+        <div v-if = "showGoal" class="finale-exe">
+            <p v-for="(text, index) in array1" :key="text"
+            :class="{ 'talk-text': index === 0 || index === 2, 'info-text-goal': index !== 0 && index !== 2 }"
+            :style="{ 'font-size': index === 0 || index === 2 ? '3rem' : '1.6rem'}" >
+                {{ text }} </p>
+            <button id="expBtn" class="startBtn goalBtn" @click="nextToInfo"> המשך </button>
+        </div>
+        <div v-if = "showInformation">
             <div v-if="!showQuestions">
                 <navbar v-if="showNav" :titleIndex="titleIndex"></navbar>
                 <information-page :titleIndex="titleIndex" @move-sub="moveSub" @close-nav="closeNav"></information-page>
@@ -39,11 +46,22 @@ export default {
         return {
             showInfo: true,
             index: 0,
+            showGoal: false,
             showExplain: true,
-            titleIndex:  3,
+            titleIndex:  0,
             showNav: true,
             showQuestions: false,
+            showInformation: false,
             indexQuestion: 0,
+            array1: [
+                'מטרת על',
+                'החניך יעביר משוב אישי בצורה אפקטיבית.',
+                'מטרות ביניים',
+                'החניך יפרט עקרונות יסוד בשלב המשוב.',
+                ' החניך יפרט את הכללים והמבנה הנכון של שיחת המשוב. ',
+                'החניך יסביר את תהליך איתור מקורות אפשריים לתופעות במשוב.',
+                'החניך יפרט את תהליך התמודדות עם התנגדויות במשוב.'
+            ],
             explainArray: ['הינכם עומדים ללמוד, כיצד לנהל באופן המיטבי ביותר :', 'הלומדה אטרקטיבית ועניינית לכן תמצו ממנה את המיטב ועל הדרך נסו למצוא את דרכי הלימוד האטרקטיביות בלומדה.'],
         };
     },
@@ -51,6 +69,11 @@ export default {
     methods: {
         nextInfo(event) { // for explain btn
             this.showExplain = false;
+            this.showGoal = true;
+        },
+        nextToInfo() {
+            this.showGoal = false;
+            this.showInformation = true;
         },
         nextSub() {
             this.showQuestions = false;
@@ -91,58 +114,55 @@ export default {
     justify-content: center;
 }
 
-.contBtn {
-    position: absolute;
+.startBtn {
     border: none;
     cursor: pointer;
-    /* width: 12%; */
+    width: 25%;
     height: 6%;
-    left: 10%;
-    bottom: 13%;
+    color:#ffffff;
+    background-color: rgb(33, 116, 157);
     font-size: 1.6rem;
-    color: #ffffff;
     border-radius: 100px;
-    background-color: #82cbe1;
     min-width: 12%;
-    max-width: 20%;
-    left: 10%;
-    bottom: 13%;
+}
+.startBtn {
+	animation: borderPulse 4000ms infinite ease-out;
 }
 
-.contBtn {
-    animation: borderPulse 1000ms infinite ease-out;
+.startBtn:hover,
+.startBtn:focus {
+	animation: borderPulse 4000ms infinite ease-out,  hoverShine 200ms;
 }
-
-.contBtn:hover,
-.contBtn:focus {
-    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
-}
-
-
-/* Declare border pulse animation */
 @keyframes borderPulse {
-    0% {
-        box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255, .4), 0px 0px 0px 0px rgba(255, 255, 255, 1);
-    }
-
-    100% {
-        box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255, .2), 0px 0px 0px 10px rgba(255, 255, 255, 0);
-    }
+  0% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  }
+  35% {
+    box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
+  50% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  } 
+  75% {
+    box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  }
 }
 
 @keyframes hoverShine {
-    0% {
-        background-image: linear-gradient(135deg, rgba(255, 255, 255, .4) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    50% {
-        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    100% {
-        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, .4) 100%);
-    }
+	0%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+	}
+	50%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%);
+	}
+	100%{
+		background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4) 100%);
+	}
 }
+/* Declare border pulse animation */
 
 .explain-page {
     position: absolute;
@@ -158,19 +178,30 @@ export default {
 
 .explain-text {
     font-size: 2.1rem;
-    padding: 5% 15% 2%;
+    padding: 1.5% 7% 2%;
     color: rgb(79, 77, 77);
 }
 
-
+.goalBtn {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+.info-text-goal {
+    background-color: none;
+    border-radius: 30px;
+    height: 6%;
+    transition: background-color 0.3s ease;
+}
+.info-text-goal:hover {
+    background-color:#dbdbdb;
+}
 .talk-text {
     animation: floatAnimation 3s ease-in-out infinite;
     color: #4b7189;
     font-size: 3rem;
-    /* background-color: rgb(42, 136, 35); */
     border-radius: 10px;
-    padding: 10px 30px;
-    margin: 5px;
+    top:1.5%;
     text-decoration: none;
     position: relative;
     cursor: default;

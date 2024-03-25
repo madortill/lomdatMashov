@@ -40,7 +40,7 @@ export default {
     },
     data() {
         return {
-            page: 0 ,
+            page: 2 ,
             showAbout: false,
             clickBtn: 0,
         };
@@ -139,7 +139,7 @@ body {
   height: 3.5%;
   cursor: pointer;
   left: 8%;
-  top: 5%;
+  top: 4%;
 }
 
 .aboutBtn:hover{

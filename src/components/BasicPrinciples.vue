@@ -207,7 +207,7 @@ export default {
 .nextBtn:hover,
 .prevBtn:hover,
 .callBtn:hover {
-    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms;
+    animation: borderPulse 4000ms infinite ease-out, hoverShine 200ms;
 }
 
 .callBtn {
@@ -329,7 +329,7 @@ export default {
     font-size: 2rem;
     left: 45%;
     color: #4f4a4a;
-    top: 50%;
+    top: 52%;
 }
 
 .principle-div {
@@ -509,12 +509,12 @@ export default {
 
 .back-div {
     position: absolute;
-    width: 50%;
-    height: 20%;
+    width: 55%;
+    height: 23%;
     background-color: #83bfd2;
     border-radius: 40px;
     top: 30%;
-    left: 25%;
+    left: 22.5%;
 }
 
 .arrowImgDown {

@@ -1,22 +1,5 @@
 <template>
     <div id="open-screen">
-        <!-- <button class = "aboutBtn" @click = "openAbout">i</button>
-        <Transition>
-          <div v-show = "showAbout" class="div-about">
-          <h3 class = "list-text-about">מפתחת ראשית:</h3>
-            <p class = "list-text-about">טור' אדוה אבא</p>
-            <h3 class = "list-text-about">מפתחת משנית:</h3>
-            <p class = "list-text-about">סמל במיל' תמר סטופ</p>
-            <h3 class = "list-text-about">גרפיקה:</h3>
-            <p class = "list-text-about">טור' אדוה אבא</p>
-            <h3 class = "list-text-about">רת"ח מו"פ:</h3>
-            <p class = "list-text-about">רס"ל אביב אואנונו</p>
-            <h3 class = "list-text-about">רמ"ד טי"ל:</h3>
-            <p class = "list-text-about">רס"מ שלומי אוגרן</p>
-        </div>
-      </Transition> -->
-       
-        <!-- <img src="@/assets/media/לוגו-סופי-לבן.png" alt="logo-white" class="logo-white"> -->
         <h1 class="text-title">לומדת משוב</h1>
         <button class="btnNext" @click = "startTutorial"> התחל </button>
         <div class="animation-part">

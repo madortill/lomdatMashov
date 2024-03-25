@@ -60,7 +60,7 @@ export default {
 }
 
 .nextBtnVideo:hover {
-    animation: borderPulse 1000ms infinite ease-out, hoverShine 200ms, pulse 0.5s infinite alternate;
+    animation: borderPulse 4000ms infinite ease-out, hoverShine 200ms, pulse 0.5s infinite alternate;
 }
 
 @keyframes pulse {
