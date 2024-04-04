@@ -127,6 +127,7 @@ export default {
     overflow: hidden;
     border-left: solid 3px transparent;
     max-width: fit-content;
+    margin: 4%;
 }
 
 

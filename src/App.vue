@@ -15,6 +15,8 @@
             <p class = "list-text-about">רס"ל אביב אואנונו</p>
             <h3 class = "list-text-about">רמ"ד טי"ל:</h3>
             <p class = "list-text-about">רס"מ שלומי אוגרן</p>
+            <h3 class = "list-text-about">גרסה:</h3>
+            <p class = "list-text-about">מרץ 2024</p>
         </div>
       </Transition>
         <open-screen v-if="page === 0" @next-page="nextPage"></open-screen>
@@ -148,7 +150,7 @@ body {
 .div-about {
   position: absolute;
   width: 12%;
-  height: 45%;
+  height: 53%;
   left: 10%;
   top: 8%;
   background: #fff;

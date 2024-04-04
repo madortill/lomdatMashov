@@ -1,16 +1,20 @@
 <template>
     <div id="quick-questions">
-        <multiple-question v-if="questionToPass.Qtype === 0" @next-question="updateIndex"
-            :questionInfo="questionToPass"></multiple-question>
-        <dragging-question v-else="questionToPass.Qtype === 1" :key="questionToPass" @next-question="updateIndex"
-            :questionInfo="questionToPass"></dragging-question>
+      <multiple-question v-if="questionToPass.Qtype === 0" @next-question="updateIndex"
+        :questionInfo="questionToPass"></multiple-question>
+      <dragging-question v-if="questionToPass.Qtype === 1" :key="questionToPass" @next-question="updateIndex"
+        :questionInfo="questionToPass"></dragging-question>
+      <dragging-multiple-question v-if="questionToPass.Qtype === 2" :key="questionToPass" @next-question="updateIndex"
+        :questionInfo="questionToPass"></dragging-multiple-question>
     </div>
-</template>
+  </template>
+  
 
 <script>
 // import Draggable from 'vuedraggable';
 import MultipleQuestion from '@/components/MultipleQuestion.vue';
 import DraggingQuestion from '@/components/DraggingQuestion.vue';
+import DraggingMultipleQuestion from '@/components/DraggingMultipleQuestion.vue';
 
 
 export default {
@@ -18,7 +22,8 @@ export default {
     props: ['indexQuestion'],
     components: {
         DraggingQuestion,
-        MultipleQuestion
+        MultipleQuestion,
+        DraggingMultipleQuestion
     },
     data() {
         return {
@@ -47,20 +52,30 @@ export default {
                         "סיכום המשוב"
                     ],
                 }, {
-                    Qtype: 1,
+                    Qtype: 2,
                     title: "סדר/י 4 כללים שעליהם נותן המשוב חייב להקפיד.",
+                    QArray: [
+                        "העלאת תופעה אפשרית",
+                        "העלאת תיאור ההתנהגות",
+                        "טיפול במקור התופעה",
+                        "ציון דוגמאות",
+                        "איתור סיבת התופעה",
+                        "הצעת בנק פתרונות",
+                        "הסבר על תרומת ההתנהגות",
+                        "בחירת הפיתרון המועדף",
+                    ],
                     correctArray: [
                         "העלאת תיאור ההתנהגות",
                         "ציון דוגמאות",
                         "איתור סיבת התופעה",
                         "הסבר על תרומת ההתנהגות",
-                    ],
+                    ]
                 },
             ],
             questions2: [
                 {
                     Qtype: 0,
-                    title: "מפקד אשר מאמין כי שמירה על קשר עין חשובה יותר מהגעה לשיעור עם בקיאות מלאה בתוכן, ככל הנראה קיימת אצלו בעיה בטמונה באיזה מוקד?",
+                    title: "מפקד אשר מאמין כי שמירה על קשר עין חשובה יותר מהגעה לשיעור עם בקיאות מלאה בתוכן, ככל הנראה קיימת אצלו בעיה באחד המוקדים. באיזה מוקד מדובר?",
                     ans1: "תפיסה",
                     ans2: "מודעות",
                     ans3: "יישום",
@@ -68,13 +83,23 @@ export default {
                     correctAnswer: 1,
                 },
                 {
-                    Qtype: 1,
+                    Qtype: 2,
                     title: "סדר/י 3 שאלות למוקד המודעות.",
+                    QArray: [
+                        "חשת ש...?",
+                        "ציינת ש..?",
+                        "ראית ש...?",
+                        "הרגשת ש...?",
+                        "חשבת ש...",
+                        "רצית ש...",
+                        "הסברת ש...",
+                        "שמעת ש...?",
+                    ],
                     correctArray: [
                         "ראית ש...?",
                         "הרגשת ש...?",
                         "שמעת ש...?",
-                    ],
+                    ]
                 },
             ],
 

@@ -3,8 +3,9 @@
         <div class="video-container">
             <!-- המסכים לכאורה -->
             <div v-if="videoNum === 0" class="seemingly-agree">
-                <iframe class="video-iframe" width="900" height="550" src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL"
-                    title="YouTube video player" frameborder="0"
+                <iframe class="video-iframe" width="900" height="550"
+                    src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
@@ -36,7 +37,7 @@
         </div>
         <p v-if="!showInfo" class="text-objection">איזו התנגדות זיהית בסירטון?</p>
         <div v-if="!showInfo" class="btn-container">
-            <button v-for="(button, index) in  this.shuffledArr" :key="index" class= "btnVideo"  :id="index" :ref="index"
+            <button v-for="(button, index) in  this.shuffledArr" :key="index" class="btnVideo" :id="index" :ref="index"
                 @click="checkAnswer">{{ button
                 }}</button>
         </div>
@@ -97,16 +98,16 @@ export default {
         },
         checkAnswer(event) {
             let btnAnswer = event.currentTarget.textContent;
-                if (btnAnswer === this.correctArray[this.videoNum]) {
-                    this.indexObjection = this.videoNum;
-                    event.target.classList.add("correct");
-                    setTimeout(() => {
-                        this.showInfo = true;
-                    }, 1500);
-                } else {
-                    event.target.classList.add("wrong");
-                    this.showInfo = false;
-                }
+            if (btnAnswer === this.correctArray[this.videoNum]) {
+                this.indexObjection = this.videoNum;
+                event.target.classList.add("correct");
+                setTimeout(() => {
+                    this.showInfo = true;
+                }, 1500);
+            } else {
+                event.target.classList.add("wrong");
+                this.showInfo = false;
+            }
         },
 
         checkVideo(event) {
@@ -114,13 +115,13 @@ export default {
             console.log("dfvdsfc");
         },
         nextVideoSection(event) {
-        this.videoNum++;
-        this.showInfo = false;
-        this.buttons = this.shuffledArr;
-        if (this.videoNum > 3) {
-            this.$emit('to-the-end');
+            this.videoNum++;
+            this.showInfo = false;
+            this.buttons = this.shuffledArr;
+            if (this.videoNum > 3) {
+                this.$emit('to-the-end');
+            }
         }
-    }
 
     },
     computed: {
@@ -168,9 +169,9 @@ export default {
     padding: 20px 30px;
 }
 
- .btnVideo:hover {
+.btnVideo:hover {
     animation: borderPulse 4000ms infinite ease-out, hoverShine 200ms;
-} 
+}
 
 .text-objection {
     position: absolute;

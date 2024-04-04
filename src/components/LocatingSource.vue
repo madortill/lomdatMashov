@@ -7,7 +7,7 @@
         <div v-if="indexInfo === 0" class="original-container">
             <h2 class="textLS">המקור מכיל 3 מוקדים:</h2>
             <div v-for="(item, index) in arrayFocus" :key="index" class="circle-focus"
-                :style="`--hue: ${index * 215 + 5}deg`">
+                :style="`--hue: ${index * 26 + 180}deg`">
                 {{ arrayFocus[index] }}
             </div>
             <div v-for="(item, index) in arrayAction" :key="index" class="action-div">
@@ -51,7 +51,7 @@ export default {
             arrayTitle: ['מקור התופעה', 'הגדרת הבעיה', 'שאלות אפשריות', 'טיפול אפשרי'],
             arrayInfo: ['כאשר הנך ממשב נחנך ומעיר על התנהגותו, עלייך לאבחן את מקור התופעה שלו.'],
             arrayFocus: ['מודעות', 'תפיסה', 'יישום'],
-            arrayAction: ['הנחנך לא קלט את הגירוי.', 'פעולות הנחנך לא תואמות את התורה המקצועית.', 'בחירת פיתרון לא מתאים למצב'],
+            arrayAction: ['הנחנך לא קלט את הגירוי.', 'פעולות הנחנך לא תואמות את התורה המקצועית.', 'בחירת פיתרון לא מתאים למצב.'],
             loactingSource: [
                 {
                     name: 'מודעות',

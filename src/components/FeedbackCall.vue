@@ -15,7 +15,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div v-if="indexInfo === 1" class="eye-container">
                 <eyeGifSvg></eyeGifSvg>
@@ -35,7 +34,7 @@
             <div v-if="indexInfo === 3">
                 <ul class="ul-right">
                     <li v-for="(item, index) in correctArray" :key="index" class="list-text"
-                        :style="`--hue: ${index * 18 + 215}deg`">
+                        :style="`--hue: ${index * 8 + 200}deg`">
                         {{ item }}
                     </li>
                 </ul>
@@ -90,7 +89,7 @@ export default {
                 playGray,
                 playFull
             ],
-            arrayFeedback: ['תופעה לשימור.', 'העלאת 2-3 תופעות לשיפור.', 'תופעה לשימור.'],
+            arrayFeedback: ['תופעה לשימור.', 'העלאת  תופעה לשיפור.', 'תופעה לשימור.'],
             correctArray: [
                 "יצירת חוזה",
                 "מתן ביטוי לנחנך",
@@ -105,8 +104,8 @@ export default {
             subj: 2,
             index: 0,
             arrayTitle: ['מבנה חלון גוהרי:', ' שיחת המשוב.', 'מבנה שיחת המשוב.', 'מבנה העקרוני של שיחת משוב:', 'העלאת תופעות במשוב.'],
-            arrayAreaType: ['איזור גלוי', 'איזור עיוור', 'איזור לא מדוע', 'איזור נסתר'],
-            arrayTextAreaType: ['ידוע לי וידוע לאחרים.', 'לא ידוע לי וידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', 'ידוע לי ולא ידוע לאחרים.'],
+            arrayAreaType: ['איזור גלוי', 'איזור עיוור', 'איזור לא מודע', 'איזור נסתר'],
+            arrayTextAreaType: ['ידוע לי וידוע לאחרים.', ' ידוע לי ולא ידוע לאחרים.', 'לא ידוע לי ולא ידוע לאחרים.', ' לא ידוע לי וידוע לאחרים.'],
             arrayInfo: [' חלון גוהרי הוא כלי להבנה ותרגול המתאר מודול איזורים לפי:', 'עיקר שיחת המשוב היא התמקדות בחלק העיוור - מה שאנחנו מודעים אליו והנחנך לא.', 'המשוב האפקטיבי יועבר בשיטת ה - סנדוויץ:', '', 'איך עושים את זה?'],
             proveBehavior: [
                 {
@@ -348,9 +347,8 @@ export default {
         background-color: #57a84c;
         visibility: hidden;
         transform: scaleX(0);
-        transition: font-size 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out 0s;
     }
-
     /* border: 1px solid rgb(42, 136, 35); */
 }
 
@@ -398,14 +396,14 @@ export default {
     padding: 0;
 }
 
-.borderGreen {
+/* .borderGreen {
     border-bottom: 1.5px solid #57a84c;
 }
 
 .borderRed {
     border-bottom: 1.5px solid rgb(177, 28, 28);
 
-}
+} */
 
 .textBehave {
     font-size: 1.5rem;
@@ -434,14 +432,14 @@ export default {
 }
 
 .list-text {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     list-style: none;
     padding: 20px 35px;
     margin: 15px;
     transition: background-color 0.5s ease;
     background-color: hsl(var(--hue), 70%, 70%);
     border-radius: 15px;
-    color: rgb(42, 42, 42);
+    color:rgb(255, 255, 255);
 }
 
 .list-text:hover {
@@ -453,7 +451,7 @@ export default {
 
 .ul-right {
     position: absolute;
-    top: 22%;
+    top: 25%;
     left: 39%;
     padding: 0%;
 }
@@ -535,7 +533,7 @@ export default {
     position: absolute;
     width: 5%;
     right: 11%;
-    top: 32%;
+    top: 33.7%;
     animation: forwardArrow 2s ease-in-out infinite;
 }
 
