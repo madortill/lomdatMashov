@@ -72,10 +72,10 @@ export default {
 
 .finale-exe {
     position: absolute;
-    width: 40%;
-    height: 70%;
+    width: 45%;
+    height: 64%;
     /* left: 30%; */
-    bottom: 20%;
+    bottom: 25%;
     background: #fff;
     border-radius: 50px;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);

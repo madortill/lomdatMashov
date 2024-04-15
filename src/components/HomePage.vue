@@ -48,7 +48,7 @@ export default {
             index: 0,
             showGoal: false,
             showExplain: true,
-            titleIndex:  0,
+            titleIndex:  3,
             showNav: true,
             showQuestions: false,
             showInformation: false,

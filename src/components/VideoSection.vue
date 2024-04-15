@@ -3,36 +3,48 @@
         <div class="video-container">
             <!-- המסכים לכאורה -->
             <div v-if="videoNum === 0" class="seemingly-agree">
-                <iframe class="video-iframe" width="900" height="550"
+                <!-- <video class="video-iframe" width="900" height="550"
                     src="https://www.youtube.com/embed/6LEmBHt4OCc?si=pvmt5NMR5PVC7tDL" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
-                </iframe>
+                </video> -->
+                <video width="900" height="550" controls>
+                    <source src="@/assets/media/video/מסכים לכאורה.mp4" type="video/mp4">
+                </video>
             </div>
             <!-- יהיר -->
             <div v-if="videoNum === 1" class="arrogant">
-                <iframe width="900" height="550" src="https://www.youtube.com/embed/LnEiYw9kgLg?si=0aImkNJLdEaAe-Hw"
+                <video width="900" height="550" controls>
+                    <source src="@/assets/media/video/יהיר.mp4" type="video/mp4">
+                </video>
+                <!-- <video width="900" height="550" src="https://www.youtube.com/embed/LnEiYw9kgLg?si=0aImkNJLdEaAe-Hw"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
-                </iframe>
+                </video> -->
             </div>
             <!-- טרגי -->
             <div v-if="videoNum === 2" class="tragic">
-                <iframe width="900" height="550" src="https://www.youtube.com/embed/h5WEL8XvM-4?si=y4qyrzHOoHguOvI3"
+                <video width="900" height="550" controls>
+                    <source src="@/assets/media/video/טרגי.mp4" type="video/mp4">
+                </video>
+                <!-- <video width="900" height="550" src="https://www.youtube.com/embed/h5WEL8XvM-4?si=y4qyrzHOoHguOvI3"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
-                </iframe>
+                </video> -->
             </div>
             <!-- הווכחן -->
             <div v-if="videoNum === 3" class="argues">
-                <iframe width="900" height="550" src="https://www.youtube.com/embed/ogeQ033gZmg?si=lf8K6UwKx2tKeMqF"
+                <video width="900" height="550" controls>
+                    <source src="@/assets/media/video/ווכחן.mp4" type="video/mp4">
+                </video>
+                <!-- <video width="900" height="550" src="https://www.youtube.com/embed/ogeQ033gZmg?si=lf8K6UwKx2tKeMqF"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
-                </iframe>
+                </video> -->
             </div>
         </div>
         <p v-if="!showInfo" class="text-objection">איזו התנגדות זיהית בסירטון?</p>
