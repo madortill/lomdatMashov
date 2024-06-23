@@ -118,7 +118,7 @@ export default {
     border: none;
     cursor: pointer;
     width: 25%;
-    height: 6%;
+    height: 7%;
     color:#ffffff;
     background-color: rgb(33, 116, 157);
     font-size: 1.6rem;
@@ -174,12 +174,14 @@ export default {
     border-radius: 3rem;
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
     text-align: center;
+   
 }
 
 .explain-text {
     font-size: 2.1rem;
     padding: 1.5% 7% 2%;
     color: rgb(79, 77, 77);
+    margin: 0%;
 }
 
 .goalBtn {
@@ -197,6 +199,7 @@ export default {
     background-color:#dbdbdb;
 }
 .talk-text {
+    margin: 3%;
     animation: floatAnimation 3s ease-in-out infinite;
     color: #4b7189;
     font-size: 3rem;

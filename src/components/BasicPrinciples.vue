@@ -422,14 +422,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2%;
+    padding: 1.6%;
     transition: all 0.3s ease;
     animation: floatAnimation 3s ease-in-out infinite;
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
     background-color: hsl(var(--hue), 50%, 68%);
     position: fixed;
-    padding: 2%;
-
 }
 
 .ago-container {

@@ -136,12 +136,13 @@ body {
   font-size: 1.6rem;
   transition: background-color 0.3s ease;
   background-color: #02ade1;
-  border-radius: 100px;
+  border-radius: 150px;
   width: 2%;
-  height: 3.5%;
+  height: 4%;
   cursor: pointer;
-  left: 8%;
-  top: 4%;
+  left: 2.5%;
+  top: 16%;
+
 }
 
 .aboutBtn:hover{
@@ -161,6 +162,7 @@ body {
 
 .list-text-about {
   transition: background-color 0.5s ease;
+  margin: 5%;
 }
 .list-text-about:hover {
   background-color: #dbdbdb;
