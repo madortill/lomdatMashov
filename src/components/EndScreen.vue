@@ -244,7 +244,7 @@ export default {
 
 .toPackageBtn {
   background-image: url(@/assets/media/circle.svg);
-  background-size: 100% 100%;
+  background-size: 100% 100% ;
   height: 7rem;
   width: 7rem;
   text-align: center;
